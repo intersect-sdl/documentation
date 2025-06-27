@@ -1,6 +1,7 @@
 ---
 title: SDL Deployment Guide
 uuid: c631121d-7b2a-43b9-b8a1-5ea0a524ff63
+published: true
 ---
 
 This guide walks you through deploying the Scientific Data Layer (SDL) using Docker Compose for local development, or Kubernetes for scalable cloud deployments.

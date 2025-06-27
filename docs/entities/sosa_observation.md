@@ -1,5 +1,5 @@
 ---
-id: 857c9b92-3c39-4608-8806-f7fc0345b0b3
+uuid: 857c9b92-3c39-4608-8806-f7fc0345b0b3
 title: Entity Detail — sosa:Observation
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
   - Observation
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `sosa:Observation` class represents the act of observing a property or phenomenon using a sensor, sampler, or procedure. In SDL, `sosa:Observation` is used to model the results of scientific measurements or analyses performed on physical samples or environments.

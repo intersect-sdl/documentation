@@ -1,6 +1,6 @@
 ---
-id: 7a0df2a9-e108-4ec8-bc14-11cd6f25edcf
-title: Entity Detail — ssn\:Deployment
+uuid: 7a0df2a9-e108-4ec8-bc14-11cd6f25edcf
+title: Entity Detail — ssn:Deployment
 author: SDL Team
 tags:
   - SSN
@@ -8,6 +8,7 @@ tags:
   - Deployment
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `ssn:Deployment` class models the situation in which a system or sensor is deployed in a particular configuration at a particular location and time. In SDL, `ssn:Deployment` is used to track how instruments, rigs, or sensors are arranged in the field or lab, and to describe their operational context.

@@ -1,5 +1,5 @@
 ---
-id: 27b4ef25-8d9b-4689-bf08-84159c8edc1c
+uuid: 27b4ef25-8d9b-4689-bf08-84159c8edc1c
 title: Entity Detail — dcat:Catalog
 author: SDL Team
 tags:
@@ -8,7 +8,7 @@ tags:
   - Catalog
   - Entity Detail
 version: 1.0
-
+published: true
 ---
 
 The `dcat:Catalog` class represents a curated collection of datasets or other resources. In SDL, it is used to organize and expose datasets, sensor systems, documents, or workflows in a semantically rich and discoverable manner.
@@ -119,6 +119,6 @@ This example shows how `sosa:Sample` entities are cataloged as `dcat:Resource` m
 * [`dcat:Resource`](https://www.w3.org/TR/vocab-dcat-3/#Class:Resource)
 * [`ssn:System`](https://www.w3.org/TR/vocab-ssn/#ssn-system)
 * [`sosa:Sample`](https://www.w3.org/TR/vocab-ssn/#SOSA)
-* [SDL Catalog Service Documentation](./services/catalog.md)
+* `[SDL Catalog Service Documentation](./docs/services/catalog.md)`
 
 > Catalogs play a critical role in discoverability, curation, and organization of SDL datasets, systems, samples, and other semantic resources.

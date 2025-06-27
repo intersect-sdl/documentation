@@ -1,5 +1,5 @@
 ---
-id: 4e2cb9d4-b7aa-4e63-b040-0efddcfbdc39
+uuid: 4e2cb9d4-b7aa-4e63-b040-0efddcfbdc39
 title: Entity Detail — prov:Entity
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
   - Provenance
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `prov:Entity` class is a fundamental concept in the PROV-O ontology. It represents any piece of data, record, or state that can be subject to provenance tracking. In SDL, `prov:Entity` is used to annotate datasets, observations, samples, and distributions with provenance metadata.

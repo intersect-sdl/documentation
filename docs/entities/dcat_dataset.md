@@ -1,5 +1,5 @@
 ---
-id: 50e5bdb1-7aa2-4c0e-abe3-4f00232bd913
+uuid: 50e5bdb1-7aa2-4c0e-abe3-4f00232bd913
 title: Entity Detail — dcat:Dataset
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
   - Dataset
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 # `dcat:Dataset`

@@ -1,5 +1,5 @@
 ---
-id: d6b105cf-4e4d-4605-a98e-7b71b7a6cf80
+uuid: d6b105cf-4e4d-4605-a98e-7b71b7a6cf80
 title: Entity Detail — prov:Agent
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
   - Agent
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `prov:Agent` class identifies entities that take responsibility for actions or data in provenance models. In SDL, `prov:Agent` is used to associate people, systems, or organizations with datasets, samples, workflows, or activities.

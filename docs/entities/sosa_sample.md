@@ -1,5 +1,5 @@
 ---
-id: 3117d937-d2cd-4fa3-9621-2f2559fd5fc0
+uuid: 3117d937-d2cd-4fa3-9621-2f2559fd5fc0
 title: Entity Detail — sosa:Sample
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
   - Sample
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `sosa:Sample` class represents a physical or digital subset or instance of a feature of interest used in observations. In SDL, `sosa:Sample` is used to model soil cores, water aliquots, air canisters, and other material objects collected for analysis.

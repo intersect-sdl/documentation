@@ -1,5 +1,5 @@
 ---
-id: a53bc456-1219-41f0-b8f3-ecf5245c4d59
+uuid: a53bc456-1219-41f0-b8f3-ecf5245c4d59
 title: Entity Detail — dcat:Distribution
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
   - Distribution
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `dcat:Distribution` class describes an accessible form of a dataset — for example, a downloadable file, an API endpoint, or an archived package. In SDL, this entity is used to link scientific datasets with their physical or digital representations.

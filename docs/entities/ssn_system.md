@@ -1,5 +1,5 @@
 ---
-id: b98d4d2a-2f2e-4bb5-8c1f-04fa7586f31f
+uuid: b98d4d2a-2f2e-4bb5-8c1f-04fa7586f31f
 title: Entity Detail — ssn:System 
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
   - Sensor Platform
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `ssn:System` class is used in SDL to represent a physical or logical configuration of instruments or components capable of making observations.
@@ -85,6 +86,6 @@ ex:platform1 a ssn:System , sosa:Sensor ;
 
 * [`ssn:Deployment`](https://www.w3.org/TR/vocab-ssn/#ssn-deployment)
 * [`sosa:Sensor`](https://www.w3.org/TR/vocab-ssn/#SOSA)
-* [SDL Platform Service Documentation](./services/platform.md)
+* `[SDL Platform Service Documentation](./services/platform.md)`
 
 > The `ssn:System` is central to modeling instrumentation and sensor configurations in SDL and acts as a reusable reference across deployments, observations, and metadata registries.

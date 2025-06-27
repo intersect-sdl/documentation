@@ -1,5 +1,5 @@
 ---
-id: 3c2e045f-437a-4b40-b3e3-dc03f7637ec6
+uuid: 3c2e045f-437a-4b40-b3e3-dc03f7637ec6
 title: Entity Detail — prov:Activity
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
   - Activity
   - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `prov:Activity` class describes actions or processes that occur over time and may use or generate entities. In SDL, `prov:Activity` is used to model sampling events, processing steps, analysis workflows, and other time-based operations that contribute to scientific data generation.

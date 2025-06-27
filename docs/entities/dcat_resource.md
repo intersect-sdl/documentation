@@ -1,5 +1,5 @@
 ---
-id: 1390e5a5-5182-405e-8f99-20a6a86cc25f
+uuid: 1390e5a5-5182-405e-8f99-20a6a86cc25f
 title: Entity Detail — dcat:Resource
 author: SDL Team
 tags:
@@ -8,6 +8,7 @@ tags:
     - Resource
     - Entity Detail
 version: 1.0
+published: true
 ---
 
 The `dcat:Resource` class is a general-purpose superclass in the DCAT vocabulary. In SDL, it is used to describe any discoverable resource — including datasets, systems, distributions, samples, or documentation — that may appear in a `dcat:Catalog`.

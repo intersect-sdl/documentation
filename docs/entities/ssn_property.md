@@ -74,7 +74,7 @@ Here are some common properties used in SDL:
 * `ex:temperature` — Air or soil temperature ([QUDT: Temperature](http://qudt.org/vocab/quantitykind/Temperature))
 * `ex:moisture` — Soil volumetric water content ([QUDT: MoistureContent](http://qudt.org/vocab/quantitykind/MoistureContent))
 * [Plant specific Properties](../properties/properties_plants_overview)
-* [Solid State Chemistry Specific Properties](../properties/properties_solid_state_chemestrie)
+* [Solid State Chemistry Specific Properties](../properties/properties_solid_state_chemistry)
 
 
 

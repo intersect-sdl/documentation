@@ -120,7 +120,7 @@ From the settings menu (top-right avatar):
 
 ## Support and Feedback
 
-```- Visit the [User FAQ](/docs/user/user-faq)```
+- Visit the [User FAQ](/docs/user/user_faq)
 - Join the [Community Forum](https://community.sdl.example.org)
 - Contact Support via the Help menu or [support@example.org](mailto:support@example.org)
 

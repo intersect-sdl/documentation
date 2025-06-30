@@ -92,7 +92,7 @@ SDL integrates:
 
 ## 💬 Where can I get help or request features?
 
-Please contact the SDL support team or open a ticket in the issue tracker of your SDL deployment. For ontology-specific questions, refer to the [Entity Documentation](./entity-overview) or contact a data steward.
+Please contact the SDL support team or open a ticket in the issue tracker of your SDL deployment. For ontology-specific questions, refer to the [Entity Documentation](/docs/entity_overview) or contact a data steward.
 
 ---
 

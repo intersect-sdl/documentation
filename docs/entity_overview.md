@@ -66,18 +66,19 @@ Entities in SDL are linked via named properties from the source ontologies:
 
 ## 📚 RDF Classes in SDL
 
-| RDF Class           | Namespace | Description                                                   |                                     |
-| ------------------- | --------- | ------------------------------------------------------------- |-------------------------------------|
-| `dcat:Catalog`      | DCAT      | A container of datasets                                       | [more](./entities/dcat_catalog)     |
-| `dcat:Dataset`      | DCAT      | A data asset described by metadata                            | [more](./entities/dcat_dataset)     |
-| `dcat:Distribution` | DCAT      | A downloadable version of a dataset                           | [more](./entities/dcat_distribution)|
-| `prov:Activity`     | PROV-O    | An event or process that generates or uses entities           | [more](./entities/prov_activity).   |
-| `prov:Agent`        | PROV-O    | A person, system, or organization acting in provenance chains | [more](./entities/prov_agent).      |
-| `prov:Entity`       | PROV-O    | Any piece of data or recordable state                         | [more](./entities/prov_entitiy).    |
-| `sosa:Observation`  | SOSA      | An act of measurement or data collection                      | [more](./entities/sosa_observation).|
-| `sosa:Platform`     | SOSA      | A structure that hosts deployed sensors and systems           | [more](./entities/sosa_platform).   |
-| `ssn:Deployment`    | SSN       | A system installed in a given context                         | [more](./entities/ssn_deployment).  |
-| `ssn:System`        | SSN       | A physical or logical sensor system or configuration          | [more](./entities/ssn_system).      |
+| RDF Class           | Namespace | Description                                                       |                                     |
+| ------------------- | --------- | ------------------------------------------------------------------|-------------------------------------|
+| `dcat:Catalog`      | DCAT      | A container of datasets                                           | [more](./entities/dcat_catalog)     |
+| `dcat:Dataset`      | DCAT      | A data asset described by metadata                                | [more](./entities/dcat_dataset)     |
+| `dcat:Distribution` | DCAT      | A downloadable version of a dataset                               | [more](./entities/dcat_distribution)|
+| `prov:Activity`     | PROV-O    | An event or process that generates or uses entities               | [more](./entities/prov_activity).   |
+| `prov:Agent`        | PROV-O    | A person, system, or organization acting in provenance chains     | [more](./entities/prov_agent).      |
+| `prov:Entity`       | PROV-O    | Any piece of data or recordable state                             | [more](./entities/prov_entitiy).    |
+| `sosa:Observation`  | SOSA      | An act of measurement or data collection                          | [more](./entities/sosa_observation).|
+| `sosa:Platform`     | SOSA      | A structure that hosts deployed sensors and systems               | [more](./entities/sosa_platform).   |
+| `ssn:Deployment`    | SSN       | A system installed in a given context                             | [more](./entities/ssn_deployment).  |
+| `ssn:Property`      | SSN       | A observable or measurable characteristics of real-world entities | [more](./entities/ssn_properties).  |
+| `ssn:System`        | SSN       | A physical or logical sensor system or configuration              | [more](./entities/ssn_system).      |
 
 ---
 

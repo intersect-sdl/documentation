@@ -33,9 +33,8 @@ sdl-platform/
 ### Quickstart
 
 ```bash
-git clone https://github.com/your-org/sdl-platform.git
-cd sdl-platform
-docker compose up --build
+git clone https://code.ornl.gov/intersect/data/acl.git
+cd acl
 ```
 
 Services will be available at:

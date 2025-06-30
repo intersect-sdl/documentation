@@ -77,7 +77,7 @@ Entities in SDL are linked via named properties from the source ontologies:
 | `sosa:Observation`  | SOSA      | An act of measurement or data collection                          | [more](./entities/sosa_observation).|
 | `sosa:Platform`     | SOSA      | A structure that hosts deployed sensors and systems               | [more](./entities/sosa_platform).   |
 | `ssn:Deployment`    | SSN       | A system installed in a given context                             | [more](./entities/ssn_deployment).  |
-| `ssn:Property`      | SSN       | A observable or measurable characteristics of real-world entities | [more](./entities/ssn_properties).  |
+| `ssn:Property`      | SSN       | A observable or measurable characteristics of real-world entities | [more](./entities/ssn_property).    |
 | `ssn:System`        | SSN       | A physical or logical sensor system or configuration              | [more](./entities/ssn_system).      |
 
 ---

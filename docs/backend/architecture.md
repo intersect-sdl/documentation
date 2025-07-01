@@ -121,6 +121,65 @@ Layer 3 services depend on the Registry and Data Transfer services for URI manag
 
 ---
 
+## 🔎 Microservice Overview
+
+All SDL services are implemented as **FastAPI-based Python microservices**. FastAPI is chosen for its:
+
+* Excellent support for async I/O and performance
+* Built-in OpenAPI (Swagger) documentation
+* Pydantic-powered data validation
+* Clean developer experience for REST+RDF hybrid APIs
+
+Each service includes:
+
+* **Linked Data support** (via RDFLib and rdflib-jsonld)
+* **LDP resource routing** (Basic/Direct/Indirect containers)
+* **SPARQL endpoint access** (where applicable)
+* **Dependency-injected stores and utilities**
+* **OpenAPI spec auto-generation** for documentation and testing
+
+### Service Breakdown
+
+#### Storage Service (Layer 1)
+
+* Exposes storage adapters for graph, object, document, and file storage
+* Provides a consistent internal interface to all persistence layers
+
+#### Registry Service (Layer 2)
+
+* Assigns persistent URIs to all resources
+* Tracks resource metadata in named RDF graphs
+* Ensures namespace scoping across platforms and subsystems
+
+#### Data Transfer Service (Layer 2)
+
+* Handles ingest, upload, and movement of data blobs
+* Supports streaming APIs and batch upload endpoints
+
+#### Repository Service (Layer 3)
+
+* Hosts scientific datasets, experiments, and observations
+* Aligns data with SSN/SOSA ontologies and workflows
+
+#### Catalog Service (Layer 3)
+
+* Organizes datasets using DCAT v3
+* Exposes discovery APIs and RDF views of datasets and catalogs
+
+#### Workspace Service (Layer 3)
+
+* Provides collaborative document editing capabilities
+* Supports semantic block types via DoCO and ProseMirror
+* Manages multi-user workspaces and document hierarchies
+
+All services use standardized middleware for:
+
+* Logging and monitoring
+* Authentication and authorization (RBAC)
+* Linked Data serialization and content negotiation
+
+---
+
 ## ✨ Advantages of the Architecture
 
 * **Modularity**: Each service is independently deployable

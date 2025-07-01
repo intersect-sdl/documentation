@@ -4,76 +4,116 @@ title: Plant Properties
 published: true
 ---
 
-The following is a list of plant-specific properties commonly used in plant science, phenotyping, and growth monitoring. These properties can be used as sosa:observedProperty in the SDL RDF model and linked to ontologies like PPO, TO (Trait Ontology), EO (Environment Ontology), and PSO (Plant Structure Ontology).
-
-## 🌿 **Plant-Specific Properties for Observation**
-
-### 🌱 **Morphological Traits**
-
-| Property       | Description                          | Possible Ontologies |
-| -------------- | ------------------------------------ | ------------------- |
-| `plantHeight`  | Height from base to apical meristem  | PPO, TO             |
-| `leafNumber`   | Total number of leaves on the plant  | TO                  |
-| `leafLength`   | Length of individual leaves          | TO                  |
-| `leafWidth`    | Width of individual leaves           | TO                  |
-| `stemDiameter` | Thickness of the main stem near base | TO                  |
-| `rootLength`   | Total length of roots                | TO                  |
-| `rootMass`     | Mass of harvested roots              | TO                  |
-| `canopyWidth`  | Width of the plant's foliage spread  | TO                  |
-| `branchNumber` | Number of branches per plant         | TO                  |
-| `flowerNumber` | Number of flowers per plant          | PPO, TO             |
+List of common plant-specific properties relevant to phenotyping, physiological studies, and ecological monitoring. Properties are grouped into categories based on their biological or functional domain. These can be used as `sosa:ObservableProperty` or `ssn:Property` in semantic web models.
 
 ---
 
-### 🌼 **Phenological Stages**
+## 🌱 Morphological Traits
 
-| Property          | Description                           | Possible Ontologies |
-| ----------------- | ------------------------------------- | ------------------- |
-| `germinationDate` | Date when germination occurred        | PPO                 |
-| `emergenceDate`   | Date when seedling emerged above soil | PPO                 |
-| `firstLeafDate`   | Date first true leaf appeared         | PPO                 |
-| `floweringDate`   | Date when first flower opened         | PPO                 |
-| `fruitingDate`    | Date when fruits first appeared       | PPO                 |
-| `senescenceDate`  | Onset of visible senescence           | PPO                 |
-
----
-
-### 🌾 **Biomass and Yield**
-
-| Property             | Description                           | Possible Ontologies |
-| -------------------- | ------------------------------------- | ------------------- |
-| `abovegroundBiomass` | Mass of all above-ground plant tissue | TO                  |
-| `dryMass`            | Mass of plant tissue after drying     | TO                  |
-| `yieldPerPlant`      | Total harvestable yield per plant     | TO                  |
-| `seedCount`          | Number of seeds produced per plant    | TO                  |
-| `seedMass`           | Total or average mass of seeds        | TO                  |
+| Property       | Description                              | Units  | Possible Ontologies |
+| -------------- | ---------------------------------------- | ------ | ------------------- |
+| `plantHeight`  | Height from base to apical meristem      | cm, mm | PPO, TO             |
+| `leafNumber`   | Total number of leaves on the plant      | count  | TO                  |
+| `leafLength`   | Length of individual leaves              | cm, mm | TO                  |
+| `leafWidth`    | Width of individual leaves               | cm, mm | TO                  |
+| `stemDiameter` | Thickness of the main stem near the base | mm     | TO                  |
+| `rootLength`   | Total length of roots                    | cm, mm | TO                  |
+| `rootMass`     | Mass of harvested roots                  | g      | TO                  |
+| `canopyWidth`  | Width of the plant's foliage spread      | cm     | TO                  |
+| `branchNumber` | Number of branches per plant             | count  | TO                  |
+| `flowerNumber` | Number of flowers per plant              | count  | PPO, TO             |
 
 ---
 
-### 🧪 **Physiological Measurements**
+## 🌼 Phenological Stages
 
-| Property                | Description                             | Possible Ontologies |
-| ----------------------- | --------------------------------------- | ------------------- |
-| `chlorophyllContent`    | Chlorophyll level in leaves (SPAD)      | TO                  |
-| `photosynthesisRate`    | Rate of CO₂ assimilation                | TO                  |
-| `stomatalConductance`   | Water vapor conductance through stomata | TO                  |
-| `waterContent`          | Percentage of water in tissues          | TO                  |
-| `nutrientConcentration` | Levels of N, P, K, etc. in tissues      | TO                  |
-
----
-
-### 🌍 **Environmental Interactions**
-
-| Property              | Description                                  | Possible Ontologies |
-| --------------------- | -------------------------------------------- | ------------------- |
-| `soilMoisture`        | Moisture content of soil at plant root zone  | EO                  |
-| `lightExposure`       | Amount of light received                     | EO                  |
-| `temperatureExposure` | Temperature experienced by plant             | EO                  |
-| `humidity`            | Relative humidity of surrounding environment | EO                  |
+| Property          | Description                        | Units | Possible Ontologies |
+| ----------------- | ---------------------------------- | ----- | ------------------- |
+| `germinationDate` | Date when germination occurred     | date  | PPO                 |
+| `emergenceDate`   | Date seedling emerged above soil   | date  | PPO                 |
+| `firstLeafDate`   | Date of first true leaf appearance | date  | PPO                 |
+| `floweringDate`   | Date when first flower opened      | date  | PPO                 |
+| `fruitingDate`    | Date when fruit first appeared     | date  | PPO                 |
+| `senescenceDate`  | Onset of visible senescence        | date  | PPO                 |
 
 ---
 
-### 📚 Example in RDF (`sosa:observedProperty`)
+## 🌾 Biomass and Yield
+
+| Property             | Description                           | Units        | Possible Ontologies |
+| -------------------- | ------------------------------------- | ------------ | ------------------- |
+| `abovegroundBiomass` | Mass of all above-ground plant tissue | g/m²         | TO                  |
+| `dryMass`            | Mass of plant tissue after drying     | g            | TO                  |
+| `yieldPerPlant`      | Total harvestable yield per plant     | g or g/plant | TO                  |
+| `seedCount`          | Number of seeds produced per plant    | count        | TO                  |
+| `seedMass`           | Total or average mass of seeds        | g or mg      | TO                  |
+
+---
+
+## 🔋 Physiological Measurements
+
+| Property                 | Description                                      | Units               | Possible Ontologies |
+| ------------------------ | ------------------------------------------------ | ------------------- | ------------------- |
+| `photosynthesisRate`     | Rate of CO₂ assimilation in photosynthesis       | µmol CO₂/m²/s       | TO                  |
+| `transpirationRate`      | Rate of water vapor loss from leaves             | mmol H₂O/m²/s       | EO                  |
+| `stomatalConductance`    | Conductance to water vapor through stomata       | mol/m²/s            | TO                  |
+| `chlorophyllContent`     | Estimated chlorophyll content (e.g., SPAD value) | index (unitless)    | TO                  |
+| `waterContent`           | Water content in tissues                         | %                   | TO                  |
+| `isopreneEmission`       | Rate of isoprene released by leaves              | µg/g/h or nmol/m²/s | EO                  |
+| `carbonAssimilationRate` | Net carbon gain per unit area                    | µmol/m²/s           | TO                  |
+| `leafTemperature`        | Temperature of the leaf surface                  | °C                  | EO                  |
+| `nutrientConcentration`  | Levels of N, P, K, etc. in tissues               | % or mg/g           | TO                  |
+
+---
+
+## 🌈 Color and Reflectance Properties
+
+| Property                     | Description                            | Units           |
+| ---------------------------- | -------------------------------------- | --------------- |
+| `NDVI`                       | Normalized Difference Vegetation Index | unitless        |
+| `PRI`                        | Photochemical Reflectance Index        | unitless        |
+| `meanRGB`                    | Average RGB pixel values               | R, G, B (0–255) |
+| `hue`, `saturation`, `value` | Color properties from HSV space        | unitless (0–1)  |
+
+---
+
+## 🔢 Shape and Geometry
+
+| Property        | Description                                  | Units    |
+| --------------- | -------------------------------------------- | -------- |
+| `projectedArea` | Area of plant projected onto the image plane | px², cm² |
+| `perimeter`     | Length around plant object                   | px, cm   |
+| `aspectRatio`   | Ratio of plant height to width               | unitless |
+| `solidity`      | Ratio of area to convex hull area            | unitless |
+| `circularity`   | Shape descriptor based on area and perimeter | unitless |
+
+---
+
+## 🧪 Biochemical Properties
+
+| Property            | Description                                 | Units        |
+| ------------------- | ------------------------------------------- | ------------ |
+| `nitrogenContent`   | Nitrogen concentration in leaves or tissues | % dry weight |
+| `phosphorusContent` | Phosphorus concentration                    | % dry weight |
+| `carbonContent`     | Carbon concentration                        | % dry weight |
+| `ligninContent`     | Lignin concentration                        | % dry weight |
+| `proteinContent`    | Protein content of tissues                  | %            |
+
+---
+
+## 🌍 Environmental Context Properties
+
+| Property           | Description                                | Units     |
+| ------------------ | ------------------------------------------ | --------- |
+| `soilMoisture`     | Water content in the soil near plant roots | %         |
+| `airTemperature`   | Temperature of air around plant            | °C        |
+| `humidity`         | Relative humidity near plant               | %         |
+| `lightIntensity`   | Incident light on leaf or canopy           | µmol/m²/s |
+| `CO2Concentration` | Ambient CO₂ concentration                  | ppm       |
+
+---
+
+## 📚 Example in RDF (`sosa:observedProperty`)
 
 ```turtle
 ex:plantHeight
@@ -81,7 +121,7 @@ ex:plantHeight
     rdfs:label "Plant Height" ;
     dct:description "Measured height of the plant from soil level to apical meristem." ;
     dct:identifier "plantHeight" ;
-    skos:exactMatch <http://purl.obolibrary.org/obo/TO_0000207> .  # Trait Ontology term
+    skos:exactMatch <http://purl.obolibrary.org/obo/TO_0000207> .
 ```
 
 ---
@@ -93,4 +133,3 @@ ex:plantHeight
 * **EO** (Environment Ontology): [http://purl.obolibrary.org/obo/eo.owl](http://purl.obolibrary.org/obo/eo.owl)
 * **PSO** (Plant Structure Ontology): [http://purl.obolibrary.org/obo/pso.owl](http://purl.obolibrary.org/obo/pso.owl)
 * **PO** (Plant Ontology): [http://purl.obolibrary.org/obo/po.owl](http://purl.obolibrary.org/obo/po.owl)
-

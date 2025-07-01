@@ -14,17 +14,21 @@ Welcome to the Scientific Data Layer (SDL) platform — a flexible, semantic eco
 
 ## Table of Contents
 
-1. [Getting Started]`(./#getting-started)`
-2. [Understanding Workspaces]`(#understanding-workspaces)`
-3. [Navigating the Interface]`(#navigating-the-interface)
-4. [Creating and Managing Content]`(#creating-and-managing-content)
-5. [Semantic Editing]`(#semantic-editing)
-6. [Searching and Filtering Data]`(#searching-and-filtering-data)
-7. [Importing and Exporting]`(#importing-and-exporting)
-8. [User Preferences and Settings]`(#user-preferences-and-settings)
-9. [Support and Feedback]`(#support-and-feedback)
+1. [Getting Started](#getting-started)
+2. [Understanding Workspaces](#understanding-workspaces)
+3. [Navigating the Interface](#navigating-the-interface)
+4. [Creating and Managing Content](#creating-and-managing-content)
+5. [Semantic Editing](#semantic-editing)
+6. [Searching and Filtering Data](#searching-and-filtering-data)
+7. [Importing and Exporting](#importing-and-exporting)
+8. [User Preferences and Settings](#user-preferences-and-settings)
+9. [Support and Feedback](#support-and-feedback)
 
 ---
+
+:::note
+a note
+:::
 
 ## Getting Started
 

@@ -22,8 +22,3 @@ The **ACL platform** focuses on automated solid-state chemistry, integrating syn
 - Each sample and dataset has a unique, persistent URI.
 - Metadata uses standard vocabularies (DCAT, PROV-O, SSN).
 - Data is linked to its generating systems and workflows.
-
-### Linked Resources
-- [ACL Catalog (DCAT)](./acl-catalog.ttl)
-- [ACL Platform Definition (SSN)](./acl-platform.ttl)
-- [Example Dataset](./examples/xrd_dataset.ttl)

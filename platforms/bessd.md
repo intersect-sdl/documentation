@@ -24,8 +24,3 @@ The **BESSD platform** supports plant science and environmental research, integr
 - Semantic annotations for genotypes, treatments, and conditions.
 - DOIs or URIs assigned to datasets and workflows.
 - Interoperable metadata modeled with DCAT and SSN.
-
-## Linked Resources
-- [BESSD Catalog (DCAT)](./bessd-catalog.ttl)
-- [BESSD Platform Definition (SSN)](./bessd-platform.ttl)
-- [Example Observation Dataset](./examples/plant_growth.ttl)

@@ -12,46 +12,46 @@ version: 1.0
 published: true
 ---
 
-The `sosa:Platform` class represents a physical or logical structure that hosts sensors, samplers, or systems. In SDL, `sosa:Platform` is used to model sensor rigs, laboratory stations, UAVs, vehicles, and field installations that carry one or more deployed systems.
+The :rdfterm[sosa:Platform] class represents a physical or logical structure that hosts sensors, samplers, or systems. In SDL, :rdfterm[sosa:Platform] is used to model sensor rigs, laboratory stations, UAVs, vehicles, and field installations that carry one or more deployed systems.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/sosa/Platform`
 
-> A `sosa:Platform` is an entity that can carry one or more `sosa:Sensor`, `sosa:Sampler`, or `sosa:Actuator` and may move or remain fixed.
+> A :rdfterm[sosa:Platform] is an entity that can carry one or more :rdfterm[sosa:Sensor], :rdfterm[sosa:Sampler], or :rdfterm[sosa:Actuator] and may move or remain fixed.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `sosa:Platform` is used to:
+In SDL, :rdfterm[sosa:Platform] is used to:
 
 * Identify fixed or mobile hosts for sensor systems
 * Organize deployments based on spatial, organizational, or project structure
 * Associate systems and observations with their hosting infrastructure
 * Enable reusability of components across deployments
 
-Platforms often appear in `ssn:Deployment` via the `ssn:deployedOnPlatform` property.
+Platforms often appear in :rdfterm[ssn:Deployment] via the :rdfterm[ssn:deployedOnPlatform] property.
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property               | Description                                              | Optional |
 | ---------------------- | -------------------------------------------------------- | -------- |
-| `dcterms:identifier`   | Unique identifier for the platform                       | Yes      |
-| `dcterms:title`        | Human-readable name or label                             | Yes      |
-| `dcterms:description`  | Textual description of the platform                      | Yes      |
-| `dcterms:spatial`      | Spatial coverage or geometry of the platform             | Yes      |
-| `ssn:hasDeployment`    | Inverse property linking to associated `ssn:Deployment`  | Yes      |
-| `sosa:hosts`           | Links platform to hosted sensors or systems              | Yes      |
-| `prov:wasAttributedTo` | Agent responsible for managing or deploying the platform | Yes      |
+| :rdfterm[dcterms:identifier]   | Unique identifier for the platform                       | Yes      |
+| :rdfterm[dcterms:title]        | Human-readable name or label                             | Yes      |
+| :rdfterm[dcterms:description]  | Textual description of the platform                      | Yes      |
+| :rdfterm[dcterms:spatial]      | Spatial coverage or geometry of the platform             | Yes      |
+| :rdfterm[ssn:hasDeployment]    | Inverse property linking to associated :rdfterm[ssn:Deployment]  | Yes      |
+| :rdfterm[sosa:hosts]           | Links platform to hosted sensors or systems              | Yes      |
+| :rdfterm[prov:wasAttributedTo] | Agent responsible for managing or deploying the platform | Yes      |
 
 ---
 
-## 🧠 Composition
+## Composition
 
 A platform may host one or more systems, each of which can be deployed separately:
 
@@ -63,7 +63,7 @@ ex:rigPlatform1 a sosa:Platform ;
 
 ---
 
-## 🧪 Example — Platform and Deployment
+## Example — Platform and Deployment
 
 ```turtle
 ex:rig1 a sosa:Platform ;
@@ -79,18 +79,18 @@ ex:deploymentA a ssn:Deployment ;
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `ssn:Deployment` — deployment context of systems on platforms
-* `ssn:System` — sensor or processing unit hosted by the platform
-* `prov:Agent` — responsible organization or maintainer
+* :rdfterm[ssn:Deployment] — deployment context of systems on platforms
+* :rdfterm[ssn:System] — sensor or processing unit hosted by the platform
+* :rdfterm[prov:Agent] — responsible organization or maintainer
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`sosa:Platform`](https://www.w3.org/TR/vocab-ssn/#SOSAPlatform)
-* [`ssn:Deployment`](https://www.w3.org/TR/vocab-ssn/#SOSADeployment)
-* [`sosa:hosts`](https://www.w3.org/TR/vocab-ssn/#SOSAhosts)
+* [:rdfterm[sosa:Platform]](https://www.w3.org/TR/vocab-ssn/#SOSAPlatform)
+* [:rdfterm[ssn:Deployment]](https://www.w3.org/TR/vocab-ssn/#SOSADeployment)
+* [:rdfterm[sosa:hosts]](https://www.w3.org/TR/vocab-ssn/#SOSAhosts)
 
 > Platforms in SDL provide structure for system deployment, enabling repeatability, reuse, and accurate interpretation of environmental or laboratory observations.

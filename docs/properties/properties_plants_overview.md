@@ -4,11 +4,11 @@ title: Plant Properties
 published: true
 ---
 
-List of common plant-specific properties relevant to phenotyping, physiological studies, and ecological monitoring. Properties are grouped into categories based on their biological or functional domain. These can be used as `sosa:ObservableProperty` or `ssn:Property` in semantic web models.
+List of common plant-specific properties relevant to phenotyping, physiological studies, and ecological monitoring. Properties are grouped into categories based on their biological or functional domain. These can be used as `sosa:ObservableProperty` or :rdfterm[ssn:Property] in semantic web models.
 
 ---
 
-## 🌱 Morphological Traits
+## Morphological Traits
 
 | Property       | Description                              | Units  | Possible Ontologies |
 | -------------- | ---------------------------------------- | ------ | ------------------- |
@@ -25,7 +25,7 @@ List of common plant-specific properties relevant to phenotyping, physiological 
 
 ---
 
-## 🌼 Phenological Stages
+## Phenological Stages
 
 | Property          | Description                        | Units | Possible Ontologies |
 | ----------------- | ---------------------------------- | ----- | ------------------- |
@@ -38,7 +38,7 @@ List of common plant-specific properties relevant to phenotyping, physiological 
 
 ---
 
-## 🌾 Biomass and Yield
+## Biomass and Yield
 
 | Property             | Description                           | Units        | Possible Ontologies |
 | -------------------- | ------------------------------------- | ------------ | ------------------- |
@@ -50,7 +50,7 @@ List of common plant-specific properties relevant to phenotyping, physiological 
 
 ---
 
-## 🔋 Physiological Measurements
+## Physiological Measurements
 
 | Property                 | Description                                      | Units               | Possible Ontologies |
 | ------------------------ | ------------------------------------------------ | ------------------- | ------------------- |
@@ -66,7 +66,7 @@ List of common plant-specific properties relevant to phenotyping, physiological 
 
 ---
 
-## 🌈 Color and Reflectance Properties
+## Color and Reflectance Properties
 
 | Property                     | Description                            | Units           |
 | ---------------------------- | -------------------------------------- | --------------- |
@@ -77,7 +77,7 @@ List of common plant-specific properties relevant to phenotyping, physiological 
 
 ---
 
-## 🔢 Shape and Geometry
+## Shape and Geometry
 
 | Property        | Description                                  | Units    |
 | --------------- | -------------------------------------------- | -------- |
@@ -89,7 +89,7 @@ List of common plant-specific properties relevant to phenotyping, physiological 
 
 ---
 
-## 🧪 Biochemical Properties
+## Biochemical Properties
 
 | Property            | Description                                 | Units        |
 | ------------------- | ------------------------------------------- | ------------ |
@@ -101,7 +101,7 @@ List of common plant-specific properties relevant to phenotyping, physiological 
 
 ---
 
-## 🌍 Environmental Context Properties
+## Environmental Context Properties
 
 | Property           | Description                                | Units     |
 | ------------------ | ------------------------------------------ | --------- |
@@ -113,7 +113,7 @@ List of common plant-specific properties relevant to phenotyping, physiological 
 
 ---
 
-## 📚 Example in RDF (`sosa:observedProperty`)
+## Example in RDF (:rdfterm[sosa:observedProperty])
 
 ```turtle
 ex:plantHeight
@@ -126,7 +126,7 @@ ex:plantHeight
 
 ---
 
-## ✅ Ontology References
+## Ontology References
 
 * **PPO** (Plant Phenology Ontology): [https://github.com/PlantPhenoOntology/ppo](https://github.com/PlantPhenoOntology/ppo)
 * **TO** (Plant Trait Ontology): [http://www.cropontology.org/ontology/CO\_320\:plant\_trait](http://www.cropontology.org/ontology/CO_320:plant_trait)

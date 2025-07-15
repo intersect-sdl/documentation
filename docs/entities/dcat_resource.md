@@ -11,58 +11,58 @@ version: 1.0
 published: true
 ---
 
-The `dcat:Resource` class is a general-purpose superclass in the DCAT vocabulary. In SDL, it is used to describe any discoverable resource — including datasets, systems, distributions, samples, or documentation — that may appear in a `dcat:Catalog`.
+The :rdfterm[dcat:Resource] class is a general-purpose superclass in the DCAT vocabulary. In SDL, it is used to describe any discoverable resource — including datasets, systems, distributions, samples, or documentation — that may appear in a :rdfterm[dcat:Catalog].
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/dcat#Resource`
 
-> A `dcat:Resource` is any resource that can be described in a catalog. It is a superclass of `dcat:Dataset`, `dcat:Distribution`, `dcat:DataService`, and may be applied to arbitrary types to enable cataloging.
+> A :rdfterm[dcat:Resource] is any resource that can be described in a catalog. It is a superclass of :rdfterm[dcat:Dataset], :rdfterm[dcat:Distribution], `dcat:DataService`, and may be applied to arbitrary types to enable cataloging.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `dcat:Resource` is used to:
+In SDL, :rdfterm[dcat:Resource] is used to:
 
 * Enable cataloging of non-dataset entities (e.g., instruments, samples, documents)
 * Provide a common metadata pattern for discoverable content
 * Support mixed-type catalogs where all entries share core descriptive fields
 
-Common SDL entities typed as `dcat:Resource`:
+Common SDL entities typed as :rdfterm[dcat:Resource]:
 
-* `ssn:System`
-* `sosa:Sample`
+* :rdfterm[ssn:System]
+* :rdfterm[sosa:Sample]
 * `doco:Document`
 * Custom workflow or platform instances
 
 ---
 
-## 🔄 Common Properties
+## Common Properties
 
 | Property              | Description                                 | Optional |
 | --------------------- | ------------------------------------------- | -------- |
-| `dcterms:title`       | Human-readable title                        | No       |
-| `dcterms:description` | Description of the resource                 | Yes      |
-| `dcterms:identifier`  | Persistent or unique identifier             | No       |
-| `dcterms:issued`      | Date issued or published                    | Yes      |
-| `dcterms:modified`    | Last modified timestamp                     | Yes      |
-| `dcat:keyword`        | Tagging and indexing terms                  | Yes      |
-| `dcterms:language`    | Language of the resource                    | Yes      |
-| `dcterms:license`     | License associated with the resource        | Yes      |
-| `dcterms:rights`      | Rights statement for the resource           | Yes      |
-| `dcterms:publisher`   | Entity responsible for making the resource  | Yes      |
-| `foaf:homepage`       | Link to additional documentation or webpage | Yes      |
+| :rdfterm[dcterms:title]       | Human-readable title                        | No       |
+| :rdfterm[dcterms:description] | Description of the resource                 | Yes      |
+| :rdfterm[dcterms:identifier]  | Persistent or unique identifier             | No       |
+| :rdfterm[dcterms:issued]      | Date issued or published                    | Yes      |
+| :rdfterm[dcterms:modified]    | Last modified timestamp                     | Yes      |
+| :rdfterm[dcat:keyword]        | Tagging and indexing terms                  | Yes      |
+| :rdfterm[dcterms:language]    | Language of the resource                    | Yes      |
+| :rdfterm[dcterms:license]     | License associated with the resource        | Yes      |
+| :rdfterm[dcterms:rights]      | Rights statement for the resource           | Yes      |
+| :rdfterm[dcterms:publisher]   | Entity responsible for making the resource  | Yes      |
+| :rdfterm[foaf:homepage]       | Link to additional documentation or webpage | Yes      |
 
 ---
 
-## 🧠 Composition
+## Composition
 
 A resource in SDL typically has:
 
-* At least one type (e.g., `sosa:Sample`, `ssn:System`)
+* At least one type (e.g., :rdfterm[sosa:Sample], :rdfterm[ssn:System])
 * A set of `dcterms:*` properties for labeling and tracking
 * Optional domain-specific properties depending on context
 
@@ -75,7 +75,7 @@ ex:licor8250a a ssn:System , dcat:Resource ;
 
 ---
 
-## 🧪 Example — Sample as a Resource
+## Example — Sample as a Resource
 
 ```turtle
 ex:sample1 a sosa:Sample , dcat:Resource ;
@@ -89,18 +89,18 @@ This allows `ex:sample1` to be indexed and retrieved in catalogs.
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `dcat:Catalog` — container of resources
-* `dcat:Dataset` — subclass with additional structure
-* `prov:Entity` — often used alongside for provenance
+* :rdfterm[dcat:Catalog] — container of resources
+* :rdfterm[dcat:Dataset] — subclass with additional structure
+* :rdfterm[prov:Entity] — often used alongside for provenance
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`dcat:Catalog`](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog)
-* [`dcat:Dataset`](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)
-* [`prov:Entity`](https://www.w3.org/TR/prov-o/)
+* [:rdfterm[dcat:Catalog]](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog)
+* [:rdfterm[dcat:Dataset]](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)
+* [:rdfterm[prov:Entity]](https://www.w3.org/TR/prov-o/)
 
-> `dcat:Resource` provides a flexible foundation for entity discovery, making it a central building block in SDL's cataloging system.
+> :rdfterm[dcat:Resource] provides a flexible foundation for entity discovery, making it a central building block in SDL's cataloging system.

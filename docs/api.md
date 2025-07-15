@@ -7,6 +7,10 @@ date: "2025-06-25"
 published: true
 ---
 
+:::note
+This is note
+:::
+
 > **Disclaimer:** Many of the features described in this documentation are still in planning or under development. Some endpoints may not be available in your current instance.
 
 This guide provides an overview of the RESTful APIs available in the Scientific Data Layer (SDL). Each microservice exposes a set of endpoints, most of which use JSON-LD and follow Linked Data Platform (LDP) and REST best practices.

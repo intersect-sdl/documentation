@@ -21,9 +21,9 @@ This guide covers how ontologies are used, loaded, aligned, and extended within 
 
 Ontologies provide the semantic backbone for:
 
-- **Resource typing** (e.g., `ssn:Sensor`, `dcat:Dataset`, `prov:Activity`)
+- **Resource typing** (e.g., :rdfterm[ssn:Sensor], :rdfterm[dcat:Dataset], :rdfterm[prov:Activity])
 - **Data validation** using SHACL and reasoning
-- **UI rendering** via `rdfs:Class` and `sh:property` definitions
+- **UI rendering** via :rdfterm[rdfs:Class] and :rdfterm[sh:property] definitions
 - **Search and discovery** via class-based filters
 - **Automated workflows** and provenance tracking
 
@@ -88,8 +88,8 @@ Validation and reasoning can check for consistency with the ontology definition.
 
 SDL uses ontologies to drive the UI dynamically:
 
-- Forms are generated based on `sh:NodeShape`
-- Labels, descriptions, ranges are extracted from `rdfs:label`, `rdfs:comment`, `sh:datatype`, etc.
+- Forms are generated based on :rdfterm[sh:NodeShape]
+- Labels, descriptions, ranges are extracted from :rdfterm[rdfs:label], :rdfterm[rdfs:comment], :rdfterm[sh:datatype], etc.
 - Type-aware rendering of content blocks (e.g., data block vs. reference block)
 
 This enables a flexible interface that adjusts to new types without hardcoding.
@@ -102,8 +102,8 @@ Users can:
 
 - Import new vocabularies
 - Define subclasses of known types
-- Attach UI metadata using `sdl:uiTemplate`, `sh:group`, or `skos:note`
-- Reference external ontologies (via `owl:imports`)
+- Attach UI metadata using :rdfterm[sdl:uiTemplate], :rdfterm[sh:group], or :rdfterm[skos:note]
+- Reference external ontologies (via :rdfterm[owl:imports])
 
 Custom extensions can be maintained in dedicated named graphs.
 

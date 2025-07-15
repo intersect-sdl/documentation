@@ -11,65 +11,65 @@ version: 1.0
 published: true
 ---
 
-# `dcat:Dataset`
+# :rdfterm[dcat:Dataset]
 
-The `dcat:Dataset` class describes a collection of data that is published or curated. In SDL, it is used to represent datasets derived from scientific measurements, experimental workflows, sample analyses, and other research outputs.
+The :rdfterm[dcat:Dataset] class describes a collection of data that is published or curated. In SDL, it is used to represent datasets derived from scientific measurements, experimental workflows, sample analyses, and other research outputs.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/dcat#Dataset`
 
-> A `dcat:Dataset` is a collection of data, published or curated by a single agent, and available for access or download through one or more distributions.
+> A :rdfterm[dcat:Dataset] is a collection of data, published or curated by a single agent, and available for access or download through one or more distributions.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `dcat:Dataset` is used to:
+In SDL, :rdfterm[dcat:Dataset] is used to:
 
 * Represent a scientific dataset as a first-class entity
 * Connect distributions of data files
 * Record metadata about the origin, purpose, and licensing of the dataset
 * Track provenance and publishing events
 
-Datasets often appear in `dcat:Catalog` entries and are managed through the `catalog-service` or `repository-service`.
+Datasets often appear in :rdfterm[dcat:Catalog] entries and are managed through the `catalog-service` or `repository-service`.
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property              | Description                                        | Optional |
 | --------------------- | -------------------------------------------------- | -------- |
-| `dcterms:title`       | Human-readable title                               | No       |
-| `dcterms:description` | Description of the dataset                         | Yes      |
-| `dcterms:identifier`  | Persistent or unique identifier                    | No       |
-| `dcterms:issued`      | Date the dataset was first published               | Yes      |
-| `dcterms:modified`    | Last modified date                                 | Yes      |
-| `dcterms:publisher`   | Responsible organization or agent                  | Yes      |
-| `dcterms:creator`     | Person or agent that created the dataset           | Yes      |
-| `dcterms:language`    | Language of the dataset content                    | Yes      |
-| `dcterms:license`     | License under which the dataset is published       | Yes      |
-| `dcat:keyword`        | Tags or subject keywords                           | Yes      |
-| `dcat:theme`          | Theme or classification of the dataset             | Yes      |
-| `dcat:distribution`   | Links to one or more `dcat:Distribution` resources | Yes      |
-| `foaf:page`           | Link to a landing page or documentation            | Yes      |
+| :rdfterm[dcterms:title]       | Human-readable title                               | No       |
+| :rdfterm[dcterms:description] | Description of the dataset                         | Yes      |
+| :rdfterm[dcterms:identifier]  | Persistent or unique identifier                    | No       |
+| :rdfterm[dcterms:issued]      | Date the dataset was first published               | Yes      |
+| :rdfterm[dcterms:modified]    | Last modified date                                 | Yes      |
+| :rdfterm[dcterms:publisher]   | Responsible organization or agent                  | Yes      |
+| :rdfterm[dcterms:creator]     | Person or agent that created the dataset           | Yes      |
+| :rdfterm[dcterms:language]    | Language of the dataset content                    | Yes      |
+| :rdfterm[dcterms:license]     | License under which the dataset is published       | Yes      |
+| :rdfterm[dcat:keyword]        | Tags or subject keywords                           | Yes      |
+| :rdfterm[dcat:theme]          | Theme or classification of the dataset             | Yes      |
+| :rdfterm[dcat:distribution]   | Links to one or more :rdfterm[dcat:Distribution] resources | Yes      |
+| :rdfterm[foaf:page]           | Link to a landing page or documentation            | Yes      |
 
 ---
 
-## 🧠 Composition
+## Composition
 
-A `dcat:Dataset` may also be typed as:
+:rdfterm[dcat:Dataset] may also be typed as:
 
-* `prov:Entity` — to track how the dataset was generated
-* `dcat:Resource` — to support catalog membership
+* :rdfterm[prov:Entity] — to track how the dataset was generated
+* :rdfterm[dcat:Resource] — to support catalog membership
 
 It may be linked to observations, samples, workflows, or provenance traces depending on the data’s origin.
 
 ---
 
-## 🧪 Example
+## Example
 
 ```turtle
 ex:dataset-co2 a dcat:Dataset , prov:Entity , dcat:Resource ;
@@ -87,18 +87,18 @@ ex:dist-co2-csv a dcat:Distribution ;
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `dcat:Distribution` — describes file-based or service-based access
-* `prov:Entity` — used to track dataset provenance
-* `dcat:Catalog` — catalogs contain one or more datasets
+* :rdfterm[dcat:Distribution] — describes file-based or service-based access
+* :rdfterm[prov:Entity] — used to track dataset provenance
+* :rdfterm[dcat:Catalog] — catalogs contain one or more datasets
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`dcat:Dataset`](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)
-* [`dcat:Distribution`](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution)
-* [`prov:Entity`](https://www.w3.org/TR/prov-o/)
+* [:rdfterm[dcat:Dataset]](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset)
+* [:rdfterm[dcat:Distribution]](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution)
+* [:rdfterm[prov:Entity]](https://www.w3.org/TR/prov-o/)
 
-> `dcat:Dataset` is central to managing scientific output in SDL and supports FAIR principles by enabling structured metadata and discoverable distributions.
+> :rdfterm[dcat:Dataset] is central to managing scientific output in SDL and supports FAIR principles by enabling structured metadata and discoverable distributions.

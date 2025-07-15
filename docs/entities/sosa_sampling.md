@@ -11,45 +11,45 @@ version: 1.0
 published: true
 ---
 
-The `sosa:Sampling` class represents an act of creating a `sosa:Sample` to be used as a `sosa:FeatureOfInterest`. In SDL, this includes collecting soil cores, drawing water samples, or extracting air samples for subsequent analysis.
+The :rdfterm[sosa:Sampling] class represents an act of creating a :rdfterm[sosa:Sample] to be used as a :rdfterm[sosa:FeatureOfInterest]. In SDL, this includes collecting soil cores, drawing water samples, or extracting air samples for subsequent analysis.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/sosa/Sampling`
 
-> A `sosa:Sampling` is an activity whose result is a `sosa:Sample` that is used as the `sosa:FeatureOfInterest` in an observation.
+> A :rdfterm[sosa:Sampling] is an activity whose result is a :rdfterm[sosa:Sample] that is used as the :rdfterm[sosa:FeatureOfInterest] in an observation.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `sosa:Sampling` is used to:
+In SDL, :rdfterm[sosa:Sampling] is used to:
 
 * Represent the act of collecting or deriving a sample
-* Link the resulting sample (`prov:generated`) to its feature of origin
+* Link the resulting sample (:rdfterm[prov:generated]) to its feature of origin
 * Associate agents, times, and locations with the sampling event
 
-Sampling events establish a provenance trail for how `sosa:Sample` entities came to be.
+Sampling events establish a provenance trail for how :rdfterm[sosa:Sample] entities came to be.
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property                 | Description                                            | Optional |
 | ------------------------ | ------------------------------------------------------ | -------- |
-| `prov:generated`         | The resulting `sosa:Sample` from the sampling activity | No       |
-| `prov:used`              | The original `sosa:FeatureOfInterest` that was sampled | Yes      |
-| `prov:wasAssociatedWith` | Agent (person or instrument) involved in sampling      | Yes      |
-| `prov:atLocation`        | Where the sampling occurred                            | Yes      |
-| `prov:startedAtTime`     | When the sampling started                              | Yes      |
-| `prov:endedAtTime`       | When the sampling ended                                | Yes      |
-| `dcterms:description`    | Textual description of the sampling context or method  | Yes      |
+| :rdfterm[prov:generated]         | The resulting :rdfterm[sosa:Sample] from the sampling activity | No       |
+| :rdfterm[prov:used]              | The original :rdfterm[sosa:FeatureOfInterest] that was sampled | Yes      |
+| :rdfterm[prov:wasAssociatedWith] | Agent (person or instrument) involved in sampling      | Yes      |
+| :rdfterm[prov:atLocation]        | Where the sampling occurred                            | Yes      |
+| :rdfterm[prov:startedAtTime]     | When the sampling started                              | Yes      |
+| :rdfterm[prov:endedAtTime]       | When the sampling ended                                | Yes      |
+| :rdfterm[dcterms:description]    | Textual description of the sampling context or method  | Yes      |
 
 ---
 
-## 🧠 Composition
+## Composition
 
 Sampling is frequently performed prior to an observation and is responsible for producing the sample that is later studied:
 
@@ -69,7 +69,7 @@ ex:sample1 a sosa:Sample ;
 
 ---
 
-## 🧪 Example — Subsampling from a Core
+## Example — Subsampling from a Core
 
 ```turtle
 ex:sampling2 a sosa:Sampling ;
@@ -84,19 +84,19 @@ ex:subAliquot a sosa:Sample ;
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `sosa:Sample` — the result of a sampling
-* `prov:Activity` — superclass of `sosa:Sampling`
-* `prov:Entity` — used for both input (`prov:used`) and output (`prov:generated`)
-* `sosa:FeatureOfInterest` — origin of the sample
+* :rdfterm[sosa:Sample] — the result of a sampling
+* :rdfterm[prov:Activity] — superclass of :rdfterm[sosa:Sampling]
+* :rdfterm[prov:Entity] — used for both input (:rdfterm[prov:used]) and output (:rdfterm[prov:generated])
+* :rdfterm[sosa:FeatureOfInterest] — origin of the sample
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`sosa:Sampling`](https://www.w3.org/TR/vocab-ssn/#SOSASampling)
-* [`prov:Activity`](https://www.w3.org/TR/prov-o/#Activity)
-* [`sosa:Sample`](https://www.w3.org/TR/vocab-ssn/#SOSASample)
+* [:rdfterm[sosa:Sampling]](https://www.w3.org/TR/vocab-ssn/#SOSASampling)
+* [:rdfterm[prov:Activity]](https://www.w3.org/TR/prov-o/#Activity)
+* [:rdfterm[sosa:Sample]](https://www.w3.org/TR/vocab-ssn/#SOSASample)
 
-> `sosa:Sampling` defines the critical link between original context and derived material — essential for scientific traceability.
+> :rdfterm[sosa:Sampling] defines the critical link between original context and derived material — essential for scientific traceability.

@@ -1,6 +1,6 @@
 ---
 uuid: 7cf5b663-6761-444f-873c-33f89554634c
-title: 🧠 SDL Backend Architecture
+title: Backend Architecture
 author: SDL Team
 published: true
 ---
@@ -19,7 +19,7 @@ Each layer encapsulates distinct responsibilities, promoting separation of conce
 
 ---
 
-## 🔗 Linked Data Platform (LDP) in SDL
+## Linked Data Platform (LDP) in SDL
 
 The SDL adopts the [W3C Linked Data Platform](https://www.w3.org/TR/ldp/) standard, enabling resources to be accessed and managed using HTTP operations with RDF content negotiation. Key features include:
 
@@ -38,7 +38,7 @@ The SDL adopts the [W3C Linked Data Platform](https://www.w3.org/TR/ldp/) standa
 
 ---
 
-## 🔲 Layer 1: Storage Abstractions
+## Layer 1: Storage Abstractions
 
 This layer provides unified access to diverse storage backends:
 
@@ -55,7 +55,7 @@ This layer provides unified access to diverse storage backends:
 
 ---
 
-## ⚙️ Layer 2: Core Services
+## Layer 2: Core Services
 
 These services interact directly with Layer 1 abstractions to offer higher-order functionality.
 
@@ -75,13 +75,13 @@ These services form the operational and orchestration backbone of the SDL.
 
 ---
 
-## 🧩 Layer 3: Domain Services
+## Layer 3: Domain Services
 
 These services build on core services to provide domain-specific, user-facing functionality. They aggregate, manage, and expose scientific content in semantically meaningful ways.
 
 ### Catalog Service
 
-* Exposes `dcat:Catalog`, `dcat:Dataset`, and `dcat:Distribution`
+* Exposes :rdfterm[dcat:Catalog], :rdfterm[dcat:Dataset], and :rdfterm[dcat:Distribution]
 * Organizes datasets into hierarchical, discoverable catalogs
 * Uses LDP containers for dataset navigation
 
@@ -93,12 +93,12 @@ These services build on core services to provide domain-specific, user-facing fu
 ### Workspace Service
 
 * Implements collaborative workspaces akin to Notion
-* Manages `doco:Document`, `spar:Project`, and `sdlo:Page` resources
+* Manages :rdfterm[doco:Document], :rdfterm[spar:Project], and :rdfterm[sdlo:Page] resources
 * Utilizes ProseMirror and DoCO alignment for editable block content
 
 ---
 
-## 🔄 Inter-Service Relationships
+## Inter-Service Relationships
 
 ```plaintext
 +----------------------+     +---------------------+
@@ -121,7 +121,7 @@ Layer 3 services depend on the Registry and Data Transfer services for URI manag
 
 ---
 
-## 🔎 Microservice Overview
+## Microservice Overview
 
 All SDL services are implemented as **FastAPI-based Python microservices**. FastAPI is chosen for its:
 
@@ -180,7 +180,7 @@ All services use standardized middleware for:
 
 ---
 
-## ✨ Advantages of the Architecture
+## Advantages of the Architecture
 
 * **Modularity**: Each service is independently deployable
 * **Extensibility**: New services can be added at any layer
@@ -190,10 +190,10 @@ All services use standardized middleware for:
 
 ---
 
-## 🔮 Future Extensions
+## Future Extensions
 
-* Provenance tracking using `prov:Activity`, `prov:Agent`, and `prov:Entity`
-* Workflow execution using `pwo:Workflow`, `p-plan:Step`
+* Provenance tracking using :rdfterm[prov:Activity], :rdfterm[prov:Agent], and :rdfterm[prov:Entity]
+* Workflow execution using :rdfterm[pwo:Workflow], :rdfterm[p-plan:Step]
 * Real-time streaming via MQTT or AMPQ integrations
 * Event-based automation with workflow triggers
 

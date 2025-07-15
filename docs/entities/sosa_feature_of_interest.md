@@ -11,49 +11,49 @@ version: 1.0
 published: true
 ---
 
-The `sosa:FeatureOfInterest` class represents the entity whose properties are being observed or measured. In SDL, this typically refers to a sample, plot, material, or environment that is the subject of scientific observations.
+The :rdfterm[sosa:FeatureOfInterest] class represents the entity whose properties are being observed or measured. In SDL, this typically refers to a sample, plot, material, or environment that is the subject of scientific observations.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/sosa/FeatureOfInterest`
 
-> A `sosa:FeatureOfInterest` is an entity whose observable properties are of interest and are the target of an observation.
+> A :rdfterm[sosa:FeatureOfInterest] is an entity whose observable properties are of interest and are the target of an observation.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `sosa:FeatureOfInterest` is used to:
+In SDL, :rdfterm[sosa:FeatureOfInterest] is used to:
 
 * Link observations to the real-world or sample-based context being observed
 * Identify samples, environments, or systems whose properties are studied
 * Anchor measurements to features such as soil plots, water bodies, equipment, or specimens
 
-All `sosa:Observation` instances should include a `sosa:hasFeatureOfInterest` property pointing to the relevant feature.
+All :rdfterm[sosa:Observation] instances should include a :rdfterm[sosa:hasFeatureOfInterest] property pointing to the relevant feature.
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property               | Description                                            | Optional |
 | ---------------------- | ------------------------------------------------------ | -------- |
-| `dcterms:identifier`   | Unique ID or URI for the feature                       | Yes      |
-| `dcterms:title`        | Human-readable label                                   | Yes      |
-| `dcterms:description`  | Textual description of the feature                     | Yes      |
-| `geo:hasGeometry`      | Geospatial location or shape                           | Yes      |
-| `prov:wasAttributedTo` | Agent responsible for defining or curating the feature | Yes      |
-| `prov:wasGeneratedBy`  | Event or activity that originated the feature          | Yes      |
+| :rdfterm[dcterms:identifier]   | Unique ID or URI for the feature                       | Yes      |
+| :rdfterm[dcterms:title]        | Human-readable label                                   | Yes      |
+| :rdfterm[dcterms:description]  | Textual description of the feature                     | Yes      |
+| :rdfterm[geo:hasGeometry]      | Geospatial location or shape                           | Yes      |
+| :rdfterm[prov:wasAttributedTo] | Agent responsible for defining or curating the feature | Yes      |
+| :rdfterm[prov:wasGeneratedBy]  | Event or activity that originated the feature          | Yes      |
 
 ---
 
-## 🧠 Composition
+## Composition
 
 Any entity can be a feature of interest if it is linked from an observation. This includes:
 
-* `sosa:Sample` (e.g., a soil or water sample)
-* `sosa:Platform` (e.g., a rig or station)
+* :rdfterm[sosa:Sample] (e.g., a soil or water sample)
+* :rdfterm[sosa:Platform] (e.g., a rig or station)
 * Environmental features (e.g., locations, plots, ecosystems)
 
 ```turtle
@@ -68,7 +68,7 @@ ex:obsA a sosa:Observation ;
 
 ---
 
-## 🧪 Example — Plot as Feature of Interest
+## Example — Plot as Feature of Interest
 
 ```turtle
 ex:plot1 a sosa:FeatureOfInterest ;
@@ -83,19 +83,19 @@ ex:obsB a sosa:Observation ;
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `sosa:Observation` — observations reference features via `sosa:hasFeatureOfInterest`
-* `sosa:Sample` — typically also a `sosa:FeatureOfInterest`
-* `geo:Geometry` — describes location of spatial features
-* `prov:Entity` — used when tracking provenance of the feature
+* :rdfterm[sosa:Observation] — observations reference features via :rdfterm[sosa:hasFeatureOfInterest]
+* :rdfterm[sosa:Sample] — typically also a :rdfterm[sosa:FeatureOfInterest]
+* :rdfterm[geo:Geometry] — describes location of spatial features
+* :rdfterm[prov:Entity] — used when tracking provenance of the feature
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`sosa:FeatureOfInterest`](https://www.w3.org/TR/vocab-ssn/#SOSAFeatureOfInterest)
-* [`geo:hasGeometry`](https://www.w3.org/2003/01/geo/)
-* [`sosa:Observation`](https://www.w3.org/TR/vocab-ssn/#SOSAObservation)
+* [:rdfterm[sosa:FeatureOfInterest]](https://www.w3.org/TR/vocab-ssn/#SOSAFeatureOfInterest)
+* [:rdfterm[geo:hasGeometry]](https://www.w3.org/2003/01/geo/)
+* [:rdfterm[sosa:Observation]](https://www.w3.org/TR/vocab-ssn/#SOSAObservation)
 
-> `sosa:FeatureOfInterest` provides the semantic anchor for scientific measurements — ensuring all observations are clearly linked to their contextual targets.
+> :rdfterm[sosa:FeatureOfInterest] provides the semantic anchor for scientific measurements — ensuring all observations are clearly linked to their contextual targets.

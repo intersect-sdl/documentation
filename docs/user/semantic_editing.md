@@ -52,7 +52,7 @@ You can annotate content in two primary ways:
 - **Inline Annotation**: Highlight text to link it to a URI or concept
 - **Block Annotation**: Assign a semantic type or role to the entire block
 
-Autocomplete and vocabulary suggestions are available during annotation. Blocks may also display embedded metadata (e.g., `dc:creator`, `prov:wasGeneratedBy`).
+Autocomplete and vocabulary suggestions are available during annotation. Blocks may also display embedded metadata (e.g., `dc:creator`, :rdfterm[prov:wasGeneratedBy]).
 
 ---
 

@@ -11,57 +11,57 @@ version: 1.0
 published: true
 ---
 
-The `sosa:Observation` class represents the act of observing a property or phenomenon using a sensor, sampler, or procedure. In SDL, `sosa:Observation` is used to model the results of scientific measurements or analyses performed on physical samples or environments.
+The :rdfterm[sosa:Observation] class represents the act of observing a property or phenomenon using a sensor, sampler, or procedure. In SDL, :rdfterm[sosa:Observation] is used to model the results of scientific measurements or analyses performed on physical samples or environments.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/sosa/Observation`
 
-> A `sosa:Observation` is an act that results in the determination of the value of a property of a feature of interest.
+> A :rdfterm[sosa:Observation] is an act that results in the determination of the value of a property of a feature of interest.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `sosa:Observation` is used to:
+In SDL, :rdfterm[sosa:Observation] is used to:
 
 * Capture measurement events and analytic results
 * Link samples or features of interest to observed properties
 * Associate values, units, time, and responsible agents with recorded results
 * Trace provenance of derived data products
 
-Observations are often treated as `prov:Entity` to support attribution and workflow traceability.
+Observations are often treated as :rdfterm[prov:Entity] to support attribution and workflow traceability.
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property                    | Description                                         | Optional |
 | --------------------------- | --------------------------------------------------- | -------- |
-| `sosa:hasFeatureOfInterest` | The entity whose property is being observed         | No       |
-| `sosa:observedProperty`     | The property that is being measured or described    | No       |
-| `sosa:hasResult`            | The value or outcome of the observation             | No       |
-| `sosa:madeBySensor`         | The sensor or system that performed the observation | Yes      |
-| `sosa:usedProcedure`        | Procedure followed to obtain the observation        | Yes      |
-| `sosa:resultTime`           | Timestamp when the result became available          | Yes      |
-| `sosa:phenomenonTime`       | Time at which the observed phenomenon occurred      | Yes      |
-| `prov:wasGeneratedBy`       | Activity that generated the observation             | Yes      |
-| `prov:wasAttributedTo`      | Agent responsible for the observation               | Yes      |
-| `dcterms:identifier`        | Identifier for the observation                      | Yes      |
-| `dcterms:title`             | Human-readable title                                | Yes      |
-| `dcterms:description`       | Description or notes about the observation          | Yes      |
+| :rdfterm[sosa:hasFeatureOfInterest] | The entity whose property is being observed         | No       |
+| :rdfterm[sosa:observedProperty]     | The property that is being measured or described    | No       |
+| :rdfterm[sosa:hasResult]            | The value or outcome of the observation             | No       |
+| :rdfterm[sosa:madeBySensor]         | The sensor or system that performed the observation | Yes      |
+| :rdfterm[sosa:usedProcedure]        | Procedure followed to obtain the observation        | Yes      |
+| :rdfterm[sosa:resultTime]           | Timestamp when the result became available          | Yes      |
+| :rdfterm[sosa:phenomenonTime]       | Time at which the observed phenomenon occurred      | Yes      |
+| :rdfterm[prov:wasGeneratedBy]       | Activity that generated the observation             | Yes      |
+| :rdfterm[prov:wasAttributedTo]      | Agent responsible for the observation               | Yes      |
+| :rdfterm[dcterms:identifier]        | Identifier for the observation                      | Yes      |
+| :rdfterm[dcterms:title]             | Human-readable title                                | Yes      |
+| :rdfterm[dcterms:description]       | Description or notes about the observation          | Yes      |
 
 ---
 
-## 🧠 Composition
+## Composition
 
 Observations in SDL may:
 
-* Be associated with one or more `sosa:Sample`, `prov:Activity`, or `prov:Agent`
+* Be associated with one or more :rdfterm[sosa:Sample], :rdfterm[prov:Activity], or :rdfterm[prov:Agent]
 * Be used as evidence for derived datasets
-* Serve as entries in catalogs via `dcat:Resource`
+* Serve as entries in catalogs via :rdfterm[dcat:Resource]
 
 ```turtle
 ex:obs1 a sosa:Observation , prov:Entity ;
@@ -74,7 +74,7 @@ ex:obs1 a sosa:Observation , prov:Entity ;
 
 ---
 
-## 🧪 Example — Observation with Sample and Result
+## Example — Observation with Sample and Result
 
 ```turtle
 ex:sampleA a sosa:Sample ;
@@ -95,19 +95,19 @@ ex:obs1 a sosa:Observation , prov:Entity ;
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `sosa:Sample` — may be the feature of interest
-* `prov:Activity` — generating process
-* `qudt:QuantityValue` — type of result used in scientific observations
-* `dcat:Resource` — observations may be cataloged or referenced
+* :rdfterm[sosa:Sample] — may be the feature of interest
+* :rdfterm[prov:Activity] — generating process
+* :rdfterm[qudt:QuantityValue] — type of result used in scientific observations
+* :rdfterm[dcat:Resource] — observations may be cataloged or referenced
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`sosa:Observation`](https://www.w3.org/TR/vocab-ssn/#SOSAObservation)
-* [`sosa:Sample`](https://www.w3.org/TR/vocab-ssn/#SOSASample)
-* [`qudt:QuantityValue`](http://qudt.org/schema/qudt/QuantityValue)
+* [:rdfterm[sosa:Observation]](https://www.w3.org/TR/vocab-ssn/#SOSAObservation)
+* [:rdfterm[sosa:Sample]](https://www.w3.org/TR/vocab-ssn/#SOSASample)
+* [:rdfterm[qudt:QuantityValue]](http://qudt.org/schema/qudt/QuantityValue)
 
-> `sosa:Observation` enables granular, semantically rich modeling of scientific measurements in SDL. It supports provenance, cataloging, and data integration across disciplines.
+> :rdfterm[sosa:Observation] enables granular, semantically rich modeling of scientific measurements in SDL. It supports provenance, cataloging, and data integration across disciplines.

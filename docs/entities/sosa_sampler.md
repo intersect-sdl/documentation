@@ -11,44 +11,44 @@ version: 1.0
 published: true
 ---
 
-The `sosa:Sampler` class represents a device, software, or agent capable of executing a `sosa:Sampling` activity to produce a `sosa:Sample`. In SDL, samplers can be field tools, instruments, automated systems, or even human agents configured to collect samples.
+The :rdfterm[sosa:Sampler] class represents a device, software, or agent capable of executing a :rdfterm[sosa:Sampling] activity to produce a :rdfterm[sosa:Sample]. In SDL, samplers can be field tools, instruments, automated systems, or even human agents configured to collect samples.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/sosa/Sampler`
 
-> A `sosa:Sampler` is used by or implements a `sosa:Sampling` to produce `sosa:Sample` instances.
+> A :rdfterm[sosa:Sampler] is used by or implements a :rdfterm[sosa:Sampling] to produce :rdfterm[sosa:Sample] instances.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `sosa:Sampler` is used to:
+In SDL, :rdfterm[sosa:Sampler] is used to:
 
 * Identify equipment or processes involved in collecting samples
-* Link a `sosa:Sampling` activity to its executing agent or system
+* Link a :rdfterm[sosa:Sampling] activity to its executing agent or system
 * Enable modeling of automated sampling workflows or manual collection procedures
 
 Samplers help trace the origin of samples and support reproducibility.
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property               | Description                                                      | Optional |
 | ---------------------- | ---------------------------------------------------------------- | -------- |
-| `dcterms:identifier`   | Unique ID for the sampler                                        | Yes      |
-| `dcterms:title`        | Human-readable name or label                                     | Yes      |
-| `dcterms:description`  | Description of what the sampler does or how it functions         | Yes      |
-| `sosa:madeSampling`    | Link to `sosa:Sampling` events this sampler executed             | Yes      |
-| `sosa:hosts`           | If hosted on a `sosa:Platform`                                   | Yes      |
-| `prov:wasAttributedTo` | Associated agent or system responsible for operating the sampler | Yes      |
+| :rdfterm[dcterms:identifier]   | Unique ID for the sampler                                        | Yes      |
+| :rdfterm[dcterms:title]        | Human-readable name or label                                     | Yes      |
+| :rdfterm[dcterms:description]  | Description of what the sampler does or how it functions         | Yes      |
+| `sosa:madeSampling`    | Link to :rdfterm[sosa:Sampling] events this sampler executed             | Yes      |
+| :rdfterm[sosa:hosts]           | If hosted on a :rdfterm[sosa:Platform]                                   | Yes      |
+| :rdfterm[prov:wasAttributedTo] | Associated agent or system responsible for operating the sampler | Yes      |
 
 ---
 
-## 🧠 Composition
+## Composition
 
 Samplers can be physical instruments or logical software agents. They are usually connected to sampling workflows via `sosa:madeSampling`.
 
@@ -63,7 +63,7 @@ ex:samplingEvent1 a sosa:Sampling ;
 
 ---
 
-## 🧪 Example — Software Sampler
+## Example — Software Sampler
 
 ```turtle
 ex:autoSamplerApp a sosa:Sampler , prov:SoftwareAgent ;
@@ -73,19 +73,19 @@ ex:autoSamplerApp a sosa:Sampler , prov:SoftwareAgent ;
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `sosa:Sampling` — action executed by a sampler
-* `sosa:Sample` — outcome of a sampling
-* `sosa:Platform` — may host a sampler
-* `prov:Agent` — responsible person or software
+* :rdfterm[sosa:Sampling] — action executed by a sampler
+* :rdfterm[sosa:Sample] — outcome of a sampling
+* :rdfterm[sosa:Platform] — may host a sampler
+* :rdfterm[prov:Agent] — responsible person or software
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`sosa:Sampler`](https://www.w3.org/TR/vocab-ssn/#SOSASampler)
-* [`sosa:Sampling`](https://www.w3.org/TR/vocab-ssn/#SOSASampling)
-* [`prov:Agent`](https://www.w3.org/TR/prov-o/#Agent)
+* [:rdfterm[sosa:Sampler]](https://www.w3.org/TR/vocab-ssn/#SOSASampler)
+* [:rdfterm[sosa:Sampling]](https://www.w3.org/TR/vocab-ssn/#SOSASampling)
+* [:rdfterm[prov:Agent]](https://www.w3.org/TR/prov-o/#Agent)
 
-> `sosa:Sampler` enables SDL to document the agents and instruments behind every sample — providing a vital link for traceability, method repeatability, and quality assurance.
+> :rdfterm[sosa:Sampler] enables SDL to document the agents and instruments behind every sample — providing a vital link for traceability, method repeatability, and quality assurance.

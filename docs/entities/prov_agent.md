@@ -11,21 +11,21 @@ version: 1.0
 published: true
 ---
 
-The `prov:Agent` class identifies entities that take responsibility for actions or data in provenance models. In SDL, `prov:Agent` is used to associate people, systems, or organizations with datasets, samples, workflows, or activities.
+The :rdfterm[prov:Agent] class identifies entities that take responsibility for actions or data in provenance models. In SDL, :rdfterm[prov:Agent] is used to associate people, systems, or organizations with datasets, samples, workflows, or activities.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/prov#Agent`
 
-> An `prov:Agent` is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent’s activity.
+> An :rdfterm[prov:Agent] is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent’s activity.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `prov:Agent` is used to:
+In SDL, :rdfterm[prov:Agent] is used to:
 
 * Attribute dataset creation or processing to people or systems
 * Link activities to executing agents
@@ -34,32 +34,32 @@ In SDL, `prov:Agent` is used to:
 
 Agents may be used as:
 
-* `prov:wasAttributedTo` target for `prov:Entity`
-* `prov:wasAssociatedWith` target for `prov:Activity`
+* :rdfterm[prov:wasAttributedTo] target for :rdfterm[prov:Entity]
+* :rdfterm[prov:wasAssociatedWith] target for :rdfterm[prov:Activity]
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property               | Description                                                                             | Optional |
 | ---------------------- | --------------------------------------------------------------------------------------- | -------- |
-| `prov:actedOnBehalfOf` | Identifies a delegation relationship between agents                                     | Yes      |
-| `prov:atLocation`      | Physical or digital location of the agent                                               | Yes      |
-| `foaf:name`            | Name of the agent                                                                       | No       |
-| `foaf:mbox`            | Email address                                                                           | Yes      |
-| `foaf:homepage`        | Web page or profile link                                                                | Yes      |
-| `dcterms:identifier`   | Agent identifier                                                                        | Yes      |
-| `rdf:type`             | Used to distinguish types like `foaf:Person`, `prov:SoftwareAgent`, `prov:Organization` | No       |
+| :rdfterm[prov:actedOnBehalfOf] | Identifies a delegation relationship between agents                                     | Yes      |
+| :rdfterm[prov:atLocation]      | Physical or digital location of the agent                                               | Yes      |
+| :rdfterm[foaf:name]            | Name of the agent                                                                       | No       |
+| :rdfterm[foaf:mbox]            | Email address                                                                           | Yes      |
+| :rdfterm[foaf:homepage]        | Web page or profile link                                                                | Yes      |
+| :rdfterm[dcterms:identifier]   | Agent identifier                                                                        | Yes      |
+| :rdfterm[rdf:type]             | Used to distinguish types like :rdfterm[foaf:Person], :rdfterm[prov:SoftwareAgent], :rdfterm[prov:Organization] | No       |
 
 ---
 
-## 🧠 Composition
+## Composition
 
 Agents in SDL are usually subclassed or typed with more specific classes like:
 
-* `foaf:Person`
-* `prov:SoftwareAgent`
-* `prov:Organization`
+* :rdfterm[foaf:Person]
+* :rdfterm[prov:SoftwareAgent]
+* :rdfterm[prov:Organization]
 
 ```turtle
 ex:agent1 a prov:Agent , foaf:Person ;
@@ -69,7 +69,9 @@ ex:agent1 a prov:Agent , foaf:Person ;
 
 ---
 
-## 🧪 Example — Dataset Attribution
+## Examples
+
+### Dataset Attribution
 
 ```turtle
 ex:dataset1 a dcat:Dataset , prov:Entity ;
@@ -82,7 +84,7 @@ ex:agent1 a prov:Agent , prov:SoftwareAgent ;
 
 ---
 
-## 🧪 Example — Software Agent
+### Software Agent
 
 ```turtle
 ex:scriptAgent a prov:Agent , prov:SoftwareAgent ;
@@ -97,7 +99,7 @@ ex:activity1 a prov:Activity ;
 
 ---
 
-## 🧪 Example — Organization and Delegation
+### Organization and Delegation
 
 ```turtle
 ex:labOrg a prov:Agent , prov:Organization ;
@@ -115,18 +117,18 @@ ex:activity2 a prov:Activity ;
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `prov:Entity` — the thing that was created or modified
-* `prov:Activity` — the process or execution trace
-* `foaf:Person`, `prov:Organization` — subclasses of `prov:Agent`
+* :rdfterm[prov:Entity] — the thing that was created or modified
+* :rdfterm[prov:Activity] — the process or execution trace
+* :rdfterm[foaf:Person], :rdfterm[prov:Organization] — subclasses of :rdfterm[prov:Agent]
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`prov:Agent`](https://www.w3.org/TR/prov-o/#Agent)
-* [`foaf:Person`](http://xmlns.com/foaf/spec/#term_Person)
-* [`prov:SoftwareAgent`](https://www.w3.org/TR/prov-o/#SoftwareAgent)
+* [:rdfterm[prov:Agent]](https://www.w3.org/TR/prov-o/#Agent)
+* [:rdfterm[foaf:Person]](http://xmlns.com/foaf/spec/#term_Person)
+* [:rdfterm[prov:SoftwareAgent]](https://www.w3.org/TR/prov-o/#SoftwareAgent)
 
 > Provenance agents form the human and computational backbone of scientific data lifecycles in SDL — enabling accountability, transparency, and proper attribution.

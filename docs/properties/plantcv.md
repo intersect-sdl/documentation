@@ -6,11 +6,11 @@ published: true
 
 Based on [**PlantCV**](https://plantcv.danforthcenter.org/), which is an open-source image analysis tool for plant phenotyping, one can derive a structured list of **plant phenotyping properties** it computes. These correspond to **morphological**, **color**, **shape**, and **derived traits** extracted from image data.
 
-The following is categorized list of **PlantCV-derived properties** you can use in RDF/semantic models (e.g., as `sosa:ObservableProperty` or `ssn:Property`).
+The following is categorized list of **PlantCV-derived properties** you can use in RDF/semantic models (e.g., as `sosa:ObservableProperty` or :rdfterm[ssn:Property]).
 
 ---
 
-## 🌿 **Morphological / Geometric Properties**
+## Morphological / Geometric Properties
 
 | Property                         | Description                                             |
 | -------------------------------- | ------------------------------------------------------- |
@@ -30,7 +30,7 @@ The following is categorized list of **PlantCV-derived properties** you can use 
 
 ---
 
-## 🌈 **Color Properties**
+## Color Properties
 
 | Property                                    | Description                                               |
 | ------------------------------------------- | --------------------------------------------------------- |
@@ -44,7 +44,7 @@ The following is categorized list of **PlantCV-derived properties** you can use 
 
 ---
 
-## 🔢 **Shape Descriptors**
+## Shape Descriptors
 
 | Property             | Description                                              |
 | -------------------- | -------------------------------------------------------- |
@@ -56,7 +56,7 @@ The following is categorized list of **PlantCV-derived properties** you can use 
 
 ---
 
-## 🌿 **Mask-based Traits / Pseudo-color Segmentation**
+## Mask-based Traits / Pseudo-color Segmentation
 
 | Property                  | Description                                                  |
 | ------------------------- | ------------------------------------------------------------ |
@@ -68,7 +68,7 @@ The following is categorized list of **PlantCV-derived properties** you can use 
 
 ---
 
-## 🌾 **Derived or Temporal Traits** *(requires time series)*
+## Derived or Temporal Traits *(requires time series)*
 
 | Property              | Description                                         |
 | --------------------- | --------------------------------------------------- |
@@ -79,7 +79,7 @@ The following is categorized list of **PlantCV-derived properties** you can use 
 
 ---
 
-## 🧩 Suggested RDF Modeling Pattern
+## Suggested RDF Modeling Pattern
 
 Each property could be defined as a `sosa:ObservableProperty`, like:
 

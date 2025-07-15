@@ -24,12 +24,12 @@ The SDL is an end-to-end framework for managing scientific data using a system-o
 
 You can manage a wide range of scientific entities including:
 
-* Observations (`sosa:Observation`)
-* Samples (`sosa:Sample`)
-* Platforms and systems (`sosa:Platform`, `ssn:System`)
-* Deployments (`ssn:Deployment`)
-* Catalogs and datasets (`dcat:Catalog`, `dcat:Dataset`)
-* Agents and activities (`prov:Agent`, `prov:Activity`)
+* Observations (:rdfterm[sosa:Observation])
+* Samples (:rdfterm[sosa:Sample])
+* Platforms and systems (:rdfterm[sosa:Platform], :rdfterm[ssn:System])
+* Deployments (:rdfterm[ssn:Deployment])
+* Catalogs and datasets (:rdfterm[dcat:Catalog], :rdfterm[dcat:Dataset])
+* Agents and activities (:rdfterm[prov:Agent], :rdfterm[prov:Activity])
 
 ---
 
@@ -43,20 +43,20 @@ SDL organizes data using LDP containers. These containers group related entities
 
 To create an observation:
 
-1. Define the observed property (`ssn:Property`)
+1. Define the observed property (:rdfterm[ssn:Property])
 2. Link the feature of interest (e.g., a sample or environment)
 3. Provide a result value (e.g., pH, temperature)
 4. Optionally, associate the observation with the sensor and the time it occurred
 
-SDL uses `sosa:Observation` entities for this purpose.
+SDL uses :rdfterm[sosa:Observation] entities for this purpose.
 
 ---
 
 ## 🧬 How do I represent samples?
 
-Samples are represented using `sosa:Sample`. They can:
+Samples are represented using :rdfterm[sosa:Sample]. They can:
 
-* Reference their origin using `sosa:isSampleOf`
+* Reference their origin using :rdfterm[sosa:isSampleOf]
 * Be used as features of interest in observations
 * Carry provenance information about collection (who, when, where)
 
@@ -64,13 +64,13 @@ Samples are represented using `sosa:Sample`. They can:
 
 ## 🗃 How are datasets and files handled?
 
-Datasets are modeled as `dcat:Dataset` entities. Files and downloadable content are modeled as `dcat:Distribution`, which link to URLs, checksums, media types, and related metadata.
+Datasets are modeled as :rdfterm[dcat:Dataset] entities. Files and downloadable content are modeled as :rdfterm[dcat:Distribution], which link to URLs, checksums, media types, and related metadata.
 
 ---
 
 ## 🧭 How do I trace provenance?
 
-SDL supports full provenance modeling via `prov:Entity`, `prov:Activity`, and `prov:Agent`. These classes allow you to:
+SDL supports full provenance modeling via :rdfterm[prov:Entity], :rdfterm[prov:Activity], and :rdfterm[prov:Agent]. These classes allow you to:
 
 * Attribute data to people, organizations, or software
 * Document how data was generated or transformed

@@ -12,10 +12,10 @@ This survey is intended to be **interactive** and **ontology-aligned**, useful f
 
 ### 1. **General Platform Information**
 
-* **Platform Name** (`dct:title`)
+* **Platform Name** (:rdfterm[dcterms:title])
 * **Platform Identifier (URI)** (auto-generated or user-defined)
-* **Description** (`dct:description`)
-* **Operator / Responsible Agent** (`prov:wasAssociatedWith`)
+* **Description** (:rdfterm[dcterms:description])
+* **Operator / Responsible Agent** (:rdfterm[prov:wasAssociatedWith])
 * **Geographic Location**
 
   * Site / Facility Name
@@ -30,8 +30,8 @@ This survey is intended to be **interactive** and **ontology-aligned**, useful f
 * **Is this platform deployed?** (Yes/No)
 * If yes:
 
-  * **Deployment start date/time** (`prov:startedAtTime`)
-  * **Deployment end date/time** (`prov:endedAtTime`) (optional)
+  * **Deployment start date/time** (:rdfterm[prov:startedAtTime])
+  * **Deployment end date/time** (:rdfterm[prov:endedAtTime]) (optional)
   * **Deployment location** (as above)
   * **Deployment Purpose / Campaign** (e.g. "Soil Carbon Monitoring 2024")
 
@@ -41,7 +41,7 @@ This survey is intended to be **interactive** and **ontology-aligned**, useful f
 
 *For each:*
 
-* **Feature of Interest** (e.g., "Soil Moisture", "Air Temperature") (`sosa:hasFeatureOfInterest`)
+* **Feature of Interest** (e.g., "Soil Moisture", "Air Temperature") (:rdfterm[sosa:hasFeatureOfInterest])
 * **Units of Measurement** (QUDT, OM, etc.)
 * **Frequency of Observation**
 * **Sampling Strategy** (random, regular, continuous)
@@ -66,12 +66,12 @@ This survey is intended to be **interactive** and **ontology-aligned**, useful f
 
 ### 5. **System Composition**
 
-#### Add each `ssn:System` used:
+#### Add each :rdfterm[ssn:System] used:
 
 For each system:
 
 * **Name / Identifier**
-* **Type** (Sensor, Actuator, Control System, etc.) (`rdf:type`)
+* **Type** (Sensor, Actuator, Control System, etc.) (:rdfterm[rdf:type])
 * **Description**
 * **Manufacturer**
 * **Model Number**
@@ -83,14 +83,14 @@ For each system:
 
 ### 6. **Sensors**
 
-*For each sensor (a subtype of `ssn:System`):*
+*For each sensor (a subtype of :rdfterm[ssn:System]):*
 
 * **Sensor Name**
-* **What does it observe?** (`sosa:observes`)
+* **What does it observe?** (:rdfterm[sosa:observes])
 * **Output Format / Units**
 * **Calibration Info (if any)**
 * **Data Rate / Sampling Frequency**
-* **Linked to what system/platform?** (`ssn:isHostedBy`)
+* **Linked to what system/platform?** (:rdfterm[ssn:isHostedBy])
 
 ---
 
@@ -102,7 +102,7 @@ For each system:
 * **Function / Role** (e.g. valve control, pump operation)
 * **Controlled Property** (e.g., flow rate, temperature)
 * **Input Type / Signal**
-* **Controlled by what system?** (`ssn:hasSubSystem` or external agent)
+* **Controlled by what system?** (:rdfterm[ssn:hasSubSystem] or external agent)
 
 ---
 
@@ -133,7 +133,7 @@ For each system:
 * **Date of last calibration**
 * **Maintenance interval**
 * **Last updated by** (agent/organization)
-* **Additional provenance notes** (`prov:wasGeneratedBy`, `prov:wasAttributedTo`)
+* **Additional provenance notes** (:rdfterm[prov:wasGeneratedBy], :rdfterm[prov:wasAttributedTo])
 
 ---
 
@@ -145,6 +145,6 @@ For each system:
 * **Would you like to upload ontology-aligned metadata?**
 * **Associated Resources:**
 
-  * **Datasets** (`dcat:Dataset`)
-  * **Distribution endpoints** (`dcat:Distribution`)
+  * **Datasets** (:rdfterm[dcat:Dataset])
+  * **Distribution endpoints** (:rdfterm[dcat:Distribution])
   * **API URL or SPARQL endpoint**

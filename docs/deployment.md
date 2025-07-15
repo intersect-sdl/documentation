@@ -8,7 +8,7 @@ This guide walks you through deploying the Scientific Data Layer (SDL) using Doc
 
 ---
 
-## 🐳 Local Development with Docker Compose
+## Local Development with Docker Compose
 
 ### Prerequisites
 
@@ -56,7 +56,7 @@ JWT_SECRET=your-secret-token
 
 ---
 
-## ☁️ Kubernetes Deployment (Advanced)
+## Kubernetes Deployment (Advanced)
 
 ### Requirements
 
@@ -81,7 +81,7 @@ kubectl apply -f k8s/catalog-service.yaml
 
 ---
 
-## 📦 Data Stores
+## Data Stores
 
 SDL supports multiple storage backends:
 
@@ -93,7 +93,7 @@ SDL supports multiple storage backends:
 
 ---
 
-## 🔐 Authentication
+## Authentication
 
 * Token-based auth via API Gateway or service middleware
 * JWT tokens must be included in request headers:
@@ -106,7 +106,7 @@ Authorization: Bearer <your-token>
 
 ---
 
-## 🧪 Health Checks
+## Health Checks
 
 Each service exposes:
 
@@ -115,7 +115,7 @@ Each service exposes:
 
 ---
 
-## 🛠 Troubleshooting
+## Troubleshooting
 
 * Use `docker compose logs -f` to debug services
 * Check RDF graph store at `/blazegraph` UI
@@ -123,7 +123,7 @@ Each service exposes:
 
 ---
 
-## 📁 Additional Resources
+## Additional Resources
 
 * [Blazegraph](https://github.com/blazegraph/database)
 * [MinIO](https://min.io/docs/minio)

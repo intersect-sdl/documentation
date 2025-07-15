@@ -8,8 +8,6 @@ published: true
 ---
 > **Disclaimer:** Many of the features described in this guide are still in planning or active development. Some functionality may not yet be available in your instance.
 
-# Architecture Overview
-
 The Scientific Data Layer (SDL) is a modular and extensible platform designed to manage scientific data using semantic web principles. It implements a system-of-systems architecture composed of microservices and semantic UI components.
 
 This guide introduces the SDL architecture, highlighting its main frontend and backend components and their interactions.

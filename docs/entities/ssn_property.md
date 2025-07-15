@@ -11,45 +11,43 @@ version: 1.0
 published: true
 ---
 
-# `ssn:Property`
-
-The `ssn:Property` class represents observable or measurable characteristics of real-world entities. In SDL, `ssn:Property` is used to define what is being observed by a system or sensor, such as temperature, pH, or conductivity.
+The :rdfterm[ssn:Property] class represents observable or measurable characteristics of real-world entities. In SDL, :rdfterm[ssn:Property] is used to define what is being observed by a system or sensor, such as temperature, pH, or conductivity.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/ssn/Property`
 
-> A `ssn:Property` is an aspect of an entity that can be observed or measured by a sensor or computation.
+> A :rdfterm[ssn:Property] is an aspect of an entity that can be observed or measured by a sensor or computation.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `ssn:Property` is used to:
+In SDL, :rdfterm[ssn:Property] is used to:
 
 * Define the type of phenomenon being observed
 * Drive consistency across observation data
 * Enable semantic alignment with domain ontologies and units
 
-A `ssn:Property` is typically linked from `sosa:Observation` using `sosa:observedProperty`, and from `ssn:System` using `ssn:forProperty`.
+A :rdfterm[ssn:Property] is typically linked from :rdfterm[sosa:Observation] using :rdfterm[sosa:observedProperty], and from :rdfterm[ssn:System] using `ssn:forProperty`.
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property              | Description                                             | Optional |
 | --------------------- | ------------------------------------------------------- | -------- |
-| `dcterms:identifier`  | A unique ID for the property                            | Yes      |
-| `dcterms:title`       | A human-readable label                                  | Yes      |
-| `dcterms:description` | Free-text description of what the property measures     | Yes      |
-| `rdfs:subClassOf`     | Optional semantic classification from a domain ontology | Yes      |
-| `skos:exactMatch`     | External URI that semantically matches the property     | Yes      |
+| :rdfterm[dcterms:identifier]  | A unique ID for the property                            | Yes      |
+| :rdfterm[dcterms:title]       | A human-readable label                                  | Yes      |
+| :rdfterm[dcterms:description] | Free-text description of what the property measures     | Yes      |
+| :rdfterm[rdfs:subClassOf]     | Optional semantic classification from a domain ontology | Yes      |
+| :rdfterm[skos:exactMatch]     | External URI that semantically matches the property     | Yes      |
 
 ---
 
-## 🧠 Composition and Relationships
+## Composition and Relationships
 
 Properties are used in both observation and deployment models:
 
@@ -65,7 +63,7 @@ ex:obs123 a sosa:Observation ;
 
 ---
 
-## 🔗 Common Properties in SDL
+## Common Properties in SDL
 
 Here are some common properties used in SDL:
 
@@ -79,18 +77,18 @@ Here are some common properties used in SDL:
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `sosa:Observation` — uses `sosa:observedProperty`
-* `ssn:System` — configured to detect specific `ssn:Property`
-* `qudt:QuantityKind` — semantic alignment to units and scientific meaning
+* :rdfterm[sosa:Observation] — uses :rdfterm[sosa:observedProperty]
+* :rdfterm[ssn:System] — configured to detect specific :rdfterm[ssn:Property]
+* :rdfterm[qudt:QuantityKind] — semantic alignment to units and scientific meaning
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`ssn:Property`](https://www.w3.org/TR/vocab-ssn/#Property)
-* [`qudt:QuantityKind`](http://qudt.org/schema/qudt/QuantityKind)
-* [`sosa:observedProperty`](https://www.w3.org/TR/vocab-ssn/#SOSAobservedProperty)
+* [:rdfterm[ssn:Property]](https://www.w3.org/TR/vocab-ssn/#Property)
+* [:rdfterm[qudt:QuantityKind]](http://qudt.org/schema/qudt/QuantityKind)
+* [:rdfterm[sosa:observedProperty]](https://www.w3.org/TR/vocab-ssn/#SOSAobservedProperty)
 
-> `ssn:Property` connects what is being sensed to a shared semantic understanding — a foundation for interoperable scientific data.
+> :rdfterm[ssn:Property] connects what is being sensed to a shared semantic understanding — a foundation for interoperable scientific data.

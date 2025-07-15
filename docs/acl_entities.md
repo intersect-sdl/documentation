@@ -1,6 +1,6 @@
 ---
 title: Entities of the ACL data management system (DMS)
-published: false
+published: true
 ---
 
 ## List of Entities

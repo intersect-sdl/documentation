@@ -8,7 +8,7 @@ The following is a list of **properties typical to solid-state chemistry**, orga
 
 ---
 
-## ⚛️ **1. Structural Properties**
+## Structural Properties
 
 | Property            | Description                                                    | Common Units    |
 | ------------------- | -------------------------------------------------------------- | --------------- |
@@ -21,7 +21,7 @@ The following is a list of **properties typical to solid-state chemistry**, orga
 
 ---
 
-## ⚙️ **2. Synthesis & Phase Properties**
+## Synthesis & Phase Properties
 
 | Property                 | Description                                                     | Common Units    |
 | ------------------------ | --------------------------------------------------------------- | --------------- |
@@ -33,7 +33,7 @@ The following is a list of **properties typical to solid-state chemistry**, orga
 
 ---
 
-## 🔋 **3. Electronic Properties**
+## Electronic Properties
 
 | Property                    | Description                                           | Common Units |
 | --------------------------- | ----------------------------------------------------- | ------------ |
@@ -46,7 +46,7 @@ The following is a list of **properties typical to solid-state chemistry**, orga
 
 ---
 
-## 🧲 **4. Magnetic Properties**
+## Magnetic Properties
 
 | Property           | Description                                       | Common Units |
 | ------------------ | ------------------------------------------------- | ------------ |
@@ -57,7 +57,7 @@ The following is a list of **properties typical to solid-state chemistry**, orga
 
 ---
 
-## 🔥 **5. Thermal Properties**
+## Thermal Properties
 
 | Property              | Description                                       | Common Units |
 | --------------------- | ------------------------------------------------- | ------------ |
@@ -69,7 +69,7 @@ The following is a list of **properties typical to solid-state chemistry**, orga
 
 ---
 
-## 🧱 **6. Mechanical Properties**
+## Mechanical Properties
 
 | Property            | Description                                     | Common Units       |
 | ------------------- | ----------------------------------------------- | ------------------ |
@@ -81,7 +81,7 @@ The following is a list of **properties typical to solid-state chemistry**, orga
 
 ---
 
-## 📊 **Optional Metadata Properties**
+## Optional Metadata Properties
 
 | Property          | Description                                            | Common Values    |
 | ----------------- | ------------------------------------------------------ | ---------------- |
@@ -92,7 +92,7 @@ The following is a list of **properties typical to solid-state chemistry**, orga
 
 ---
 
-## 🔗 Ontology Suggestions
+## Ontology Suggestions
 
 If you want to encode these properties in RDF, consider aligning with:
 

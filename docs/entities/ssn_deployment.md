@@ -11,21 +11,21 @@ version: 1.0
 published: true
 ---
 
-The `ssn:Deployment` class models the situation in which a system or sensor is deployed in a particular configuration at a particular location and time. In SDL, `ssn:Deployment` is used to track how instruments, rigs, or sensors are arranged in the field or lab, and to describe their operational context.
+The :rdfterm[ssn:Deployment] class models the situation in which a system or sensor is deployed in a particular configuration at a particular location and time. In SDL, :rdfterm[ssn:Deployment] is used to track how instruments, rigs, or sensors are arranged in the field or lab, and to describe their operational context.
 
 ---
 
-## 🔎 Definition
+## Definition
 
 **URI**: `http://www.w3.org/ns/ssn/Deployment`
 
-> A `ssn:Deployment` is a situation in which a system (sensor, actuator, sampler) is deployed for a particular purpose in a given context.
+> A :rdfterm[ssn:Deployment] is a situation in which a system (sensor, actuator, sampler) is deployed for a particular purpose in a given context.
 
 ---
 
-## 📐 Usage in SDL
+## Usage in SDL
 
-In SDL, `ssn:Deployment` is used to:
+In SDL, :rdfterm[ssn:Deployment] is used to:
 
 * Represent sensor rigs, stations, or platforms in the field
 * Track the arrangement and use of system components
@@ -34,33 +34,33 @@ In SDL, `ssn:Deployment` is used to:
 
 Each deployment may describe:
 
-* The deployed system (`ssn:deployedSystem`)
+* The deployed system (:rdfterm[ssn:deployedSystem])
 * The target or purpose of deployment (`ssn:forProperty`, `prov:hadPrimarySource`)
 * Associated agents, locations, and time windows
 
 ---
 
-## 🔄 Properties
+## Properties
 
 | Property                 | Description                                          | Optional |
 | ------------------------ | ---------------------------------------------------- | -------- |
-| `ssn:deployedSystem`     | The `ssn:System` being deployed                      | No       |
-| `ssn:deployedOnPlatform` | Platform or host on which the system is deployed     | Yes      |
-| `dcterms:location`       | Geospatial or descriptive location of the deployment | Yes      |
-| `prov:startedAtTime`     | When the deployment began                            | Yes      |
-| `prov:endedAtTime`       | When the deployment ended                            | Yes      |
-| `prov:wasAssociatedWith` | The agent responsible for the deployment             | Yes      |
-| `dcterms:identifier`     | Deployment identifier                                | Yes      |
-| `dcterms:title`          | Human-readable title                                 | Yes      |
-| `dcterms:description`    | Description of the deployment                        | Yes      |
+| :rdfterm[ssn:deployedSystem]     | The :rdfterm[ssn:System] being deployed                      | No       |
+| :rdfterm[ssn:deployedOnPlatform] | Platform or host on which the system is deployed     | Yes      |
+| :rdfterm[dcterms:location]       | Geospatial or descriptive location of the deployment | Yes      |
+| :rdfterm[prov:startedAtTime]     | When the deployment began                            | Yes      |
+| :rdfterm[prov:endedAtTime]       | When the deployment ended                            | Yes      |
+| :rdfterm[prov:wasAssociatedWith] | The agent responsible for the deployment             | Yes      |
+| :rdfterm[dcterms:identifier]     | Deployment identifier                                | Yes      |
+| :rdfterm[dcterms:title]          | Human-readable title                                 | Yes      |
+| :rdfterm[dcterms:description]    | Description of the deployment                        | Yes      |
 
 ---
 
-## 🧠 Composition
+## Composition
 
 A deployment defines a relationship between:
 
-* One or more `ssn:System` instances
+* One or more :rdfterm[ssn:System] instances
 * A time-bounded activity context
 * A platform or location where deployment occurred
 
@@ -74,7 +74,7 @@ ex:deploymentA a ssn:Deployment ;
 
 ---
 
-## 🧪 Example — Multiple Deployments
+## Example — Multiple Deployments
 
 ```turtle
 ex:deployment1 a ssn:Deployment ;
@@ -93,18 +93,18 @@ ex:deployment2 a ssn:Deployment ;
 
 ---
 
-## 🗂 Related Classes
+## Related Classes
 
-* `ssn:System` — the deployed sensor or system
-* `prov:Activity` — temporal framing and process tracking
-* `dcat:Resource` — deployments may be cataloged as resources
+* :rdfterm[ssn:System] — the deployed sensor or system
+* :rdfterm[prov:Activity] — temporal framing and process tracking
+* :rdfterm[dcat:Resource] — deployments may be cataloged as resources
 
 ---
 
-## 📘 See Also
+## See Also
 
-* [`ssn:Deployment`](https://www.w3.org/TR/vocab-ssn/#SOSADeployment)
-* [`ssn:System`](https://www.w3.org/TR/vocab-ssn/#System)
-* [`sosa:Platform`](https://www.w3.org/TR/vocab-ssn/#SOSAPlatform)
+* [:rdfterm[ssn:Deployment]](https://www.w3.org/TR/vocab-ssn/#SOSADeployment)
+* [:rdfterm[ssn:System]](https://www.w3.org/TR/vocab-ssn/#System)
+* [:rdfterm[sosa:Platform]](https://www.w3.org/TR/vocab-ssn/#SOSAPlatform)
 
-> `ssn:Deployment` enables SDL to track when and where systems are used, how long they operate, and in what configuration — supporting reuse, reproducibility, and field auditability.
+> :rdfterm[ssn:Deployment] enables SDL to track when and where systems are used, how long they operate, and in what configuration — supporting reuse, reproducibility, and field auditability.

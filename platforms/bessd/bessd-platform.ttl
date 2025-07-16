@@ -1,0 +1,471 @@
+@prefix : <file:///Users/x8q/Projects/INTERSECT/SDL/platforms/bessd/bessd-platform.ttl#> .
+@prefix bessd: <http://example.com/bessd/> .
+@prefix cdt: <http://w3id.org/lindt/custom_datatypes#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix licor: <http://example.com/licor> .
+@prefix qudt: <http://qudt.org/1.1/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix soilcosm: <http://example.com/bessd/soilcosm/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/1.1/vocab/unit#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Licor Platform and System Descriptions
+licor:LI8250 a sosa:Platform, ssn:System ;
+  rdfs:label "LI-8250 Multiplexer"@en ;
+  sosa:hosts
+        licor:TemperatureCaseSensor,
+        licor:PressureAtmosphericSensor,
+        licor:PressureTemperatureSensor,
+        licor:PumpPositivePressureSensor,
+        licor:PumpNegativePressureSensor,
+        licor:FlowPressureSensor,
+        licor:SubsampleFlowPressureSensor,
+        licor:LatitudeSensor,
+        licor:LongitudeSensor,
+        licor:SatellitesSensor,
+        licor:AltitudeSensor,
+        licor:FlowSensor,
+        licor:PumpTimeSensor,
+        licor:PumpSetpointSensor,
+        licor:PumpCurrentSensor,
+        licor:SubsamplePressureSensor,
+        licor:SubsampleFlowSensor,
+        licor:VSOFlowSetpointSensor,
+        licor:VSOPressureSetpointSensor,
+        licor:PortCurrentSensor,
+        licor:SolenoidCurrentSensor,
+        licor:Current12VDCSensor,
+        licor:VoltageInSensor,
+        licor:VoltageOutSensor,
+        licor:VSOFlowControlVoltageSensor,
+        licor:VSOPressureControlVoltageSensor,
+        licor:Voltage5VSensor,
+        licor:Voltage12VSensor .
+
+licor:TemperatureCaseSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:TemperatureCase .
+
+licor:PressureAtmosphericSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:PressureAtmospheric .
+
+licor:PressureTemperatureSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:PressureTemperature .
+
+licor:PumpPositivePressureSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:PumpPositivePressure .
+
+licor:PumpNegativePressureSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:PumpNegativePressure .
+
+licor:FlowPressureSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:FlowPressure .
+
+licor:SubsampleFlowPressureSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:SubsampleFlowPressure .
+
+licor:LatitudeSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:Latitude .
+
+licor:LongitudeSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:Longitude .
+
+licor:SatellitesSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:Satellites .
+
+licor:AltitudeSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:Altitude .
+
+licor:FlowSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:Flow .
+
+licor:PumpTimeSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:PumpTime .
+
+licor:PumpSetpointSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:PumpSetpoint .
+
+licor:SubsamplePressureSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:SubsamplePressure .
+
+licor:SubsampleFlowSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:SubsampleFlow .
+
+licor:VSOFlowSetpointSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:VSOFlowSetpoint .
+
+licor:VSOPressureSetpointSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:VSOPressureSetpoint .
+
+licor:PortCurrentSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:PortCurrent .
+
+licor:Current12VDCSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:Current12VDC .
+
+licor:VoltageInSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:VoltageIn .
+
+licor:VoltageOutSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:VoltageOut .
+
+licor:VSOFlowControlVoltageSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:VSOFlowControlVoltage .
+
+licor:VSOPressureControlVoltageSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:VSOPressureControlVoltage .
+
+licor:Voltage5VSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:Voltage5V .
+
+licor:Voltage12VSensor a sosa:Sensor ;
+    rdfs:label "" ;
+    sosa:observes licor:Voltage12V .
+
+licor:LI8250_01 a sosa:Platform, ssn:System ;
+    rdfs:label "LI-8250-01 Extension Manifold" ;
+    dct:description "Extension Manifold accessory for LI-8250 Multiplexer system, responsible for distributing sample flow and controlling pump operations." ;
+    sosa:hosts licor:PumpCurrentSensor,
+               licor:VoltageInputSensor,
+               licor:TemperatureManifoldSensor,
+               licor:SolenoidCurrentSensor ;
+    dct:identifier "SN-8250-01-EXM-001" ;
+    licor:firmware "v1.4.3" ;
+    licor:port "2" ;
+    licor:tubeLength "120"^^xsd:decimal ;  # cm
+    licor:volume "450"^^xsd:decimal .      # cm^3
+
+licor:PumpCurrentSensor a sosa:Sensor ;
+    rdfs:label "Pump Current Sensor" ;
+    sosa:observes licor:PumpCurrent .
+
+licor:VoltageInputSensor a sosa:Sensor ;
+    rdfs:label "Input Voltage Sensor" ;
+    sosa:observes licor:VoltageIn .
+
+licor:TemperatureManifoldSensor a sosa:Sensor ;
+    rdfs:label "Manifold Temperature Sensor" ;
+    sosa:observes licor:TemperatureManifold .
+
+licor:SolenoidCurrentSensor a sosa:Sensor ;
+    rdfs:label "Solenoid Current Sensor" ;
+    sosa:observes licor:SolenoidCurrent .
+
+### OBSERVABLE PROPERTIES
+
+licor:TemperatureCase a sosa:ObservableProperty ;
+    rdfs:label "Internal Temperature (T_CASE)" ;
+    dct:description "Internal temperature of the multiplexer" ;
+    qudt:unit unit:DEG_C .
+
+licor:PressureAtmospheric a sosa:ObservableProperty ;
+    rdfs:label "Atmospheric Pressure (PA)" ;
+    dct:description "" ;
+    qudt:unit unit:KiloPA .
+
+licor:PressureTemperature a sosa:ObservableProperty ;
+    rdfs:label "Pressure Sensor Temperature (T_PA)" ;
+    dct:description "Atmospheric pressure sensor temperature" ;
+    qudt:unit unit:DEG_C .
+
+licor:PumpPositivePressure a sosa:ObservableProperty ;
+    rdfs:label "Positive Pump Pressure" ;
+    dct:description "Pressure sensor on the positive pressure side of the sampling pump" ;
+    qudt:unit unit:KiloPA .
+
+licor:PumpNegativePressure a sosa:ObservableProperty ;
+    rdfs:label "Negative Pump Pressure" ;
+    dct:description "Pressure sensor on the negative pressure side of the sampling pump" ;
+    qudt:unit unit:KiloPA .
+
+licor:FlowPressure a sosa:ObservableProperty ;
+    rdfs:label "Flow Pressure" ;
+    dct:description "Pressure measurement used to determine flow rate" ;
+    qudt:unit unit:KiloPA .
+
+licor:SubsampleFlowPressure a sosa:ObservableProperty ;
+    rdfs:label "Subsample Flow Pressure" ;
+    dct:description "Pressure measurement used to determine subsample flow rate" ;
+    qudt:unit unit:KiloPA .
+
+licor:Latitude a sosa:ObservableProperty ;
+    rdfs:label "Latitude" ;
+    dct:description "Latitude reported by GPS" ;
+    qudt:unit unit:DEG .
+
+licor:Longitude a sosa:ObservableProperty ;
+    rdfs:label "Longitude" ;
+    dct:description "Longitude reported by GPS" ;
+    qudt:unit unit:DEG .
+
+licor:Altitude a sosa:ObservableProperty ;
+    rdfs:label "Altitude" ;
+    dct:description "Altitude reported by GPS" ;
+    qudt:unit unit:M .
+
+licor:Satellites a sosa:ObservableProperty ;
+    rdfs:label "Number of Satellites" ;
+    dct:description "Number of satellites" ;
+    qudt:unit unit:UNITLESS .
+
+licor:Flow a sosa:ObservableProperty ;
+    rdfs:label "Flow Rate" ;
+    dct:description "Flow rate through the LI-8250 Multiplexer to the active port." ;
+    qudt:unit unit:L-PER-MIN .
+
+licor:PumpSetpoint a sosa:ObservableProperty ;
+    dct:description "Drive setting for the sampling pump" ;
+    rdfs:label "Pump Setpoint" .
+
+licor:PumpCurrent a sosa:ObservableProperty ;
+    rdfs:label "Pump Current" ;
+    csvw:columnName "PUMP_CURRENT" ;
+    qudt:unit unit:AMP ;
+    rdfs:comment "Current draw by the sampling pump." .
+
+licor:SubsamplePressure a sosa:ObservableProperty ;
+    rdfs:label "Subsample Pressure" ;
+    dct:description "Ambient to subsample loop pressure differential" ;
+    qudt:unit unit:KiloPA .
+
+licor:SubsampleFlow a sosa:ObservableProperty ;
+    rdfs:label "Subsample Flow Rate" ;
+    dct:description "Flow through the subsample loop" ;
+    qudt:unit unit:L-PER-MIN .
+
+licor:VSOFlowSetpoint a sosa:ObservableProperty ;
+    dct:description "Setting for the the inlet side of the subsample loop" ;
+    rdfs:label "VSO Flow Setpoint" .
+
+licor:VSOPressureSetpoint a sosa:ObservableProperty ;
+    dct:description "Setting for the outlet side of the subsample loop" ;
+    rdfs:label "VSO Pressure Setpoint" .
+
+licor:PortCurrent a sosa:ObservableProperty ;
+    rdfs:label "Port Current" ;
+    dct:description "Current draw through the port number listed" ;
+    qudt:unit unit:AMP .
+
+licor:SolenoidCurrent a sosa:ObservableProperty ;
+    rdfs:label "Solenoid Current" ;
+    dct:description "Current supplied to valves and VSOs" ;
+    qudt:unit unit:AMP .
+
+licor:Current12VDC a sosa:ObservableProperty ;
+    rdfs:label "12 VDC Current" ;
+    dct:description "Current draw on the 12 VDC power output supply" ;
+    qudt:unit unit:AMP .
+
+licor:VoltageIn a sosa:ObservableProperty ;
+    rdfs:label "Voltage In (VIN)" ;
+    dct:description "Input voltage to multiplexer" ;
+    qudt:unit unit:V .
+
+licor:VoltageOut a sosa:ObservableProperty ;
+    rdfs:label "Voltage Out (VOUT)" ;
+    dct:description "Output voltage on the nominal 24 VDC supply" ;
+    qudt:unit unit:V .
+
+licor:VSOFlowControlVoltage a sosa:ObservableProperty ;
+    rdfs:label "VSO Flow Control Voltage" ;
+    dct:description "Flow control voltage to VSO" ;
+    qudt:unit unit:V .
+
+licor:VSOPressureControlVoltage a sosa:ObservableProperty ;
+    rdfs:label "VSO Pressure Control Voltage" ;
+    dct:description "Pressure control voltage to VSO" ;
+    qudt:unit unit:V .
+
+licor:Voltage5V a sosa:ObservableProperty ;
+    rdfs:label "5V Supply" ;
+    dct:description "5 V supply voltage" ;
+    qudt:unit unit:V .
+
+licor:Voltage12V a sosa:ObservableProperty ;
+    rdfs:label "12V Supply" ;
+    dct:description "12 V supply voltage" ;
+    qudt:unit unit:V .
+
+licor:TemperatureManifold a sosa:ObservableProperty ;
+    rdfs:label "Internal Temperature (Extension Manifold)" ;
+    csvw:columnName "T_CASE" ;
+    qudt:unit unit:DEG_C ;
+    rdfs:comment "Internal temperature of the extension manifold." .
+
+licor:PumpTime a sosa:ObservableProperty ;
+    rdfs:label "Pump Time" ;
+    csvw:columnName "PUMP_TIME" ;
+    qudt:unit unit:HR ;
+    rdfs:comment "Hours of sampling pump operation." .
+
+licor:PumpSetpoint a sosa:ObservableProperty ;
+    rdfs:label "Pump Setpoint" ;
+    csvw:columnName "PUMP_SETPOINT" ;
+    rdfs:comment "Drive setting for the sampling pump." .
+
+licor:PortCurrent a sosa:ObservableProperty ;
+    rdfs:label "Port Current" ;
+    csvw:columnName "PORTn_CURRENT" ;
+    qudt:unit unit:AMP ;
+    rdfs:comment "Current draw through the port number listed." .
+
+licor:SolenoidCurrent a sosa:ObservableProperty ;
+    rdfs:label "Solenoid Current" ;
+    csvw:columnName "SOL_CURRENT" ;
+    qudt:unit unit:AMP ;
+    rdfs:comment "Current supplied to valves and VSOs." .
+
+licor:VoltageIn a sosa:ObservableProperty ;
+    rdfs:label "Input Voltage" ;
+    csvw:columnName "VIN" ;
+    qudt:unit unit:V ;
+    rdfs:comment "Input voltage to multiplexer." .
+
+licor:Voltage12VDC a sosa:ObservableProperty ;
+    rdfs:label "12V Supply Voltage" ;
+    csvw:columnName "12VDC_VOLTAGE" ;
+    qudt:unit unit:V ;
+    rdfs:comment "12 V supply voltage." .
+
+licor:Voltage5VDC a sosa:ObservableProperty ;
+    rdfs:label "5V Supply Voltage" ;
+    csvw:columnName "5VDC_VOLTAGE" ;
+    qudt:unit unit:V ;
+    rdfs:comment "5 V supply voltage." .
+
+licor:Voltage3_3VDC a sosa:ObservableProperty ;
+    rdfs:label "3.3V Supply Voltage" ;
+    csvw:columnName "3.3VDC_VOLTAGE" ;
+    qudt:unit unit:V ;
+    rdfs:comment "3.3 V supply voltage." .
+
+licor:DiagnosticCode a sosa:ObservableProperty ;
+    rdfs:label "Diagnostic Code" ;
+    csvw:columnName "DIAG_CODE" ;
+    rdfs:comment "Diagnostic flag bits." .
+
+### METADATA PROPERTIES
+
+licor:Volume a rdf:Property ;
+    rdfs:label "Device Volume" ;
+    csvw:columnName "VOLUME" ;
+    qudt:unit unit:CentiM3 ;
+    rdfs:comment "Device volume." .
+
+licor:SerialNumber a rdf:Property ;
+    rdfs:label "Serial Number" ;
+    csvw:columnName "SERIAL_NUMBER" ;
+    rdfs:comment "Device serial number." .
+
+licor:Firmware a rdf:Property ;
+    rdfs:label "Firmware Version" ;
+    csvw:columnName "FIRMWARE" ;
+    rdfs:comment "Device firmware version." .
+
+licor:Port a rdf:Property ;
+    rdfs:label "Port" ;
+    csvw:columnName "PORT" ;
+    rdfs:comment "Port number the observation was made on." .
+
+licor:TubeLength a rdf:Property ;
+    rdfs:label "Tube Length" ;
+    csvw:columnName "TUBE_LENGTH" ;
+    qudt:unit unit:CentiM ;
+    rdfs:comment "Volume of extension tubing." .
+
+
+licor:NormalTemperatureCondition a ssn-system:Condition , schema:PropertyValue ;
+  rdfs:comment "A temperature range of -40 to 80 Celsius."@en ;
+  schema:minValue -20.0 ;
+  schema:maxValue 45.0 ;
+  schema:unitCode unit:DEG_C .
+
+licor:NormalHumidityCondition a ssn-system:Condition , schema:PropertyValue ;
+  rdfs:comment "A relative humidity range of 0 to 95, non-condensing %."@en ;
+  schema:minValue 0.0 ;
+  schema:maxValue 95.0 ;
+  schema:unitCode unit:PERCENT .
+
+licor:LI-8250-OperatingRange a ssn-system:OperatingRange ;
+  rdfs:comment "The conditions in which the LI-8250 Multiplexer is expected to operate."@en ;
+  ssn-system:inCondition licor:NormalTemperatureCondition , licor:NormalHumidityCondition .
+
+licor:LI-7810 a ssn:System ;
+  rdfs:label "LI-7810 CH4, H2O, CO2 gas analyzer"@en .
+
+licor:LI-7820 a ssn:System ;
+  rdfs:label "LI-7820 N2O/H2O gas analyzer"@en .
+
+licor:LI-8250-01-OperatingRange a ssn-system:OperatingRange ;
+  rdfs:comment "The conditions in which the LI-8250-01 Extension Manifold is expected to operate."@en ;
+  ssn-system:inCondition licor:NormalTemperatureCondition , licor:NormalHumidityCondition .
+
+
+# The BESSD Platform description
+: a sosa:Platform ;
+  sosa:hosts bessd:appl, bessd:soilcosm ;
+  rdfs:label "BESSD Platform"@en ;
+  dct:description "The BESSD Platform"@en .
+
+bessd:appl a sosa:Platform ;
+  rdfs:label "APPL Platform".
+
+bessd:soilcosm a sosa:Platform ;
+  rdfs:label "Soilcosm Platform" .
+
+soilcosm:82M-0555 a ssn:Deployment ;
+  ssn:deployedSystem licor:LI8250 ;
+  ssn:deployedOnPlatform bessd:soilcosm .
+
+soilcosm:TG10-01900 a ssn:Deployment ; 
+  ssn:deployedOnPlatform bessd:soilcosm .
+
+soilcosm:TG20-01407 a ssn:Deployment ; 
+  ssn:deployedOnPlatform bessd:soilcosm .
+
+soilcosm:82E-1073 a ssn:Deployment ;
+  ssn:deployedSystem licor:LI8250 ; 
+  ssn:deployedOnPlatform bessd:soilcosm .
+
+soilcosm:82E-1074 a ssn:Deployment ;
+  ssn:deployedSystem licor:LI8250 ; 
+  ssn:deployedOnPlatform bessd:soilcosm .
+
+soilcosm:82E-1075 a ssn:Deployment ;
+  ssn:deployedSystem licor:LI8250 ; 
+  ssn:deployedOnPlatform bessd:soilcosm .
+
+soilcosm:82E-1076 a ssn:Deployment ;
+  ssn:deployedSystem licor:LI8250 ; 
+  ssn:deployedOnPlatform bessd:soilcosm .

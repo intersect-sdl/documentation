@@ -1,0 +1,505 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdl: <http://example.org/sdl/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+## Internal prefixes
+@prefix soilcosm: <http://bessd.ornl.gov/soilcosm/> .
+
+soilcosm:NH4Concentration a sosa:ObservableProperty ;
+    rdfs:label "NH4 concentration" .
+
+soilcosm:deployment1 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar1 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment10 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar10 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment11 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar11 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment12 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar12 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment13 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar13 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment14 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar14 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment15 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar15 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment2 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar2 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment3 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar3 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment4 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar4 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment5 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar5 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment6 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar6 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment7 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar7 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment8 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar8 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:deployment9 a ssn:Deployment ;
+    prov:startedAtTime "2024-06-25T09:00:00"^^xsd:dateTime ;
+    ssn:deployedOnPlatform soilcosm:jar9 ;
+    ssn:deployedSystem soilcosm:LI8250 .
+
+soilcosm:obs10_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample10 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs10_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample10 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs10_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample10 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs11_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample11 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs11_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample11 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs11_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample11 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs12_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample12 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs12_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample12 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs12_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample12 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs13_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample13 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs13_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample13 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs13_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample13 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs14_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample14 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs14_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample14 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs14_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample14 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs15_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample15 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs15_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample15 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs15_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample15 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs1_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample1 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs1_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample1 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs1_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample1 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs2_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample2 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs2_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample2 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs2_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample2 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs3_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample3 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs3_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample3 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs3_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample3 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs4_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample4 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs4_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample4 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs4_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample4 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs5_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample5 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs5_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample5 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs5_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample5 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs6_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample6 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs6_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample6 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs6_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample6 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs7_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample7 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs7_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample7 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs7_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample7 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs8_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample8 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs8_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample8 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs8_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample8 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs9_ch4 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample9 ;
+    sosa:madeBySensor soilcosm:CH4Sensor ;
+    sosa:observedProperty soilcosm:CH4Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs9_co2 a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample9 ;
+    sosa:madeBySensor soilcosm:CO2Sensor ;
+    sosa:observedProperty soilcosm:CO2Concentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:obs9_n2o a sosa:Observation ;
+    sosa:hasFeatureOfInterest soilcosm:sample9 ;
+    sosa:madeBySensor soilcosm:N2OSensor ;
+    sosa:observedProperty soilcosm:N2OConcentration ;
+    sosa:resultTime "2024-06-25T10:00:00"^^xsd:dateTime .
+
+soilcosm:jar1 a sdl:SampleJar ;
+    rdfs:label "Jar 1 - Blank0_0.5WHC" ;
+    sdl:contains soilcosm:sample1 .
+
+soilcosm:jar10 a sdl:SampleJar ;
+    rdfs:label "Jar 10 - Glucose1000_CN100_NH4NO3_0.5WHC" ;
+    sdl:contains soilcosm:sample10 .
+
+soilcosm:jar11 a sdl:SampleJar ;
+    rdfs:label "Jar 11 - Glucose1000_0.5WHC" ;
+    sdl:contains soilcosm:sample11 .
+
+soilcosm:jar12 a sdl:SampleJar ;
+    rdfs:label "Jar 12 - Vanillin1000_0.5WHC" ;
+    sdl:contains soilcosm:sample12 .
+
+soilcosm:jar13 a sdl:SampleJar ;
+    rdfs:label "Jar 13 - Glucose1000_CN50_NH4NO3_0.5WHC" ;
+    sdl:contains soilcosm:sample13 .
+
+soilcosm:jar14 a sdl:SampleJar ;
+    rdfs:label "Jar 14 - Vanillin1000_CN15_NH4NO3_0.5WHC" ;
+    sdl:contains soilcosm:sample14 .
+
+soilcosm:jar15 a sdl:SampleJar ;
+    rdfs:label "Jar 15 - Glucose1000_CN15_NH4NO3_0.5WHC" ;
+    sdl:contains soilcosm:sample15 .
+
+soilcosm:jar2 a sdl:SampleJar ;
+    rdfs:label "Jar 2 - Vanillin3000_0.5WHC" ;
+    sdl:contains soilcosm:sample2 .
+
+soilcosm:jar3 a sdl:SampleJar ;
+    rdfs:label "Jar 3 - Vanillin100_0.5WHC" ;
+    sdl:contains soilcosm:sample3 .
+
+soilcosm:jar4 a sdl:SampleJar ;
+    rdfs:label "Jar 4 - Vanillin1000_CN50_NH4NO3_0.5WHC" ;
+    sdl:contains soilcosm:sample4 .
+
+soilcosm:jar5 a sdl:SampleJar ;
+    rdfs:label "Jar 5 - Glucose3000_0.5WHC" ;
+    sdl:contains soilcosm:sample5 .
+
+soilcosm:jar6 a sdl:SampleJar ;
+    rdfs:label "Jar 6 - Vanillin1000_CN100_NH4NO3_0.5WHC" ;
+    sdl:contains soilcosm:sample6 .
+
+soilcosm:jar7 a sdl:SampleJar ;
+    rdfs:label "Jar 7 - Glucose1000_CN50_NH4NO3_0.9WHC" ;
+    sdl:contains soilcosm:sample7 .
+
+soilcosm:jar8 a sdl:SampleJar ;
+    rdfs:label "Jar 8 - Glucose1000_CN50_NH4NO3_0.7WHC" ;
+    sdl:contains soilcosm:sample8 .
+
+soilcosm:jar9 a sdl:SampleJar ;
+    rdfs:label "Jar 9 - Glucose100_0.5WHC" ;
+    sdl:contains soilcosm:sample9 .
+
+soilcosm:sample1 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample10 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample11 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample12 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample13 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample14 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample15 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample2 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample3 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample4 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample5 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample6 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample7 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample8 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:sample9 a sosa:Sample ;
+    prov:wasGeneratedBy soilcosm:experiment2 ;
+    sosa:hasSampledFeature soilcosm:siltyClayLoam .
+
+soilcosm:CH4Sensor a sosa:Sensor ;
+    sosa:observes soilcosm:CH4Concentration .
+
+soilcosm:CO2Sensor a sosa:Sensor ;
+    sosa:observes soilcosm:CO2Concentration .
+
+soilcosm:LI8250 a ssn:System ;
+    rdfs:label "LI-8250 Multiplexer System" .
+
+soilcosm:N2OSensor a sosa:Sensor ;
+    sosa:observes soilcosm:N2OConcentration .
+
+soilcosm:experiment2 a prov:Activity ;
+    dct:description "This experiment evaluated CH4 production in soils treated with glucose or vanillin under varying C:N ratios and soil moisture levels (70% and 90% WHC). Treatments were randomized and incubated for one week with hourly gas measurements." ;
+    prov:endedAtTime "2024-07-02T08:00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2024-06-25T08:00:00"^^xsd:dateTime .
+
+soilcosm:CH4Concentration a sosa:ObservableProperty ;
+    rdfs:label "CH4 concentration" .
+
+soilcosm:CO2Concentration a sosa:ObservableProperty ;
+    rdfs:label "CO2 concentration" .
+
+soilcosm:N2OConcentration a sosa:ObservableProperty ;
+    rdfs:label "N2O concentration" .
+

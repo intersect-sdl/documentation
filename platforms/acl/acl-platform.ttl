@@ -1,0 +1,125 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix schema: <http://schema.org/> .
+@prefix cdt: <http://w3id.org/lindt/custom_datatypes#> .
+@prefix qudt-1-1: <http://qudt.org/1.1/schema/qudt#> .
+@prefix unit: <http://qudt.org/1.1/vocab/unit#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix sdl: <http://ornl.gov/intersect/ns/sdl/> .
+@prefix acl_dms: <http://ornl.gov/intersect/platform1/dms/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+@base <http://sdl-acl.ornl.gov/> .
+
+# The ACL Platform description
+<ACL> a sosa:Platform ;
+  rdfs:label "Automated Chemistry Lab"@en ;
+  rdfs:comment "Automated Chemistry Lab"@en ;
+  sosa:hosts <ACL/dms>, <ACL/Chemspeed>, <ACL/TGMS>, <ACL/HPLC>, <ACL/MobileRobot> .
+
+<ACL/dms> a sdl:dms ;
+    dct:title "Data Management System for the ACL platform" ;
+    rdfs:comment "Deployed instance of the DMS system on the ACL Platform" ;
+    ssn:hasSubSystem <WebService> .
+
+<WebService> a ssn:System ;
+    dct:title "Web Interface" ;
+    dct:description "Frontend for user interaction" ;
+    dcat:endpointURL <https://sdl-acl.ornl.gov/dms/> .
+
+<ACL/Chemspeed> a sosa:Platform;
+  rdfs:label "Chemspeed"@en ;
+  sosa:hosts <ACL/Chemspeed/XRD>, <ACL/Chemspeed/Furnace> .
+
+<ACL/Chemspeed/synthesizeSample> a sosa:Procedure .
+
+<ACL/Chemspeed/DMS/ingestXRD> a sosa:Procedure .
+
+<ACL/Chemspeed/Camera> a sosa:Platform .
+
+<ACL/Chemspeed/MassFlowSensor> a sosa:Platform .
+
+<ACL/Chemspeed/Furnace> a sosa:Platform ;
+  rdfs:label "Furnace"@en .
+
+<ACL/Chemspeed/Furnace/heatSample> a sosa:Procedure ;
+  sosa:hasInput <ACL/Chemspeed/Furnace/setTemperature> ;
+  sosa:hasInput <ACL/Chemspeed/Furnace/heatingDifferential> .
+
+<ACL/Chemspeed/Furnace/setTemperature> a ssn:Input ;
+  rdfs:comment "The temperature the furnace will heat up to"@en ;
+  schema:minValue 50.0 ;
+  schema:maxValue 850.0 ;
+  schema:unitCode unit:DEG_C .
+
+<ACL/Chemspeed/Furnace/heatingDifferential> a ssn:Input ;
+  rdfs:comment "Temperature increase per minute for the furnace"@en ;
+  schema:minValue 0.01 ;
+  schema:maxValue 20.0 ;
+  schema:unitCode unit:DEG_C-PER-MIN .
+
+<ACL/Chemspeed/BallMill> a sosa:Platform ;
+  rdfs:label "Ball Mill"@en .
+
+<ACL/Chemspeed/Centrifuge> a sosa:Platform ;
+  rdfs:label "Centrifuge"@en .
+
+<ACL/Chemspeed/BallMill/millSample> a sosa:Procedure ;
+  sosa:hasInput <ACL/Chemspeed/BallMill/millSpeed> ;
+  sosa:hasInput <ACL/Chemspeed/BallMill/millDuration> .
+
+<ACL/Chemspeed/BallMill/millSpeed> a ssn:Input ;
+  rdfs:comment "Milling speed in RPM"@en ;
+  schema:minValue 1.0 ;
+  schema:maxValue 350 ;
+  schema:unitCode unit:REV-PER-MIN .
+
+<ACL/Chemspeed/BallMill/millDuration> a ssn:Input ;
+  rdfs:comment "Time for the sample to be milled"@en ;
+  schema:minValue 1.0 ;
+  schema:maxValue 350 ;
+  schema:unitCode unit:SEC .
+
+<ACL/Chemspeed/XRD> a sosa:Platform ;
+  rdfs:label "X-Ray Defractometer"@en ;
+  sosa:hosts <ACL/Chemspeed/XRD/detector> .
+
+<ACL/Chemspeed/XRD/detector> a sosa:Sensor .
+
+<ACL/Chemspeed/Robot> a sosa:Platform ;
+  rdfs:label "Robot Arm"@en .
+
+<ACL/Chemspeed/Robot/Arm> a sosa:Actuator .
+
+<ACL/Chemspeed/Robot/moveSample> a sosa:Procedure .
+
+<ACL/TGAMS> a sosa:Platform ;
+  rdfs:label "TGA Mass Spectrometer"@en .
+
+<ACL/CatlyticAnalysisStation> a sosa:Platform ;
+  rdfs:label "Catalytic Analysis Station" .
+
+<ACL/HPLC> a sosa:Platform ;
+  rdfs:label "High Performance Liquid Chromatograph"@en .
+
+<ACL/MobileRobot> a sosa:Platform ;
+  rdfs:label "Mobile Robot"@en .
+
+<ACL/Chemspeed/synthesis/0fb61678-c075-4342-a7ec-89315cdb4d0c> a sosa:Sampling .
+
+<ACL/sampling/42c052cf-7913-4872-896e-d4d1527c4f30> a sosa:Sample ;
+  sosa:isResultOf <ACL/Chemspeed/synthesis/0fb61678-c075-4342-a7ec-89315cdb4d0c> ;
+  sosa:madeBySampler <ACL/Chemspeed/Synthesizer> .
+
+<ACL/observation/9e6c8c24-0947-47bd-913e-8b8e93e21766> a sosa:Observation ;
+  sosa:madeBySensor <ACL/Chemspeed/XRD/detector> ;
+  sosa:hasFeatureOfInterest <ACL/sample/42c052cf-7913-4872-896e-d4d1527c4f30> ;
+  sosa:hasResult <http://acl.intersect.ornl.gov/xrd-repository#RAW-BCAO_20230607_firstfire> .
+
+<ACL/sampling/ce8218a8-311a-48c0-b9d9-d446abc1a38e> a sosa:Sampling ;
+  sosa:usedProcedure <ACL/Chemspeed/ingestXRD> ;
+  sosa:isResultOf <ACL/observation/9e6c8c24-0947-47bd-913e-8b8e93e21766> .

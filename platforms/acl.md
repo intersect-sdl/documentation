@@ -23,7 +23,7 @@ The synthesis system automates solid-state reactions and includes:
 * **Ball mill** for precursor mixing
 * **Pellet press** for compaction
 * **Furnace** with programmable temperature profiles
-* **Robotic arm** for sample handling
+* **Chemspeed Swing XL Synthesizer** – controlled via programmable input files
 
 Each system is represented as an :rdfterm[ssn:System] or subclass, deployed via :rdfterm[ssn:Deployment].
 
@@ -36,8 +36,14 @@ Post-synthesis, materials are analyzed using:
 * **ICP-OES (Inductively Coupled Plasma Optical Emission Spectrometry)** – for elemental composition
 * **FTIR** – for bonding/functional group detection
 * **TGA-SDT650** – for thermal decomposition and mass loss profiling
+* **Electrochemical Workstation** – for voltage, current, and conductivity measurements
 
 Each instrument is modeled as an :rdfterm[ssn:System] capable of generating one or more :rdfterm[sosa:Observation]s.
+
+### Sample Handling and Transport
+
+* **KUKA Robotic Arm** – handles sample manipulation within stations.
+* **KUKA Mobile Robot** – transports samples between synthesis and analytical stations. Each is tracked as an \:rdfterm and supports associated \:rdfterms for movement and handoff.
 
 ---
 
@@ -65,6 +71,7 @@ Observable properties include:
 | :rdfterm[acl:bondingState]       | Functional groups or bonding patterns      | FTIR          |
 | :rdfterm[acl:elementalRatio]     | Molar/weight ratio of elements             | ICP-OES       |
 | :rdfterm[acl:massLossProfile]    | Mass loss vs. temperature curve            | TGA-SDT650    |
+| :rdfterm[acl:electrochemicalSignature]| I-V behavior, charge/discharge properties  | Electrochemical Workstation |
 
 Each is modeled using :rdfterm[sosa:ObservableProperty].
 
@@ -119,6 +126,7 @@ Other measurements (HPLC, ICP-OES, FTIR, TGA) follow a similar pattern.
 | ICP-OES   | :rdfterm[acl:SolidSample]      | :rdfterm[acl:elementalRatio]   |
 | FTIR      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]     |
 | TGA       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:massLossProfile]  |
+| EChem     | :rdfterm[acl:SolidSample]      | :rdfterm[acl:electrochemicalSignature] |
 
 All inputs and outputs are semantically linked via :rdfterm[prov:used] and :rdfterm[prov:generated].
 
@@ -133,6 +141,7 @@ Each file generated or used in ACL workflows is stored in a structured **data st
 | File Type        | Description                | Store Bucket           | Usage                                       |
 | ---------------- | -------------------------- | ---------------------- | ------------------------------------------- |
 | `.json` / `.yml` | Input recipe for synthesis | `acl-synthesis-inputs` | :rdfterm[prov:used] by synthesis activity |
+| `.txt` / `.csv`  | Program script for Chemspeed Swing XL execution | `acl-chemspeed-programs` | :rdfterm[prov:used] by Chemspeed deployment |
 
 ### XRD Analysis Outputs
 
@@ -148,6 +157,13 @@ Each file generated or used in ACL workflows is stored in a structured **data st
 | ---------------- | --------------------------------------- | ----------------- | -------------------------- |
 | `.csv` / `.txt`  | Raw thermal profile data (mass vs temp) | `acl-tga-data`    | :rdfterm[sosa:hasResult] |
 | `.pdf` / `.html` | Human-readable TGA report               | `acl-tga-reports` | :rdfterm[dcat:accessURL] |
+
+### HPLC Analysis Outputs
+
+| File Type        | Description                             | Store Bucket       | Usage    |
+| ---------------- | --------------------------------------- | ------------------ | -------- |
+| `.cdf` / `.csv`  | Raw or processed chromatogram data      | `acl-hplc-data`    | :rdfterm[sosa:hasResult] |
+| `.pdf` / `.html` | Human-readable impurity analysis report | `acl-hplc-reports` | :rdfterm[dcat:accessURL] |
 
 Each store is independently addressable and associated with a `:rdfterm[dcat:DataService]`, for example:
 

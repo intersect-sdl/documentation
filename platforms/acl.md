@@ -29,10 +29,12 @@ Each system is represented as an :rdfterm[ssn:System] or subclass, deployed via 
 
 Post-synthesis, materials are analyzed using:
 
-* **XRD (X-ray Diffraction)** – for phase identification
-* **HPLC (High-Performance Liquid Chromatography)** – for impurity profiling
+* **Malvern-Panalytical Aeris Benchtop XRD (X-ray Diffraction)** – for phase identification
+* **Advion Avant UHPLC with CMS** – for impurity profiling
+* **Agilent 8990 GC + Hiden QGA MS** - 
 * **TGA-SDT650** – for thermal decomposition and mass loss profiling
-* **Electrochemical Workstation** – for voltage, current, and conductivity measurements
+* **Electrochemical Workstation (Biologic SP-200)** – for voltage, current, and conductivity measurements
+* **Liquid-Liquid Separation Platform (J-Kem)** - 
 
 Each instrument is modeled as an :rdfterm[ssn:System] capable of generating one or more :rdfterm[sosa:Observation]s.
 

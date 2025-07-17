@@ -20,10 +20,10 @@ It enables **end-to-end provenance capture** for experimental workflows, alignin
 
 The synthesis system automates solid-state reactions and includes:
 
-* **Ball mill** for precursor mixing
-* **Pellet press** for compaction
-* **Furnace** with programmable temperature profiles
 * **Chemspeed Swing XL Synthesizer** – controlled via programmable input files
+    * **Ball mill** for precursor mixing
+    * **Pellet press** for compaction
+    * **Furnace** with programmable temperature profiles
 
 Each system is represented as an :rdfterm[ssn:System] or subclass, deployed via :rdfterm[ssn:Deployment].
 
@@ -33,8 +33,6 @@ Post-synthesis, materials are analyzed using:
 
 * **XRD (X-ray Diffraction)** – for phase identification
 * **HPLC (High-Performance Liquid Chromatography)** – for impurity profiling
-* **ICP-OES (Inductively Coupled Plasma Optical Emission Spectrometry)** – for elemental composition
-* **FTIR** – for bonding/functional group detection
 * **TGA-SDT650** – for thermal decomposition and mass loss profiling
 * **Electrochemical Workstation** – for voltage, current, and conductivity measurements
 
@@ -64,14 +62,14 @@ Additional FoIs:
 
 Observable properties include:
 
-| Property                         | Description                                | Measured by   |
-| -------------------------------- | ------------------------------------------ | ------------- |
-| :rdfterm[acl:phaseComposition]   | Crystal phase (e.g., perovskite structure) | XRD           |
-| :rdfterm[acl:purity]             | Chemical purity / impurity levels          | HPLC, ICP-OES |
-| :rdfterm[acl:bondingState]       | Functional groups or bonding patterns      | FTIR          |
-| :rdfterm[acl:elementalRatio]     | Molar/weight ratio of elements             | ICP-OES       |
-| :rdfterm[acl:massLossProfile]    | Mass loss vs. temperature curve            | TGA-SDT650    |
-| :rdfterm[acl:electrochemicalSignature]| I-V behavior, charge/discharge properties  | Electrochemical Workstation |
+| Property                               | Description                                | Measured by                 |
+| -------------------------------------- | ------------------------------------------ | --------------------------- |
+| :rdfterm[acl:phaseComposition]         | Crystal phase (e.g., perovskite structure) | XRD                         |
+| :rdfterm[acl:purity]                   | Chemical purity / impurity levels          | HPLC, ICP-OES               |
+| :rdfterm[acl:bondingState]             | Functional groups or bonding patterns      | N/A                         |
+| :rdfterm[acl:elementalRatio]           | Molar/weight ratio of elements             | N/A.                        |
+| :rdfterm[acl:massLossProfile]          | Mass loss vs. temperature curve            | TGA-SDT650                  |
+| :rdfterm[acl:electrochemicalSignature] | I-V behavior, charge/discharge properties  | Electrochemical Workstation |
 
 Each is modeled using :rdfterm[sosa:ObservableProperty].
 
@@ -118,15 +116,15 @@ Other measurements (HPLC, ICP-OES, FTIR, TGA) follow a similar pattern.
 
 ## Input & Output Definitions
 
-| Stage     | Input                  | Output                 |
-| --------- | ---------------------- | ---------------------- |
-| Synthesis | :rdfterm[acl:PrecursorMixture] | :rdfterm[acl:SolidSample]      |
-| XRD       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:phaseComposition] |
-| HPLC      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:purity]           |
-| ICP-OES   | :rdfterm[acl:SolidSample]      | :rdfterm[acl:elementalRatio]   |
-| FTIR      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]     |
-| TGA       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:massLossProfile]  |
-| EChem     | :rdfterm[acl:SolidSample]      | :rdfterm[acl:electrochemicalSignature] |
+| Stage     | Instrument | Input                  | Output                 |
+| --------- | ---------- | ------------ | ---------------------- |
+| Synthesis | Swing XL.  | :rdfterm[acl:PrecursorMixture] | :rdfterm[acl:SolidSample]      |
+| Analysis  | XRD        | :rdfterm[acl:SolidSample]      | :rdfterm[acl:phaseComposition] |
+|           | HPLC      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:purity]           |
+|           | ICP-OES   | :rdfterm[acl:SolidSample]      | :rdfterm[acl:elementalRatio]   |
+|           | FTIR      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]     |
+|           | TGA       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:massLossProfile]  |
+|           | EChem     | :rdfterm[acl:SolidSample]      | :rdfterm[acl:electrochemicalSignature] |
 
 All inputs and outputs are semantically linked via :rdfterm[prov:used] and :rdfterm[prov:generated].
 

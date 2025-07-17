@@ -1,16 +1,14 @@
 ---
-
 uuid: e2dab416-9f43-41d8-8cf3-d2214e0ba83c
-
 title: "ACL: Automated Chemistry Lab"
-
 published: true
-
 ---
 
 The **Automated Chemistry Lab (ACL)** is a robotic platform for solid-state synthesis and high-throughput chemical analysis.
 
 It enables **end-to-end provenance capture** for experimental workflows, aligning with the **FAIR principles** and using semantic models based on SSN, DCAT, and PROV.
+
+The **Autonomous Chemistry Laboratory (ACL)** is located in the Chemical and Materials Sciences building (4100) at Oak Ridge National Laboratory (ORNL). It supports robotic synthesis of both liquid and solid products and features tight integration with other ORNL labs for downstream data analysis and preparation. ACL workflows are structured to capture rich, structured metadata suitable for domains such as polymers, ligands, catalysis, and energy storage, providing a foundation for data-driven science and AI/ML discovery.
 
 ---
 
@@ -42,6 +40,66 @@ Each instrument is modeled as an :rdfterm[ssn:System] capable of generating one 
 
 * **KUKA Robotic Arm** – handles sample manipulation within stations.
 * **KUKA Mobile Robot** – transports samples between synthesis and analytical stations. Each is tracked as an \:rdfterm and supports associated \:rdfterms for movement and handoff.
+
+---
+
+## Instrument Descriptions
+
+### Chemspeed SwingXL
+
+A programmable synthesis platform with solid and liquid dispensing down to 0.1 mg precision. Includes:
+
+* Gravimetric dispensing
+* Overhead reaction control (heating, cooling, stirring, reflux, pH monitoring/titration)
+* ISYNTH disposable glass reactor blocks
+* High-temp annealing furnace
+
+### Advion Avant UHPLC with CMS
+
+Advanced LC system with autosampler, dual MTP trays, and multiple detection modes:
+
+* UV/Vis and RI detectors
+* Compact Mass Spectrometer (CMS, electrospray)
+* Column oven up to 90°C and pressure support up to 18,850 psi
+* Manual or robotic injection from SwingXL or sample trays
+
+### Agilent 8990 GC + Hiden QGA MS
+
+Gas chromatography unit with dual columns and thermal conductivity detectors (TCD):
+
+* Ar and He carrier gas configurations
+* In-line catalytic reactor compatibility
+* Optional Hiden QGA MS for product ID (low detection limits)
+
+### Malvern-Panalytical Aeris Benchtop XRD
+
+Cu Kα X-ray diffraction system for solid phase identification:
+
+* Supports automated sample handoff from SwingXL
+* Suitable for phase ID and structure refinement
+
+### Electrochemical Workstation (Biologic SP-200)
+
+Integrated into a custom J-Kem catalytic station:
+
+* Measures electrochemical response for electrocatalytic CO₂ conversion
+* Compatible with single or H-cell reactors
+* Automates electrolyte/gas control and temperature logging
+
+### TA Instruments SDT-650 (TGA/DSC-MS)
+
+Thermogravimetric and differential scanning calorimetry system:
+
+* Operates to 1500°C in inert/oxidizing/reducing atmospheres
+* Supports modulated TGA/DSC
+* Pfeiffer MS extension for evolved gas analysis up to 300 AMU
+
+### Liquid-Liquid Separation Platform (J-Kem)
+
+Automated workflow for selective phase extraction:
+
+* Ligand-controlled solvation studies
+* Weighing, centrifugation, imaging, and spectral quantification
 
 ---
 
@@ -116,15 +174,15 @@ Other measurements (HPLC, ICP-OES, FTIR, TGA) follow a similar pattern.
 
 ## Input & Output Definitions
 
-| Stage     | Instrument | Input                  | Output                 |
-| --------- | ---------- | ------------ | ---------------------- |
-| Synthesis | Swing XL.  | :rdfterm[acl:PrecursorMixture] | :rdfterm[acl:SolidSample]      |
-| Analysis  | XRD        | :rdfterm[acl:SolidSample]      | :rdfterm[acl:phaseComposition] |
-|           | HPLC      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:purity]           |
-|           | ICP-OES   | :rdfterm[acl:SolidSample]      | :rdfterm[acl:elementalRatio]   |
-|           | FTIR      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]     |
-|           | TGA       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:massLossProfile]  |
-|           | EChem     | :rdfterm[acl:SolidSample]      | :rdfterm[acl:electrochemicalSignature] |
+| Stage     | Instrument | Input                          | Output                                 |
+| --------- | ---------- | ------------------------------ | -------------------------------------- |
+| Synthesis | Swing XL.  | :rdfterm[acl:PrecursorMixture] | :rdfterm[acl:SolidSample]              |
+| Analysis  | XRD        | :rdfterm[acl:SolidSample]      | :rdfterm[acl:phaseComposition]         |
+|           | HPLC       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:purity]                   |
+|           | ICP-OES    | :rdfterm[acl:SolidSample]      | :rdfterm[acl:elementalRatio]           |
+|           | FTIR       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]             |
+|           | TGA        | :rdfterm[acl:SolidSample]      | :rdfterm[acl:massLossProfile]          |
+|           | EChem      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:electrochemicalSignature] |
 
 All inputs and outputs are semantically linked via :rdfterm[prov:used] and :rdfterm[prov:generated].
 
@@ -207,3 +265,35 @@ Observations and results are exportable as RDF in Turtle or JSON-LD.
 * Synthesis Workflow Example (PROV)
 * XRD Dataset (DCAT + SOSA)
 * Full ACL Catalog
+
+---
+
+## RDF Term Reference Table
+
+| Prefix | Term                           | Full IRI                                          | Description                                                 |
+| ------ | ------------------------------ | ------------------------------------------------- | ----------------------------------------------------------- |
+| `ssn`  | `ssn:System`                   | `http://www.w3.org/ns/ssn/System`                 | Abstract representation of a sensing or actuation system    |
+| `ssn`  | `ssn:Deployment`               | `http://www.w3.org/ns/ssn/Deployment`             | Context-specific deployment of a system                     |
+| `sosa` | `sosa:Observation`             | `http://www.w3.org/ns/sosa/Observation`           | An act of observing a property or phenomenon                |
+| `sosa` | `sosa:FeatureOfInterest`       | `http://www.w3.org/ns/sosa/FeatureOfInterest`     | The entity being observed                                   |
+| `sosa` | `sosa:ObservableProperty`      | `http://www.w3.org/ns/sosa/ObservableProperty`    | The property being observed                                 |
+| `sosa` | `sosa:hasResult`               | `http://www.w3.org/ns/sosa/hasResult`             | Links an observation to its result                          |
+| `prov` | `prov:Activity`                | `http://www.w3.org/ns/prov#Activity`              | An event or process involving inputs and outputs            |
+| `prov` | `prov:used`                    | `http://www.w3.org/ns/prov#used`                  | Indicates usage of an entity by an activity                 |
+| `prov` | `prov:generated`               | `http://www.w3.org/ns/prov#generated`             | Indicates output from an activity                           |
+| `dcat` | `dcat:accessURL`               | `http://www.w3.org/ns/dcat#accessURL`             | URL for accessing the distribution                          |
+| `dcat` | `dcat:mediaType`               | `http://www.w3.org/ns/dcat#mediaType`             | The media type of the distribution                          |
+| `dcat` | `dcat:Distribution`            | `http://www.w3.org/ns/dcat#Distribution`          | Represents a specific available form of a dataset           |
+| `dcat` | `dcat:DataService`             | `http://www.w3.org/ns/dcat#DataService`           | Describes a service that provides access to datasets        |
+| `dct`  | `dct:format`                   | `http://purl.org/dc/terms/format`                 | File format, physical medium, or dimensions of the resource |
+| `dct`  | `dct:title`                    | `http://purl.org/dc/terms/title`                  | Title or label of the resource                              |
+| `acl`  | `acl:SolidSample`              | `http://example.org/acl/SolidSample`              | A synthesized solid-state material                          |
+| `acl`  | `acl:PrecursorMixture`         | `http://example.org/acl/PrecursorMixture`         | Input blend used in synthesis                               |
+| `acl`  | `acl:SynthesisBatch`           | `http://example.org/acl/SynthesisBatch`           | Logical grouping of related synthesis runs                  |
+| `acl`  | `acl:phaseComposition`         | `http://example.org/acl/phaseComposition`         | Resulting phase structure from synthesis                    |
+| `acl`  | `acl:purity`                   | `http://example.org/acl/purity`                   | Degree of chemical purity                                   |
+| `acl`  | `acl:bondingState`             | `http://example.org/acl/bondingState`             | Functional group or bond profile                            |
+| `acl`  | `acl:elementalRatio`           | `http://example.org/acl/elementalRatio`           | Ratio of elemental composition                              |
+| `acl`  | `acl:massLossProfile`          | `http://example.org/acl/massLossProfile`          | Thermal decomposition behavior                              |
+| `acl`  | `acl:electrochemicalSignature` | `http://example.org/acl/electrochemicalSignature` | Current-voltage curve and similar metrics                   |
+| `acl`  | `acl:ChemspeedProgram`         | `http://example.org/acl/ChemspeedProgram`         | A program used to control the Chemspeed Swing XL            |

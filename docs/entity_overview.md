@@ -20,7 +20,7 @@ The SDL does not use a rigid class hierarchy. Instead, it enables **compositiona
 
 ## Core Concepts
 
-### :rdfterm[rdf:type]
+### rdf\:type
 
 Each entity in SDL can declare multiple RDF types to reflect its functional role in the system.
 

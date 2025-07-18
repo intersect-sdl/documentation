@@ -1,125 +1,244 @@
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix time: <http://www.w3.org/2006/time#>.
-@prefix schema: <http://schema.org/> .
-@prefix cdt: <http://w3id.org/lindt/custom_datatypes#> .
-@prefix qudt-1-1: <http://qudt.org/1.1/schema/qudt#> .
-@prefix unit: <http://qudt.org/1.1/vocab/unit#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix sdl: <http://ornl.gov/intersect/ns/sdl/> .
-@prefix acl_dms: <http://ornl.gov/intersect/platform1/dms/> .
+@prefix acl: <http://example.org/acl/> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@base <http://sdl-acl.ornl.gov/> .
+acl: a ssn:Platform ;
+  dct:title "ACL Platform 01" ;
+  dct:description "First deployment of the Autonomous Chemistry Laboratory (ACL) at ORNL." .
 
-# The ACL Platform description
-<ACL> a sosa:Platform ;
-  rdfs:label "Automated Chemistry Lab"@en ;
-  rdfs:comment "Automated Chemistry Lab"@en ;
-  sosa:hosts <ACL/dms>, <ACL/Chemspeed>, <ACL/TGMS>, <ACL/HPLC>, <ACL/MobileRobot> .
+# Instrument definitions (shared components)
+acl:ChemspeedSwingXL a ssn:System ;
+  rdfs:label "ChemspeedSwingXL" ;
+  dct:description "Programmable synthesis platform with solid and liquid dispensing." .
 
-<ACL/dms> a sdl:dms ;
-    dct:title "Data Management System for the ACL platform" ;
-    rdfs:comment "Deployed instance of the DMS system on the ACL Platform" ;
-    ssn:hasSubSystem <WebService> .
+acl:BallMill a ssn:System ;
+  rdfs:label "Ball Mill" ;
+  dct:description "Automated ball mill for precursor homogenization and mechanical activation." .
 
-<WebService> a ssn:System ;
-    dct:title "Web Interface" ;
-    dct:description "Frontend for user interaction" ;
-    dcat:endpointURL <https://sdl-acl.ornl.gov/dms/> .
+acl:Furnace a ssn:System ;
+  rdfs:label "Furnace" ;
+  dct:description "Programmable furnace for high-temperature annealing of synthesized materials." .
 
-<ACL/Chemspeed> a sosa:Platform;
-  rdfs:label "Chemspeed"@en ;
-  sosa:hosts <ACL/Chemspeed/XRD>, <ACL/Chemspeed/Furnace> .
+acl:UHPLC_CMS a ssn:System ;
+  rdfs:label "UHPLC_CMS" ;
+  dct:description "Advion Avant UHPLC with UV/Vis, RI detectors, and Compact Mass Spectrometer." .
 
-<ACL/Chemspeed/synthesizeSample> a sosa:Procedure .
+acl:GC_HidenMS a ssn:System ;
+  rdfs:label "GC_HidenMS" ;
+  dct:description "Agilent 8990 GC with TCDs and optional Hiden QGA Mass Spectrometer." .
 
-<ACL/Chemspeed/DMS/ingestXRD> a sosa:Procedure .
+acl:XRD_Aeris a ssn:System ;
+  rdfs:label "XRD_Aeris" ;
+  dct:description "Malvern-Panalytical Aeris benchtop XRD for phase identification." .
 
-<ACL/Chemspeed/Camera> a sosa:Platform .
+acl:ElectrochemStation a ssn:System ;
+  rdfs:label "ElectrochemStation" ;
+  dct:description "Custom electrocatalytic testing station with Biologic SP-200." .
 
-<ACL/Chemspeed/MassFlowSensor> a sosa:Platform .
+acl:TGA_DSC_MS a ssn:System ;
+  rdfs:label "TGA_DSC_MS" ;
+  dct:description "TA Instruments SDT-650 with mass spectrometer and modulated TGA/DSC." .
 
-<ACL/Chemspeed/Furnace> a sosa:Platform ;
-  rdfs:label "Furnace"@en .
+acl:LiqSepPlatform a ssn:System ;
+  rdfs:label "LiqSepPlatform" ;
+  dct:description "Liquid-liquid separation robotic platform with automated analysis." .
 
-<ACL/Chemspeed/Furnace/heatSample> a sosa:Procedure ;
-  sosa:hasInput <ACL/Chemspeed/Furnace/setTemperature> ;
-  sosa:hasInput <ACL/Chemspeed/Furnace/heatingDifferential> .
+# Procedures and Observable Properties
+acl:MillSampleProcedure a sosa:Procedure ;
+  rdfs:label "Mill Sample" ;
+  dct:description "Procedure to homogenize and activate precursor mixture using the ball mill." ;
+  sosa:usedProcedure acl:BallMill ;
+  sosa:hasInput acl:MillSpeed, acl:MillDuration .
 
-<ACL/Chemspeed/Furnace/setTemperature> a ssn:Input ;
-  rdfs:comment "The temperature the furnace will heat up to"@en ;
-  schema:minValue 50.0 ;
-  schema:maxValue 850.0 ;
-  schema:unitCode unit:DEG_C .
+acl:HeatSampleProcedure a sosa:Procedure ;
+  rdfs:label "Heat Sample" ;
+  dct:description "Procedure for annealing samples using a furnace." ;
+  sosa:usedProcedure acl:Furnace ;
+  sosa:hasInput acl:SetTemperature, acl:SoakTime, acl:Atmosphere .
 
-<ACL/Chemspeed/Furnace/heatingDifferential> a ssn:Input ;
-  rdfs:comment "Temperature increase per minute for the furnace"@en ;
-  schema:minValue 0.01 ;
-  schema:maxValue 20.0 ;
-  schema:unitCode unit:DEG_C-PER-MIN .
+acl:AnalyzeUHPLC a sosa:Procedure ;
+  rdfs:label "UHPLC Analysis" ;
+  dct:description "Procedure to analyze sample using UHPLC with CMS." ;
+  sosa:usedProcedure acl:UHPLC_CMS ;
+  sosa:hasInput acl:InjectionVolume, acl:ColumnTemperature .
 
-<ACL/Chemspeed/BallMill> a sosa:Platform ;
-  rdfs:label "Ball Mill"@en .
+acl:AnalyzeGC a sosa:Procedure ;
+  rdfs:label "GC Analysis" ;
+  dct:description "Procedure to analyze sample using Gas Chromatograph." ;
+  sosa:usedProcedure acl:GC_HidenMS ;
+  sosa:hasInput acl:CarrierGas, acl:OvenRamp .
 
-<ACL/Chemspeed/Centrifuge> a sosa:Platform ;
-  rdfs:label "Centrifuge"@en .
+acl:AnalyzeXRD a sosa:Procedure ;
+  rdfs:label "XRD Analysis" ;
+  dct:description "Procedure for powder X-ray diffraction measurement." ;
+  sosa:usedProcedure acl:XRD_Aeris ;
+  sosa:hasInput acl:ScanRange, acl:StepSize .
 
-<ACL/Chemspeed/BallMill/millSample> a sosa:Procedure ;
-  sosa:hasInput <ACL/Chemspeed/BallMill/millSpeed> ;
-  sosa:hasInput <ACL/Chemspeed/BallMill/millDuration> .
+acl:RunElectrochem a sosa:Procedure ;
+  rdfs:label "Electrochemical Test" ;
+  dct:description "Procedure for conducting electrochemical measurements." ;
+  sosa:usedProcedure acl:ElectrochemStation ;
+  sosa:hasInput acl:PotentialWindow, acl:ScanRate .
 
-<ACL/Chemspeed/BallMill/millSpeed> a ssn:Input ;
-  rdfs:comment "Milling speed in RPM"@en ;
-  schema:minValue 1.0 ;
-  schema:maxValue 350 ;
-  schema:unitCode unit:REV-PER-MIN .
+acl:RunTGA a sosa:Procedure ;
+  rdfs:label "TGA Analysis" ;
+  dct:description "Procedure to analyze sample using thermal gravimetric analysis." ;
+  sosa:usedProcedure acl:TGA_DSC_MS ;
+  sosa:hasInput acl:HeatingRate, acl:MaxTemperature .
 
-<ACL/Chemspeed/BallMill/millDuration> a ssn:Input ;
-  rdfs:comment "Time for the sample to be milled"@en ;
-  schema:minValue 1.0 ;
-  schema:maxValue 350 ;
-  schema:unitCode unit:SEC .
+acl:RunLiqSep a sosa:Procedure ;
+  rdfs:label "Liquid-Liquid Separation" ;
+  dct:description "Procedure for automated biphasic extraction." ;
+  sosa:usedProcedure acl:LiqSepPlatform ;
+  sosa:hasInput acl:OrganicSolvent, acl:MixingSpeed .
 
-<ACL/Chemspeed/XRD> a sosa:Platform ;
-  rdfs:label "X-Ray Defractometer"@en ;
-  sosa:hosts <ACL/Chemspeed/XRD/detector> .
+acl:MillSpeed a sosa:ObservableProperty ;
+  rdfs:label "Milling Speed" ;
+  dct:description "Speed setting for the milling process in RPM." .
 
-<ACL/Chemspeed/XRD/detector> a sosa:Sensor .
+acl:MillDuration a sosa:ObservableProperty ;
+  rdfs:label "Milling Duration" ;
+  dct:description "Duration of the milling operation in minutes." .
 
-<ACL/Chemspeed/Robot> a sosa:Platform ;
-  rdfs:label "Robot Arm"@en .
+acl:SetTemperature a sosa:ObservableProperty ;
+  rdfs:label "Set Temperature" ;
+  dct:description "Target temperature for annealing in degrees Celsius." .
 
-<ACL/Chemspeed/Robot/Arm> a sosa:Actuator .
+acl:SoakTime a sosa:ObservableProperty ;
+  rdfs:label "Soak Time" ;
+  dct:description "Duration to hold the sample at the target temperature." .
 
-<ACL/Chemspeed/Robot/moveSample> a sosa:Procedure .
+acl:Atmosphere a sosa:ObservableProperty ;
+  rdfs:label "Atmosphere" ;
+  dct:description "Type of gas environment used during heating (e.g. air, Ar, N2, H2)." .
 
-<ACL/TGAMS> a sosa:Platform ;
-  rdfs:label "TGA Mass Spectrometer"@en .
+acl:InjectionVolume a sosa:ObservableProperty ;
+  rdfs:label "Injection Volume" ;
+  dct:description "Volume of sample injected into the UHPLC column (µL)." .
 
-<ACL/CatlyticAnalysisStation> a sosa:Platform ;
-  rdfs:label "Catalytic Analysis Station" .
+acl:ColumnTemperature a sosa:ObservableProperty ;
+  rdfs:label "Column Temperature" ;
+  dct:description "Temperature of the column during separation (°C)." .
 
-<ACL/HPLC> a sosa:Platform ;
-  rdfs:label "High Performance Liquid Chromatograph"@en .
+acl:ScanRange a sosa:ObservableProperty ;
+  rdfs:label "Scan Range" ;
+  dct:description "Angular range of XRD scan in degrees (2θ)." .
 
-<ACL/MobileRobot> a sosa:Platform ;
-  rdfs:label "Mobile Robot"@en .
+acl:StepSize a sosa:ObservableProperty ;
+  rdfs:label "Step Size" ;
+  dct:description "Angular increment per step in the scan." .
 
-<ACL/Chemspeed/synthesis/0fb61678-c075-4342-a7ec-89315cdb4d0c> a sosa:Sampling .
+acl:PotentialWindow a sosa:ObservableProperty ;
+  rdfs:label "Potential Window" ;
+  dct:description "Voltage range for electrochemical testing (e.g. -1 to +1 V)." .
 
-<ACL/sampling/42c052cf-7913-4872-896e-d4d1527c4f30> a sosa:Sample ;
-  sosa:isResultOf <ACL/Chemspeed/synthesis/0fb61678-c075-4342-a7ec-89315cdb4d0c> ;
-  sosa:madeBySampler <ACL/Chemspeed/Synthesizer> .
+acl:ScanRate a sosa:ObservableProperty ;
+  rdfs:label "Scan Rate" ;
+  dct:description "Rate of voltage scan during cyclic voltammetry (mV/s)." .
 
-<ACL/observation/9e6c8c24-0947-47bd-913e-8b8e93e21766> a sosa:Observation ;
-  sosa:madeBySensor <ACL/Chemspeed/XRD/detector> ;
-  sosa:hasFeatureOfInterest <ACL/sample/42c052cf-7913-4872-896e-d4d1527c4f30> ;
-  sosa:hasResult <http://acl.intersect.ornl.gov/xrd-repository#RAW-BCAO_20230607_firstfire> .
+acl:CarrierGas a sosa:ObservableProperty ;
+  rdfs:label "Carrier Gas" ;
+  dct:description "Type of carrier gas used in the GC (e.g. He, Ar)." .
 
-<ACL/sampling/ce8218a8-311a-48c0-b9d9-d446abc1a38e> a sosa:Sampling ;
-  sosa:usedProcedure <ACL/Chemspeed/ingestXRD> ;
-  sosa:isResultOf <ACL/observation/9e6c8c24-0947-47bd-913e-8b8e93e21766> .
+acl:OvenRamp a sosa:ObservableProperty ;
+  rdfs:label "Oven Ramp" ;
+  dct:description "Temperature ramp program for the GC oven." .
+
+acl:HeatingRate a sosa:ObservableProperty ;
+  rdfs:label "Heating Rate" ;
+  dct:description "Rate at which the temperature increases (°C/min)." .
+
+acl:MaxTemperature a sosa:ObservableProperty ;
+  rdfs:label "Max Temperature" ;
+  dct:description "Final temperature reached in the TGA program (°C)." .
+
+acl:OrganicSolvent a sosa:ObservableProperty ;
+  rdfs:label "Organic Solvent" ;
+  dct:description "Type of organic solvent used in the biphasic system." .
+
+acl:MixingSpeed a sosa:ObservableProperty ;
+  rdfs:label "Mixing Speed" ;
+  dct:description "Speed of mixing in revolutions per minute (RPM)." .
+
+# System deployment to specific platforms with metadata
+acl:Deploy01 a ssn:Deployment ;
+  ssn:deployedSystem acl:ChemspeedSwingXL ;
+  ssn:deployedOnPlatform acl: ;
+  dct:identifier "CSXL-001" ;
+  dct:description "Chemspeed" ;
+  acl:firmwareVersion "v3.1.2" .
+
+acl:Deploy02 a ssn:Deployment ;
+  ssn:deployedSystem acl:UHPLC_CMS ;
+  ssn:deployedOnPlatform acl: ;
+  dct:identifier "UHPLC-045" ;
+  acl:firmwareVersion "v1.9.0" .
+
+acl:Deploy03 a ssn:Deployment ;
+  ssn:deployedSystem acl:LiqSepPlatform ;
+  ssn:deployedOnPlatform acl: ;
+  dct:identifier "LLS-003" ;
+  acl:firmwareVersion "v2.3-beta" .
+
+acl:Deploy04 a ssn:Deployment ;
+  ssn:deployedSystem acl:BallMill ;
+  ssn:deployedOnPlatform acl:Deploy01 ;
+  dct:identifier "BM-001" ;
+  dct:description "Ball Mill integrated with Chemspeed SwingXL." ;
+  acl:firmwareVersion "v1.2.5" .
+
+# Declare additional data properties
+acl:firmwareVersion a rdf:Property ;
+  rdfs:label "firmware version" ;
+  rdfs:domain ssn:Deployment ;
+  rdfs:range xsd:string .
+
+# Logical grouping of subsystems per platform
+acl: ssn:hasSubSystem acl:ChemspeedSwingXL , acl:UHPLC_CMS , acl:GC_HidenMS , acl:XRD_Aeris , acl:ElectrochemStation , acl:TGA_DSC_MS .
+
+# Sample Observation and Result
+acl:Sample123 a sosa:FeatureOfInterest ;
+  rdfs:label "Synthesized Solid Sample" ;
+  dct:description "Ceramic powder sample synthesized via milling and furnace annealing." .
+
+acl:XRDObservation001 a sosa:Observation ;
+  sosa:madeBySensor acl:XRD_Aeris ;
+  sosa:observedProperty acl:PhaseComposition ;
+  sosa:hasFeatureOfInterest acl:Sample123 ;
+  sosa:resultTime "2025-07-01T10:30:00Z"^^xsd:dateTime ;
+  sosa:hasResult [
+    rdf:value "Orthorhombic perovskite" ;
+    dct:description "Phase identified from matched diffraction peaks."
+  ] .
+
+acl:PhaseComposition a sosa:ObservableProperty ;
+  rdfs:label "Phase Composition" ;
+  dct:description "Crystalline structure identified via XRD." .
+
+acl:TGAObservation001 a sosa:Observation ;
+  sosa:madeBySensor acl:TGA_DSC_MS ;
+  sosa:observedProperty acl:MassLoss ;
+  sosa:hasFeatureOfInterest acl:Sample123 ;
+  sosa:resultTime "2025-07-01T11:00:00Z"^^xsd:dateTime ;
+  sosa:hasResult [
+    rdf:value "3.4"^^xsd:decimal ;
+    dct:description "Percentage of mass lost up to 800°C under N2 atmosphere."
+  ] .
+
+acl:MassLoss a sosa:ObservableProperty ;
+  rdfs:label "Mass Loss" ;
+  dct:description "Total mass lost during heating." .
+
+# Link observation to activity
+acl:ActivitySynth001 a prov:Activity ;
+  prov:used acl:MillSampleProcedure, acl:HeatSampleProcedure ;
+  prov:generated acl:Sample123 ;
+  prov:wasAssociatedWith acl:ChemspeedSwingXL ;
+  prov:startedAtTime "2025-07-01T08:00:00Z"^^xsd:dateTime ;
+  prov:endedAtTime "2025-07-01T10:00:00Z"^^xsd:dateTime .

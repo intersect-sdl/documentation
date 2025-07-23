@@ -122,16 +122,34 @@ Additional FoIs:
 
 Observable properties include:
 
-| Property                               | Description                                | Measured by                 |
-| -------------------------------------- | ------------------------------------------ | --------------------------- |
-| :rdfterm[acl:phaseComposition]         | Crystal phase (e.g., perovskite structure) | XRD                         |
-| :rdfterm[acl:purity]                   | Chemical purity / impurity levels          | HPLC, ICP-OES               |
-| :rdfterm[acl:bondingState]             | Functional groups or bonding patterns      | N/A                         |
-| :rdfterm[acl:elementalRatio]           | Molar/weight ratio of elements             | N/A.                        |
-| :rdfterm[acl:massLossProfile]          | Mass loss vs. temperature curve            | TGA-SDT650                  |
-| :rdfterm[acl:electrochemicalSignature] | I-V behavior, charge/discharge properties  | Electrochemical Workstation |
+| Property                                | Description                                    | Measured by                 |
+| --------------------------------------- | ---------------------------------------------- | --------------------------- |
+| :rdfterm[acl:phaseStructure]            | Crystal structure (e.g., perovskite structure) | XRD                         |
+| :rdfterm[acl:phaseComposition]          | Crystal phase (e.g., perovskite structure)     | ICP-OES, XRD                |
+| :rdfterm[acl:purity]                    | Chemical purity / impurity levels              | HPLC, XRD, ICP-OES          |
+| :rdfterm[acl:bondingState]              | Functional groups or bonding patterns          | FTIR, Raman, UV-VIS         |
+| :rdfterm[acl:massLossProfile]           | Mass loss vs. temperature curve                | TGA-SDT650                  |
+| :rdfterm[acl:electrochemicalProperties] | I-V behavior, charge/discharge properties      | Electrochemical Workstation |
 
 Each is modeled using :rdfterm[sosa:ObservableProperty].
+
+---
+
+## Input & Output Definitions
+
+| Stage     | Instrument | Input                          | Output                                 |
+| --------- | ---------- | ------------------------------ | -------------------------------------- |
+| Synthesis | Swing XL.  | :rdfterm[acl:PrecursorMixture] | :rdfterm[acl:SolidSample]              |
+| Analysis  | XRD        | :rdfterm[acl:SolidSample]      | :rdfterm[acl:phaseStructure], :rdfterm[acl:phaseComposition], :rdfterm[acl:purity] |
+|           | HPLC       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:purity]                   |
+|           | ICP-OES    | :rdfterm[acl:SolidSample]      | :rdfterm[acl:elementalRatio]           |
+|           | FTIR       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]             |
+|           | Raman      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]             |
+|           | UV-VIS     | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]             |
+|           | TGA        | :rdfterm[acl:SolidSample]      | :rdfterm[acl:massLossProfile]          |
+|           | EChem      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:electrochemicalSignature] |
+
+All inputs and outputs are semantically linked via :rdfterm[prov:used] and :rdfterm[prov:generated].
 
 ---
 
@@ -140,8 +158,10 @@ Each is modeled using :rdfterm[sosa:ObservableProperty].
 ### Step 1: Sample Synthesis
 
 1. Mix precursors (:rdfterm[acl:PrecursorMixture])
-2. Compact into pellet
-3. Fire in furnace
+1. Grind in Mill
+1. Compact into pellet (optional)
+1. Fire in furnace
+1. Grind in Mill (repeat 2-4) (optional, as needed for purity)
 4. Result: :rdfterm[acl:SolidSample]
 
 ```ttl
@@ -154,9 +174,10 @@ acl:run123 a prov:Activity ;
 
 ### Step 2: Sample Analysis
 
-1. Mount sample on XRD
-2. Capture diffraction pattern
-3. Derive :rdfterm[acl:phaseComposition]
+1. Load sample on zero background XRD holder
+1. Load holder with sample on XRD
+1. Collect diffraction pattern
+1. Derive :rdfterm[acl:phaseStructure], :rdfterm[acl:phaseComposition], :rdfterm[acl:purity]
 
 ```ttl
 acl:xrdObs123 a sosa:Observation ;
@@ -170,23 +191,7 @@ acl:xrdObs123 a sosa:Observation ;
   ] .
 ```
 
-Other measurements (HPLC, ICP-OES, FTIR, TGA) follow a similar pattern.
-
----
-
-## Input & Output Definitions
-
-| Stage     | Instrument | Input                          | Output                                 |
-| --------- | ---------- | ------------------------------ | -------------------------------------- |
-| Synthesis | Swing XL.  | :rdfterm[acl:PrecursorMixture] | :rdfterm[acl:SolidSample]              |
-| Analysis  | XRD        | :rdfterm[acl:SolidSample]      | :rdfterm[acl:phaseComposition]         |
-|           | HPLC       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:purity]                   |
-|           | ICP-OES    | :rdfterm[acl:SolidSample]      | :rdfterm[acl:elementalRatio]           |
-|           | FTIR       | :rdfterm[acl:SolidSample]      | :rdfterm[acl:bondingState]             |
-|           | TGA        | :rdfterm[acl:SolidSample]      | :rdfterm[acl:massLossProfile]          |
-|           | EChem      | :rdfterm[acl:SolidSample]      | :rdfterm[acl:electrochemicalSignature] |
-
-All inputs and outputs are semantically linked via :rdfterm[prov:used] and :rdfterm[prov:generated].
+Other measurements (HPLC, ICP-OES, FTIR, Ramman, UV-VIS, TGA) follow a similar pattern.
 
 ---
 

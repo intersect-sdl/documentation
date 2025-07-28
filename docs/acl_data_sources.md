@@ -4,7 +4,7 @@ uuid: 62cd9926-875e-4d0c-9b12-6dd04051a082
 published: false
 ---
 
-1. X-ray Defractometer
+1. X-ray Diffractometer
 1. TGA Mass Spectrometer
 1. PCL workstation
 1. Chemspeed

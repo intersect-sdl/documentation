@@ -11,8 +11,6 @@ version: 1.0
 published: true
 ---
 
-# :rdfterm[dcat:Dataset]
-
 The :rdfterm[dcat:Dataset] class describes a collection of data that is published or curated. In SDL, it is used to represent datasets derived from scientific measurements, experimental workflows, sample analyses, and other research outputs.
 
 ---

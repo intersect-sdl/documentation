@@ -1,7 +1,12 @@
 ---
 uuid: 96d99738-12e1-4ed0-a19e-50cbd7e5cc16
-title: SOSA Observable Property
+title: Entity Detail — sosa:ObservableProperty
 published: true
+tags:
+  - SOSA
+  - RDF Class
+  - Observable Property
+  - Entity Detai
 authors:
     - Swen Boehm
     - SDL Team
@@ -11,11 +16,15 @@ draft: true
 
 The class `sosa:ObservableProperty` is a core concept from the [SOSA/SSN ontology](https://www.w3.org/TR/vocab-ssn/). It represents a quality, characteristic, or measurable feature of a phenomenon, system, or feature of interest.
 
+---
+
 ## Definition
 
 **IRI**: `http://www.w3.org/ns/sosa/ObservableProperty`
 
-**Description**: An `ObservableProperty` represents **what is being observed**. It can refer to physical, chemical, biological, or conceptual characteristics. It is typically linked to `sosa:Observation` through the property `sosa:observedProperty`.
+> An `ObservableProperty` represents **what is being observed**. It can refer to physical, chemical, biological, or conceptual characteristics. It is typically linked to `sosa:Observation` through the property `sosa:observedProperty`.
+
+---
 
 ## Usage in SDL
 
@@ -27,6 +36,8 @@ In the Scientific Data Layer (SDL), `sosa:ObservableProperty` is used to describ
 
 Each observable property should be semantically described and, where applicable, typed with appropriate units and value types.
 
+---
+
 ## Customization by Deployment
 
 SDL supports **deployment-specific customization** of observable properties:
@@ -37,6 +48,8 @@ SDL supports **deployment-specific customization** of observable properties:
 * Catalog entries, shapes, and UI views can adapt based on the declared observable property types.
 
 This flexibility allows the SDL platform to maintain **semantic interoperability** while also accommodating **local specialization and evolution** of measurements.
+
+---
 
 ## Example
 
@@ -50,6 +63,8 @@ acl:xrdObs123 a sosa:Observation ;
   sosa:hasResult [ rdf:value "Orthorhombic perovskite" ] .
 ```
 
+---
+
 ## Related Terms
 
 | Predicate                        | Description                                               |
@@ -57,6 +72,8 @@ acl:xrdObs123 a sosa:Observation ;
 | `sosa:observedProperty`          | Connects an Observation to an ObservableProperty          |
 | `sosa:hasFeatureOfInterest`      | Links observation to entity being measured (sample, etc.) |
 | `qudt:unit` or `schema:unitText` | Used to indicate units for numeric results                |
+
+---
 
 ## Best Practices
 

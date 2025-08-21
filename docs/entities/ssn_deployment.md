@@ -1,6 +1,6 @@
 ---
-uuid: 7a0df2a9-e108-4ec8-bc14-11cd6f25edcf
-title: Entity Detail — ssn:Deployment
+id: 7a0df2a9-e108-4ec8-bc14-11cd6f25edcf
+title: ssn:Deployment
 author: SDL Team
 tags:
   - SSN

@@ -1,5 +1,5 @@
 ---
-uuid: 20ff5562-a9b9-4434-9555-9b7f1e454230
+id: 20ff5562-a9b9-4434-9555-9b7f1e454230
 title: Best Practice Frameworks
 published: true
 ----

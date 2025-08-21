@@ -1,5 +1,5 @@
 ---
-uuid: 0b1af7e2-86fb-4872-91ef-4073a97fcde3
+id: 0b1af7e2-86fb-4872-91ef-4073a97fcde3
 title: Registry Service Overview
 published: true
 authors:
@@ -42,7 +42,7 @@ It supports:
 ```ttl
 acl:Sample789 a acl:SolidSample ;
   dct:title "Annealed perovskite powder" ;
-  dct:identifier "urn:uuid:5538e2e8-2e57-45a2-8083-2bc3f4bba147" ;
+  dct:identifier "urn:id:5538e2e8-2e57-45a2-8083-2bc3f4bba147" ;
   prov:wasGeneratedBy acl:SynthesisRun456 .
 ```
 

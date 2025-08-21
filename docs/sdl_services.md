@@ -1,6 +1,6 @@
 ---
-uuid: a3cba938-63a2-4fa7-82ce-6a1fdfc1076a
-title: SDL Service Architecture Overview
+id: a3cba938-63a2-4fa7-82ce-6a1fdfc1076a
+title: "Service Architecture Overview"
 published: true
 authors:
     - Swen Boehm

@@ -1,6 +1,6 @@
 ---
 uid: 7d24f56b-0191-4df8-aaf5-2b7c3b0d8cb7
-title: Entity Detail — sosa:Sampling
+title: sosa:Sampling
 author: SDL Team
 tags:
   - SOSA

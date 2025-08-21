@@ -1,6 +1,6 @@
 ---
-uuid: 740ed579-c185-4c59-a5b1-63a2024bb8a0
-title: Entity Detail — sosa:Result
+id: 740ed579-c185-4c59-a5b1-63a2024bb8a0
+title: sosa:Result
 author: SDL Team
 tags:
   - SOSA

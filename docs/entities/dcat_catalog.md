@@ -1,6 +1,6 @@
 ---
-uuid: 27b4ef25-8d9b-4689-bf08-84159c8edc1c
-title: Entity Detail — dcat:Catalog
+id: 27b4ef25-8d9b-4689-bf08-84159c8edc1c
+title: dcat:Catalog
 author: SDL Team
 tags:
   - DCAT

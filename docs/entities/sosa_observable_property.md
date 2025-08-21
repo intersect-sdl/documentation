@@ -1,6 +1,6 @@
 ---
-uuid: 96d99738-12e1-4ed0-a19e-50cbd7e5cc16
-title: Entity Detail — sosa:ObservableProperty
+id: 96d99738-12e1-4ed0-a19e-50cbd7e5cc16
+title: sosa:ObservableProperty
 published: true
 tags:
   - SOSA

@@ -1,6 +1,6 @@
 ---
-uuid: 3117d937-d2cd-4fa3-9621-2f2559fd5fc0
-title: Entity Detail — sosa:Sample
+id: 3117d937-d2cd-4fa3-9621-2f2559fd5fc0
+title: sosa:Sample
 author: SDL Team
 tags:
   - SOSA

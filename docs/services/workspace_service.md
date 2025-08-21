@@ -1,5 +1,5 @@
 ---
-uuid: 4a34a122-7d3e-41cb-91db-4e7e1dc4537e
+id: 4a34a122-7d3e-41cb-91db-4e7e1dc4537e
 title: Workspace Service Overview
 published: true
 authors:

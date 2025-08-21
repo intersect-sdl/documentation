@@ -1,5 +1,5 @@
 ---
-uuid: 3cbbf292-5a2a-442a-a3ee-9713e3a51b89
+id: 3cbbf292-5a2a-442a-a3ee-9713e3a51b89
 title: Catalog Service Overview
 published: true
 authors:

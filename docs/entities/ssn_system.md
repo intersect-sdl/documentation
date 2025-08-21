@@ -1,6 +1,6 @@
 ---
-uuid: b98d4d2a-2f2e-4bb5-8c1f-04fa7586f31f
-title: Entity Detail — ssn:System 
+id: b98d4d2a-2f2e-4bb5-8c1f-04fa7586f31f
+title: ssn:System 
 author: SDL Team
 tags:
   - SSN

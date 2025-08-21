@@ -1,6 +1,6 @@
 ---
-title: SDL Deployment Guide
-uuid: c631121d-7b2a-43b9-b8a1-5ea0a524ff63
+id: c631121d-7b2a-43b9-b8a1-5ea0a524ff63
+title: Deployment Guide
 published: true
 ---
 
@@ -17,7 +17,7 @@ This guide walks you through deploying the Scientific Data Layer (SDL) using Doc
 
 ### Directory Structure
 
-```
+``` sh
 sdl-platform/
 ├── services/
 │   ├── catalog/

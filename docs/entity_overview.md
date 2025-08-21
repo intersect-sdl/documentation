@@ -1,6 +1,6 @@
 ---
 id: 3b6e0b3b-bdf8-47d9-9d2d-846ae02e45e3
-title: Entity Overview in the Scientific Data Layer (SDL)
+title: Entity Overview
 author: SDL Team
 tags:
   - RDF
@@ -68,23 +68,23 @@ Entities in SDL are linked via named properties from the source ontologies:
 
 | RDF Class                | Namespace | Description                                                                | Documentation                               |
 | ------------------------ | --------- | -------------------------------------------------------------------------- | ------------------------------------------- |
-| :rdfterm[dcat:Catalog]           | DCAT      | A container resource that holds datasets                                   | [more](./entities/dcat_catalog)             |
-| :rdfterm[dcat:Dataset]           | DCAT      | A metadata-described scientific dataset                                    | [more](./entities/dcat_dataset)             |
-| :rdfterm[dcat:Distribution]      | DCAT      | A downloadable representation of a dataset                                 | [more](./entities/dcat_distribution)        |
-| :rdfterm[dcat:Resource]          | DCAT      | A general-purpose superclass for all cataloged resources                   | [more](./entities/dcat_resource)            |
-| :rdfterm[prov:Activity]          | PROV-O    | An event or process that generates or uses entities                        | [more](./entities/prov_activity)            |
-| :rdfterm[prov:Agent]             | PROV-O    | A person, system, or organization involved in a provenance chain           | [more](./entities/prov_agent)               |
-| :rdfterm[prov:Entity]            | PROV-O    | A piece of data or recordable object with provenance                       | [more](./entities/prov_entitiy)             |
-| :rdfterm[sosa:FeatureOfInterest] | SOSA      | The entity whose properties are being observed or measured                 | [more](./entities/sosa_feature_of_interest) |
-| :rdfterm[sosa:Observation]       | SOSA      | An act of observing or measuring a property of a feature                   | [more](./entities/sosa_observation)         |
-| :rdfterm[sosa:Platform]          | SOSA      | A structure or system that hosts sensors or samplers                       | [more](./entities/sosa_platform)            |
-| :rdfterm[sosa:Result]            | SOSA      | The outcome or value produced by an observation, sampling, or actuation    | [more](./entities/sosa_result)              |
-| :rdfterm[sosa:Sample]            | SOSA      | A physical or digital subset of a feature of interest used in observations | [more](./entities/sosa_sample)              |
-| :rdfterm[sosa:Sampling]          | SOSA      | The act of producing a sample from a feature of interest                   | [more](./entities/sosa_sampling)            |
-| :rdfterm[sosa:Sampler]           | SOSA      | A device, software, or agent capable of performing a sampling activity     | [more](./entities/sosa_sampler)             |
-| :rdfterm[ssn:Deployment]         | SSN       | The deployment of a system into a specific context or environment          | [more](./entities/ssn_deployment)           |
-| :rdfterm[ssn:Property]           | SSN       | An observable or measurable characteristic of a real-world feature         | [more](./entities/ssn_property)             |
-| :rdfterm[ssn:System]             | SSN       | A sensing or measurement system that performs observations                 | [more](./entities/ssn_system)               |
+| :rdfterm[dcat:Catalog]           | DCAT      | A container resource that holds datasets                                   | [[dcat_catalog]]            |
+| :rdfterm[dcat:Dataset]           | DCAT      | A metadata-described scientific dataset                                     | [[dcat_dataset]]             |
+| :rdfterm[dcat:Distribution]      | DCAT      | A downloadable representation of a dataset                                 | [[dcat_distribution]]        |
+| :rdfterm[dcat:Resource]          | DCAT      | A general-purpose superclass for all cataloged resources                   | [[dcat_resource]]            |
+| :rdfterm[prov:Activity]          | PROV-O    | An event or process that generates or uses entities                        | [[prov_activity]]            |
+| :rdfterm[prov:Agent]             | PROV-O    | A person, system, or organization involved in a provenance chain           | [[prov_agent]]               |
+| :rdfterm[prov:Entity]            | PROV-O    | A piece of data or recordable object with provenance                       | [[prov_entitiy]]             |
+| :rdfterm[sosa:FeatureOfInterest] | SOSA      | The entity whose properties are being observed or measured                 | [[sosa_feature_of_interest]] |
+| :rdfterm[sosa:Observation]       | SOSA      | An act of observing or measuring a property of a feature                   | [[sosa_observation]]         |
+| :rdfterm[sosa:Platform]          | SOSA      | A structure or system that hosts sensors or samplers                       | [[sosa_platform]]            |
+| :rdfterm[sosa:Result]            | SOSA      | The outcome or value produced by an observation, sampling, or actuation    | [[sosa_result]]              |
+| :rdfterm[sosa:Sample]            | SOSA      | A physical or digital subset of a feature of interest used in observations | [[sosa_sample]]              |
+| :rdfterm[sosa:Sampling]          | SOSA      | The act of producing a sample from a feature of interest                   | [[sosa_sampling]]            |
+| :rdfterm[sosa:Sampler]           | SOSA      | A device, software, or agent capable of performing a sampling activity     | [[sosa_sampler]]             |
+| :rdfterm[ssn:Deployment]         | SSN       | The deployment of a system into a specific context or environment           | [[ssn_deployment]]           |
+| :rdfterm[ssn:Property]           | SSN       | An observable or measurable characteristic of a real-world feature         | [[ssn_property]]             |
+| :rdfterm[ssn:System]             | SSN       | A sensing or measurement system that performs observations                 | [[ssn_system]]               |
 
 ---
 

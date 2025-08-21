@@ -1,5 +1,5 @@
 ---
-uuid: 6e85870a-4b0e-4c75-83cd-5cd4c7a82648
+id: 6e85870a-4b0e-4c75-83cd-5cd4c7a82648
 title: New Platform Survey
 published: true
 ---

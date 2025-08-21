@@ -1,6 +1,6 @@
 ---
-uuid: b2b5744e-6cb9-4878-baff-16cfd9db0115
-title: Entity Detail — sosa:Sampler
+id: b2b5744e-6cb9-4878-baff-16cfd9db0115
+title: sosa:Sampler
 author: SDL Team
 tags:
   - SOSA

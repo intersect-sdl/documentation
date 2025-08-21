@@ -1,6 +1,6 @@
 ---
-uuid: d6b105cf-4e4d-4605-a98e-7b71b7a6cf80
-title: Entity Detail — prov:Agent
+id: d6b105cf-4e4d-4605-a98e-7b71b7a6cf80
+title: prov:Agent
 author: SDL Team
 tags:
   - PROV-O

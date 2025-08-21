@@ -1,6 +1,6 @@
 ---
-uuid: 52f67437-d30a-4c84-9221-08dcf667d920
-title: Entity Detail — sosa:Platform
+id: 52f67437-d30a-4c84-9221-08dcf667d920
+title: sosa:Platform
 author: SDL Team
 tags:
   - SOSA

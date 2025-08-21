@@ -1,6 +1,6 @@
 ---
-uuid: 0ccfdb7a-0062-4c29-8e53-b3ea73a71be2
-title: Entity Detail — ssn:Property
+id: 0ccfdb7a-0062-4c29-8e53-b3ea73a71be2
+title: ssn:Property
 author: SDL Team
 tags:
   - SSN
@@ -71,9 +71,9 @@ Here are some common properties used in SDL:
 * `ex:ph` — Soil or water pH ([QUDT: Acidity](http://qudt.org/vocab/quantitykind/Acidity))
 * `ex:temperature` — Air or soil temperature ([QUDT: Temperature](http://qudt.org/vocab/quantitykind/Temperature))
 * `ex:moisture` — Soil volumetric water content ([QUDT: MoistureContent](http://qudt.org/vocab/quantitykind/MoistureContent))
-* [Plant specific Properties](../properties/properties_plants_overview)
-* [Observational Properties based on PlantCV](../properties/plantcv)
-* [Solid State Chemistry Specific Properties](../properties/properties_solid_state_chemistry)
+* [Plant specific Properties](/platforms/bessd/properties/properties_plants_overview)
+* [Observational Properties based on PlantCV](/platforms/bessd/properties/plantcv)
+* [Solid State Chemistry Specific Properties](/platforms/acl/properties/properties_solid_state_chemistry)
 
 ---
 

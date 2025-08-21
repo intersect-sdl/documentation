@@ -41,4 +41,3 @@ title: Page Title
 
 - Use Mermaid diagrams embedded in Markdown files.
 - Store large diagrams as `.mmd` files for reuse.
-

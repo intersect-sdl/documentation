@@ -1,6 +1,6 @@
 ---
-uuid: 1390e5a5-5182-405e-8f99-20a6a86cc25f
-title: Entity Detail — dcat:Resource
+id: 1390e5a5-5182-405e-8f99-20a6a86cc25f
+title: dcat:Resource
 author: SDL Team
 tags:
     - DCAT

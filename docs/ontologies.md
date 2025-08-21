@@ -1,6 +1,6 @@
 ---
-uuid: "fedcee5c-aef3-41d6-975a-9dbea14ffd68"
-title: "RDF Namespaces in SDL"
+id: "fedcee5c-aef3-41d6-975a-9dbea14ffd68"
+title: "RDF Ontologies in SDL"
 description: "A reference guide to the RDF namespaces and key classes used across the Scientific Data Layer (SDL)."
 author: "SDL Team"
 date: "2025-06-25"
@@ -8,8 +8,6 @@ published: true
 ---
 
 > **Disclaimer:** Some ontologies and namespaces listed here may be extended or customized per deployment.
-
-# RDF Namespaces in SDL
 
 SDL integrates and aligns multiple standard and custom ontologies to enable rich semantic modeling of scientific workflows, content, systems, and data. This document lists commonly used namespaces and selected key classes.
 

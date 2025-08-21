@@ -1,6 +1,6 @@
 ---
-uuid: 50e5bdb1-7aa2-4c0e-abe3-4f00232bd913
-title: Entity Detail — dcat:Dataset
+id: 50e5bdb1-7aa2-4c0e-abe3-4f00232bd913
+title: dcat:Dataset
 author: SDL Team
 tags:
   - DCAT

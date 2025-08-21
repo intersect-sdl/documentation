@@ -8,8 +8,6 @@ published: true
 
 > **Disclaimer:** Many of the features described in this guide are still in planning or active development. Some functionality may not yet be available in your instance.
 
-# Semantic Content Blocks
-
 Semantic Content Blocks are the foundation of rich, interoperable knowledge creation in SDL. They allow users to compose documents and datasets using structured, typed blocks that are linked to ontologies and RDF data.
 
 This guide explains how to work with semantic blocks, how to annotate them, and how they contribute to a machine-readable, knowledge-driven environment.
@@ -26,6 +24,7 @@ A semantic block is a modular unit of content that:
 - Is individually addressable and versioned
 
 Examples include:
+
 - Paragraphs of text with semantic annotations
 - Data tables linked to measurement ontologies
 - Provenance-aware workflow steps
@@ -59,6 +58,7 @@ Autocomplete and vocabulary suggestions are available during annotation. Blocks 
 ## Linking and Referencing
 
 Semantic blocks can:
+
 - Link to other pages, datasets, or concepts
 - Be reused across documents
 - Contain embedded references with citations
@@ -70,6 +70,7 @@ All links are tracked as RDF relations, supporting provenance and reasoning.
 ## Advanced Features
 
 Planned features include:
+
 - **SHACL-based validation** for block structure
 - **Template-driven authoring** for repeatable scientific workflows
 - **Context-sensitive autocomplete** for domain-specific vocabularies

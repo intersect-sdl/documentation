@@ -1,6 +1,6 @@
 ---
-uuid: 857c9b92-3c39-4608-8806-f7fc0345b0b3
-title: Entity Detail — sosa:Observation
+id: 857c9b92-3c39-4608-8806-f7fc0345b0b3
+title: sosa:Observation
 author: SDL Team
 tags:
   - SOSA

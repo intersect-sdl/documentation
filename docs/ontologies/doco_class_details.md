@@ -1,5 +1,5 @@
 ---
-uuid: 5d1ed897-c4e3-49d3-8d86-28b41540fb7e
+id: 5d1ed897-c4e3-49d3-8d86-28b41540fb7e
 title: Detailed Descriptions of DoCO Classes
 ---
 
@@ -7,219 +7,219 @@ Below are the detailed explanations for all classes in the **Document Components
 
 ---
 
-## `doco:Abstract` {#doco-abstract}
+## doco:Abstract
 
 A summary of the document’s content, usually found at the beginning, providing an overview of the main topics and conclusions.
 
-## `doco:Afterword` {#doco-afterword}
+## doco:Afterword
 
 A concluding section following the main text, providing final remarks or commentary.
 
-## `doco:Appendix` {#doco-appendix}
+## doco:Appendix
 
 Supplementary material added to the end of a document, often providing additional details or data.
 
-## `doco:BackMatter` {#doco-backmatter}
+## doco:BackMatter
 
 Material at the end of a document, including appendices, references, and indexes.
 
-## `doco:BibliographicReferenceList` {#doco-bibliographic-reference-list}
+## doco:BibliographicReferenceList
 
 A structured list of bibliographic references used within the document.
 
-## `doco:Bibliography` {#doco-bibliography}
+## doco:Bibliography
 
 Section that contains all references cited in the document.
 
-## `doco:BlockQuotation` {#doco-block-quotation}
+## doco:BlockQuotation
 
 A distinct section of quoted text separated from the main body, often indented.
 
-## `doco:BodyMatter` {#doco-body-matter}
+## doco:BodyMatter
 
 The central part of a document containing the main content.
 
-## `doco:CaptionedBox` {#doco-captioned-box}
+## doco:CaptionedBox
 
 A boxed section of content with an accompanying caption.
 
-## `doco:Chapter` {#doco-chapter}
+## doco:Chapter
 
 A major division within a document, typically comprising multiple sections.
 
-## `doco:ChapterLabel` {#doco-chapter-label}
+## doco:ChapterLabel
 
 A label or identifier for a chapter.
 
-## `doco:ChapterSubtitle` {#doco-chapter-subtitle}
+## doco:ChapterSubtitle
 
 A subtitle providing additional description for a chapter.
 
-## `doco:ChapterTitle` {#doco-chapter-title}
+## doco:ChapterTitle
 
 The primary heading for a chapter.
 
-## `doco:Colophon` {#doco-colophon}
+## doco:Colophon
 
 A section describing details of the publication process, such as typefaces and printing.
 
-## `doco:ComplexRunInQuotation` {#doco-complex-run-in-quotation}
+## doco:ComplexRunInQuotation
 
 A quotation embedded within text that has additional formatting or structure.
 
-## `doco:Figure` {#doco-figure}
+## doco:Figure
 
 An image, diagram, or visual element within a document.
 
-## `doco:FigureBox` {#doco-figure-box}
+## doco:FigureBox
 
 A boxed figure or group of figures displayed together.
 
-## `doco:FigureLabel` {#doco-figure-label}
+## doco:FigureLabel
 
 A label identifying a figure.
 
-## `doco:Footnote` {#doco-footnote}
+## doco:Footnote
 
 Additional information or references linked to specific parts of the text.
 
-## `doco:Foreword` {#doco-foreword}
+## doco:Foreword
 
 An introductory section preceding the main text, often written by someone other than the author to provide context or endorsement.
 
-## `doco:Formula` {#doco-formula}
+## doco:Formula
 
 A mathematical formula or expression embedded in the document.
 
-## `doco:FormulaBox` {#doco-formula-box}
+## doco:FormulaBox
 
 A boxed area containing one or more formulas.
 
-## `doco:FrontMatter` {#doco-front-matter}
+## doco:FrontMatter
 
 Material at the start of a document, such as the title page, copyright, dedication, and preface.
 
-## `doco:Glossary` {#doco-glossary}
+## doco:Glossary
 
 A list of terms and their definitions, aiding readers in understanding specialized vocabulary used in the document.
 
-## `doco:Header` {#doco-header}
+## doco:Header
 
 The heading or top section of a page or chapter.
 
-## `doco:Index` {#doco-index}
+## doco:Index
 
 An alphabetically ordered listing of keywords or topics with references to their locations within the document.
 
-## `doco:Label` {#doco-label}
+## doco:Label
 
 A label associated with a document component for identification.
 
-## `doco:Line` {#doco-line}
+## doco:Line
 
 Represents a line of text or content in a poem, code block, or other structured text.
 
-## `doco:List` {#doco-list}
+## doco:List
 
 A collection of related items presented in either an ordered or unordered format.
 
-## `doco:ListOfAgents` {#doco-list-of-agents}
+## doco:ListOfAgents
 
 A list naming agents (people or organizations) associated with the document.
 
-## `doco:ListOfAuthors` {#doco-list-of-authors}
+## doco:ListOfAuthors
 
 A list naming all authors of the document.
 
-## `doco:ListOfContributors` {#doco-list-of-contributors}
+## doco:ListOfContributors
 
 A list naming contributors other than authors.
 
-## `doco:ListOfFigures` {#doco-list-of-figures}
+## doco:ListOfFigures
 
 A compiled list of all figures contained within the document.
 
-## `doco:ListOfOrganizations` {#doco-list-of-organizations}
+## doco:ListOfOrganizations
 
 A list naming organizations involved in creating the document.
 
-## `doco:ListOfReferences` {#doco-list-of-references}
+## doco:ListOfReferences
 
 A list of references cited or used in the document.
 
-## `doco:ListOfTables` {#doco-list-of-tables}
+## doco:ListOfTables
 
 A compiled list of all tables included in the document.
 
-## `doco:Paragraph` {#doco-paragraph}
+## doco:Paragraph
 
 A block of text within a section or document.
 
-## `doco:Part` {#doco-part}
+## doco:Part
 
 A large subdivision of a document encompassing multiple chapters or sections.
 
-## `doco:Preface` {#doco-preface}
+## doco:Preface
 
 An introductory statement by the author, discussing the purpose, background, or scope of the document.
 
-## `doco:Section` {#doco-section}
+## doco:Section
 
 A division within a chapter or part.
 
-## `doco:SectionLabel` {#doco-section-label}
+## doco:SectionLabel
 
 A label or identifier for a section.
 
-## `doco:SectionSubtitle` {#doco-section-subtitle}
+## doco:SectionSubtitle
 
 A subtitle for a section.
 
-## `doco:SectionTitle` {#doco-section-title}
+## doco:SectionTitle
 
 The main heading for a section.
 
-## `doco:Sentence` {#doco-sentence}
+## doco:Sentence
 
 A grammatical unit within a paragraph.
 
-## `doco:SimpleRunInQuotation` {#doco-simple-run-in-quotation}
+## doco:SimpleRunInQuotation
 
 A straightforward inline quotation within a sentence.
 
-## `doco:Stanza` {#doco-stanza}
+## doco:Stanza
 
 A grouped set of lines in poetry.
 
-## `doco:Subtitle` {#doco-subtitle}
+## doco:Subtitle
 
 A secondary title providing additional description.
 
-## `doco:Table` {#doco-table}
+## doco:Table
 
 Structured tabular data within the document.
 
-## `doco:TableBox` {#doco-table-box}
+## doco:TableBox
 
 A boxed area containing a table or related tables.
 
-## `doco:TableLabel` {#doco-table-label}
+## doco:TableLabel
 
 A label for identifying a table.
 
-## `doco:TableOfContents` {#doco-table-of-contents}
+## doco:TableOfContents
 
 A list of chapters, sections, or headings with their page references.
 
-## `doco:TextBox` {#doco-text-box}
+## doco:TextBox
 
 A highlighted or boxed section of text.
 
-## `doco:TextChunk` {#doco-text-chunk}
+## doco:TextChunk
 
 The smallest textual component.
 
-## `doco:Title` {#doco-title}
+## doco:Title
 
 The main title of a document.
 

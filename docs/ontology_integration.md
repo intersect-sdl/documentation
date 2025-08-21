@@ -1,5 +1,5 @@
 ---
-uuid: 16d67c2e-0382-497f-9616-f850f31362a5
+id: 16d67c2e-0382-497f-9616-f850f31362a5
 title: "Ontology Integration"
 description: "How ontologies are used and integrated within the Scientific Data Layer (SDL)."
 author: "SDL Team"
@@ -8,8 +8,6 @@ published: true
 ---
 
 > **Disclaimer:** Many of the features described in this guide are still in planning or development. Your instance may not yet support all described functionality.
-
-# Ontology Integration
 
 Ontologies are a core part of the Scientific Data Layer (SDL), enabling semantic interoperability, structured knowledge representation, and reasoning across services.
 
@@ -61,7 +59,8 @@ You can manage ontologies using:
 Each resource is annotated with `@type` and optionally `@context` to associate it with ontology terms.
 
 Example:
-```json
+
+``` json
 {
   "@type": "ssn:Sensor",
   "rdfs:label": "LI-8250 CO2 Analyzer",

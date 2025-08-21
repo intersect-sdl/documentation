@@ -1,6 +1,6 @@
 ---
-uuid: 8a790fe4-d6d1-41e3-b404-08d1696cb144
-title: Entity Detail — sosa:FeatureOfInterest
+id: 8a790fe4-d6d1-41e3-b404-08d1696cb144
+title: sosa:FeatureOfInterest
 author: SDL Team
 tags:
   - SOSA

@@ -1,6 +1,6 @@
 ---
-uuid: 3c2e045f-437a-4b40-b3e3-dc03f7637ec6
-title: Entity Detail — prov:Activity
+id: 3c2e045f-437a-4b40-b3e3-dc03f7637ec6
+title: prov:Activity
 author: SDL Team
 tags:
   - PROV-O

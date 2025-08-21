@@ -1,6 +1,6 @@
 ---
 title: "Workspaces & Navigation"
-uuid: 345d45b3-b503-46a9-95bc-3e0c2549e4c5
+id: 345d45b3-b503-46a9-95bc-3e0c2549e4c5
 description: "An overview of SDL workspaces and how to navigate the platform efficiently."
 author: "SDL Team"
 date: "2025-06-25"

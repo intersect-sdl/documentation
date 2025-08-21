@@ -1,6 +1,6 @@
 ---
-uuid: a53bc456-1219-41f0-b8f3-ecf5245c4d59
-title: Entity Detail — dcat:Distribution
+id: a53bc456-1219-41f0-b8f3-ecf5245c4d59
+title: dcat:Distribution
 author: SDL Team
 tags:
   - DCAT

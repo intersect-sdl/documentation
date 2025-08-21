@@ -1,5 +1,5 @@
 ---
-uuid: 295d3d07-e22c-4d43-9403-a778e46f90ad
+id: 295d3d07-e22c-4d43-9403-a778e46f90ad
 title: Storage Service Overview
 published: true
 authors:

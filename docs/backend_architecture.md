@@ -1,8 +1,8 @@
 ---
-uuid: 7cf5b663-6761-444f-873c-33f89554634c
+id: 7cf5b663-6761-444f-873c-33f89554634c
 title: Backend Architecture
-author: SDL Team
-published: true
+# author: SDL Team
+# published: true
 ---
 
 ## Overview

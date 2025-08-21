@@ -1,5 +1,5 @@
 ---
-uuid: 87b56bcd-f0fe-473a-b220-66f7fb99f48b
+id: 87b56bcd-f0fe-473a-b220-66f7fb99f48b
 title: What Is Scientific Data?
 published: true
 ---
@@ -17,32 +17,31 @@ Scientific data can include:
 ## Overview of the Scientific Process
 
 Observation
-:   
-    * Identifying phenomena or patterns in nature.
-    * Often leads to forming initial research questions.
+:
+    - Identifying phenomena or patterns in nature.
+    - Often leads to forming initial research questions.
 
 Hypothesis Formation
 :
-    * Proposing explanations or predictions that are testable.
+    - Proposing explanations or predictions that are testable.
 
 Experimentation
 :
-    * Designing experiments or simulations to test hypotheses.
-    * Collecting data through instruments, sensors, or computation.
+    - Designing experiments or simulations to test hypotheses.
+    - Collecting data through instruments, sensors, or computation.
 
 Analysis
 :
-    * Processing, cleaning, and analyzing data using statistical or computational methods.
-
+    - Processing, cleaning, and analyzing data using statistical or computational methods.
 
 Interpretation
 :
-    * Drawing conclusions and validating results against hypotheses.
-    * Often leads to refinement of hypotheses or models.
+    - Drawing conclusions and validating results against hypotheses.
+    - Often leads to refinement of hypotheses or models.
 
 Publication & Sharing
 :
-    * Communicating findings with supporting data and metadata for validation and reuse.
+    - Communicating findings with supporting data and metadata for validation and reuse.
 
 ## Challenges in Managing Scientific Data
 

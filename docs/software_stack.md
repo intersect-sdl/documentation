@@ -1,5 +1,6 @@
 ---
-title: ACL Prototype Software Stack
+id: 072274ab-812e-40f5-9df8-cb3171794a5f
+title: SDL Prototype Software Stack
 date: 
 published: false
 ---
@@ -15,10 +16,10 @@ The stack consists of the following components:
 - open policy agent ([opa](https://www.openpolicyagent.org))
 - web console (ui)
 - backends for the DMS services
-    - Repository Service
-    - Storage Service
-    - Catalog Service
-    - Data Transport Service
+  - Repository Service
+  - Storage Service
+  - Catalog Service
+  - Data Transport Service
 
 NGINX  
 Serves as api gateway and web server for the frontend.

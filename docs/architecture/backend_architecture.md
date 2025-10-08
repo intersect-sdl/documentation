@@ -17,8 +17,6 @@ The architecture is designed with **three layers of abstraction**:
 
 Each layer encapsulates distinct responsibilities, promoting separation of concerns and clean layering for service orchestration and reuse.
 
----
-
 ## Linked Data Platform (LDP) in SDL
 
 The SDL adopts the [W3C Linked Data Platform](https://www.w3.org/TR/ldp/) standard, enabling resources to be accessed and managed using HTTP operations with RDF content negotiation. Key features include:
@@ -36,8 +34,6 @@ The SDL adopts the [W3C Linked Data Platform](https://www.w3.org/TR/ldp/) standa
 * Federated architecture via HTTP-based interfaces
 * Modular handling of RDF-based resources with type-specific routing
 
----
-
 ## Layer 1: Storage Abstractions
 
 This layer provides unified access to diverse storage backends:
@@ -52,8 +48,6 @@ This layer provides unified access to diverse storage backends:
 * `StorageService`: Main service interfacing with storage adapters
 * `StorageAdapters`: Plug-ins for specific storage technologies
 * `GraphStore`, `FileStore`, `ObjectStore`, `DocumentStore`: Abstractions over common types of data
-
----
 
 ## Layer 2: Core Services
 
@@ -72,8 +66,6 @@ These services interact directly with Layer 1 abstractions to offer higher-order
 * Interfaces with `ObjectStore` and `FileStore`
 
 These services form the operational and orchestration backbone of the SDL.
-
----
 
 ## Layer 3: Domain Services
 
@@ -96,30 +88,11 @@ These services build on core services to provide domain-specific, user-facing fu
 * Manages :rdfterm[doco:Document], :rdfterm[spar:Project], and :rdfterm[sdlo:Page] resources
 * Utilizes ProseMirror and DoCO alignment for editable block content
 
----
-
 ## Inter-Service Relationships
 
-```plaintext
-+----------------------+     +---------------------+
-|   Workspace Service  | <-- |   Catalog Service   |
-+----------------------+     +---------------------+
-             |                         |
-             v                         v
-     +------------------+     +---------------------+
-     | Repository Service| <-- | Registry + Transfer |
-     +------------------+     +---------------------+
-                         \        /
-                         Layer 2
-                           |
-                     +------------+
-                     |  Storage   |
-                     +------------+
-```
+![SDL Service Layer Diagram](/SDLServiceTiers.svg)
 
 Layer 3 services depend on the Registry and Data Transfer services for URI management, metadata registration, and data ingestion. These, in turn, use the Storage layer for physical storage and retrieval.
-
----
 
 ## Microservice Overview
 
@@ -178,8 +151,6 @@ All services use standardized middleware for:
 * Authentication and authorization (RBAC)
 * Linked Data serialization and content negotiation
 
----
-
 ## Advantages of the Architecture
 
 * **Modularity**: Each service is independently deployable
@@ -187,15 +158,6 @@ All services use standardized middleware for:
 * **Scalability**: Storage and compute can scale separately
 * **Interoperability**: LDP and RDF interfaces ensure compatibility with semantic web tools
 * **Reusability**: Abstractions can be reused across domains and workflows
-
----
-
-## Future Extensions
-
-* Provenance tracking using :rdfterm[prov:Activity], :rdfterm[prov:Agent], and :rdfterm[prov:Entity]
-* Workflow execution using :rdfterm[pwo:Workflow], :rdfterm[p-plan:Step]
-* Real-time streaming via MQTT or AMPQ integrations
-* Event-based automation with workflow triggers
 
 ---
 

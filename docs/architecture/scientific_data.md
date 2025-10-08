@@ -43,6 +43,10 @@ Publication & Sharing
 :
     - Communicating findings with supporting data and metadata for validation and reuse.
 
+## Stages of Scientific Data
+
+![Stages of Scientific Data](/SDLDataStages.png)
+
 ## Challenges in Managing Scientific Data
 
 1. Volume

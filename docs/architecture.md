@@ -16,8 +16,6 @@ The Scientific Data Layer (SDL) is a modular and extensible platform designed to
 
 This guide introduces the SDL architecture, highlighting its main frontend and backend components and their interactions.
 
----
-
 ## Architectural Principles
 
 SDL is built upon the following design principles:
@@ -26,41 +24,18 @@ SDL is built upon the following design principles:
 - **Microservices**: Each core function is encapsulated as an independent Python-based service.
 - **Semantic Interoperability**: Uses RDF, JSON-LD, and standard ontologies (e.g., DCAT, SSN, DoCO).
 
-  → [[ontologies|See the Overview of Namespaces Used in SDL]]
+→ [See the Overview of Namespaces Used in SDL](/docs/ontologies)
 
 - **Polyglot Storage**: Supports RDF triple stores, object storage, SQL, and NoSQL.
 - **Extensibility**: Modular components and shared libraries for reusability.
 
   Semantic classes in SDL are composed from multiple ontologies and aligned to platform-specific requirements using RDF typing and graph separation. This composition enables semantic forms, content blocks, and workflows to be inferred and rendered dynamically.
 
-  → [[entity_overview|See the Overview of Semantic Classes Used in SDL]]
-
----
+→ [See the Overview of Semantic Classes Used in SDL](/docs/entity_overview)
 
 ## System Diagram
 
-``` sh
-[ User Interface (SvelteKit) ]
-          |
-          v
-[ API Gateway / Middleware Layer ]
-          |
-+-------------------------------+
-|         Backend Services      |
-|-------------------------------|
-| Catalog     | Registry        |
-| Repository  | Workspace       |
-| Storage     | Data Transfer   |
-+-------------------------------+
-          |
-+-------------------------------+
-|         Storage Layer         |
-|-------------------------------|
-| Blazegraph | MinIO | Postgres |
-+-------------------------------+
-```
-
----
+![SDL Architecture Diagram](/SDLArchitecture.svg)
 
 ## Frontend (SvelteKit UI)
 
@@ -80,8 +55,6 @@ Key features:
 
 It interacts with backend services through a JSON-LD-aware API gateway.
 
----
-
 ## Backend Services
 
 Each backend service is implemented in Python and communicates over REST, with plans to support GraphQL/SPARQL endpoints.
@@ -90,33 +63,8 @@ Each backend service is implemented in Python and communicates over REST, with p
 
 The architecture is organized into **three layers**:
 
-```mermaid
-flowchart TD
-    subgraph L1[Layer 1: Storage]
-        A[Blazegraph RDF Store]
-        B[MinIO Object Storage]
-        C[SQL / NoSQL Databases]
-    end
+![SDL Service Layer Diagram](/SDLServiceTiers.svg)
 
-    subgraph L2[Layer 2: Core Services]
-        D[Registry Service]
-        E[Data Transport Service]
-    end
-
-    subgraph L3[Layer 3: Applications]
-        F[Catalog Service]
-        G[Repository Service]
-        H[Workspace Service]
-    end
-
-    A <--> D
-    B <--> D
-    C <--> D
-    D --> E
-    E --> F
-    E --> G
-    E --> H
-```
 
 ### Catalog Service
 
@@ -163,8 +111,6 @@ sequenceDiagram
     Catalog->>Registry: Cross-reference datasets
 ```
 
----
-
 ## Shared Infrastructure
 
 - **Blazegraph**: RDF triple store for SPARQL and semantic queries
@@ -174,24 +120,12 @@ sequenceDiagram
 - **NGINX**: Reverse proxy and static file serving, load balancing
 - **AMP/MQTT**: Messaging protocol layer for real-time telemetry and data synchronization
 
----
+## See Also
 
-## DevOps and Deployment
-
-SDL is designed to be containerized using Docker and orchestrated with Kubernetes. Each service runs independently and can scale horizontally.
-
-- CI/CD pipelines for microservices
-- Configurable namespace mapping and graph isolation
-- OAuth2-compatible authentication layer
-
----
-
-## Future Directions
-
-- Event-driven messaging layer (e.g., Kafka)
-- Federation across SDL instances
-- Provenance-based automation and reasoning
-- Ontology-aligned workflow engines
+- [Backend Architecture](architecture/backend_architecture)
+- [Ontology Integration](architecture/ontology_integration)
+- [Platform Definition](architecture/platforms)
+- [SDL Services](architecture/sdl_services)
 
 ---
 

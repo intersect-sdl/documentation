@@ -13,34 +13,67 @@ Ontologies are a core part of the Scientific Data Layer (SDL), enabling semantic
 
 This guide covers how ontologies are used, loaded, aligned, and extended within SDL.
 
----
-
 ## Purpose of Ontologies in SDL
+
+The :abbr[SDL] relies on :abbr[RDF] and :abbr[OWL] ontologies to model resources and their relationships.
+In :abbr[RDF], a resource is described using one or more assertions (statements) about it.
+A Resources can be assigned one or more classes in :abbr[RDF] vocabularies or :abbr[OWL] ontologies.
+Additionally it can also have properties, providing additional context.
+
+``` turtle
+<http://example.org/sensors/LI-8250> a ssn:Sensor .
+```
+
+The example above is a single :abbr[RDF] statement (a "triple") written in Turtle syntax.
+Every triple has a *Subject*, *Predicate* and *Object*: the *Subject* identifies the resource, and the *Predicate* links it to another *Object*.
+
+The next example adds a second assertion about the same resource:
+
+``` turtle
+<http://example.org/sensors/LI-8250> a ssn:Sensor .
+<http://example.org/sensors/LI-8250> a dcat:Resource .
+```
+
+The token `a` is a Turtle shorthand for :rdfterm[rdf\:type], which asserts that the *Subject* is an instance of the *Object* class.
+From these two assertions, we can see that `<http://example.org/sensors/LI-8250>` is simultaneously an instance of both :rdfterm[ssn\:Sensor] and :rdfterm[dcat\:Resource].
+In :abbr[RDF], a resource may belong to multiple classes.
+This can be used by applications, reasoners, and agents to combine semantics from multiple ontologies.
 
 Ontologies provide the semantic backbone for:
 
-- **Resource typing** (e.g., :rdfterm[ssn:Sensor], :rdfterm[dcat:Dataset], :rdfterm[prov:Activity])
-- **Data validation** using SHACL and reasoning
-- **UI rendering** via :rdfterm[rdfs:Class] and :rdfterm[sh:property] definitions
-- **Search and discovery** via class-based filters
-- **Automated workflows** and provenance tracking
+### Resource typing
 
----
+Resources within the SDL are typed using different classes from multiple vocabularies and ontologies, e.g., :rdfterm[ssn:Sensor], :rdfterm[dcat:Dataset], :rdfterm[prov:Activity].
+
+### Data validation
+
+using SHACL and reasoning
+
+### UI rendering
+
+via :rdfterm[rdfs:Class] and :rdfterm[sh:property] definitions
+
+### Search and discovery
+
+via class-based filters
+
+
+### Automated workflows and provenance tracking
+
+
 
 ## Supported Ontologies
 
 SDL integrates a range of standard and domain-specific ontologies:
 
-- **DCAT v3** – Catalogs and datasets
-- **SSN/SOSA** – Sensors, systems, observations
-- **PROV-O** – Provenance of data and workflows
-- **DoCO** – Document components (for semantic content blocks)
-- **SKOS** – Controlled vocabularies
-- **SHACL** – Shape constraints for validation
+- **DCAT v3** Catalogs and datasets
+- **SSN/SOSA** Sensors, systems, observations
+- **PROV-O** Provenance of data and workflows
+- **DoCO** Document components (for semantic content blocks)
+- **SKOS** Controlled vocabularies
+- **SHACL** Shape constraints for validation
 
 Custom or local ontologies can be loaded to support specific domains.
-
----
 
 ## Ontology Management
 
@@ -51,8 +84,6 @@ You can manage ontologies using:
 - The **Repository Service** (`POST /repository/resources`) to upload `.ttl` or `.jsonld` files
 - A **designated admin UI** (planned)
 - Programmatic loading during deployment/configuration
-
----
 
 ## Aligning Data with Ontologies
 
@@ -81,8 +112,6 @@ Example:
 
 Validation and reasoning can check for consistency with the ontology definition.
 
----
-
 ## UI Integration
 
 SDL uses ontologies to drive the UI dynamically:
@@ -92,8 +121,6 @@ SDL uses ontologies to drive the UI dynamically:
 - Type-aware rendering of content blocks (e.g., data block vs. reference block)
 
 This enables a flexible interface that adjusts to new types without hardcoding.
-
----
 
 ## Extending Ontologies
 
@@ -106,15 +133,11 @@ Users can:
 
 Custom extensions can be maintained in dedicated named graphs.
 
----
-
 ## Planned Features
 
 - Ontology browser UI
 - Version control for vocabularies
 - SPIN/SHACL reasoning support
 - Context-aware autocompletion during semantic editing
-
----
 
 Ontology integration ensures that SDL remains modular, extensible, and aligned with FAIR principles for data management and reuse.

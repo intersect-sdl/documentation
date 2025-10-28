@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant Sensor
+    participant Registry
+    participant Storage
+    participant Catalog
+
+    Sensor->>Registry: Register new observation
+    Registry->>Storage: Store RDF and data files
+    Catalog->>Storage: Query and retrieve metadata
+    Catalog->>Registry: Cross-reference datasets

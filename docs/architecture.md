@@ -66,50 +66,39 @@ The architecture is organized into **three layers**:
 ![SDL Service Layer Diagram](/SDLServiceTiers.svg)
 
 
-### Catalog Service
+#### Catalog Service
 
 - Manages DCAT catalogs, datasets, distributions
 - Supports search, indexing, and metadata publishing
 
-### Registry Service
+#### Registry Service
 
 - Manages identities of platforms, systems, sensors
 - Supports SSN/PROV alignment and platform hierarchy
 
-### Repository Service
+#### Repository Service
 
 - Manages versioned RDF content
 - Implements LDP containers and SPARQL endpoints
 
-### Workspace Service
+#### Workspace Service
 
 - Handles user-defined spaces for organizing content
 - Manages RBAC, dashboards, templates
 
-### Storage Service
+#### Storage Service
 
 - Maps logical stores to physical backends
 - Coordinates access to Blazegraph, MinIO, Postgres, etc.
 
-### Data Transfer Service
+#### Data Transfer Service
 
 - Manages asynchronous and bulk data movement
 - Tracks provenance of imports/exports
 
 ### Data Flow
 
-```mermaid
-sequenceDiagram
-    participant Sensor
-    participant Registry
-    participant Storage
-    participant Catalog
-
-    Sensor->>Registry: Register new observation
-    Registry->>Storage: Store RDF and data files
-    Catalog->>Storage: Query and retrieve metadata
-    Catalog->>Registry: Cross-reference datasets
-```
+![Data Flow Diagram](/architecture_sequence_diag.svg)
 
 ## Shared Infrastructure
 

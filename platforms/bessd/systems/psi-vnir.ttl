@@ -1,0 +1,312 @@
+@prefix : <http://example.com/bessd/systems/psi-vnir.ttl#> .
+@prefix bessd: <http://example.com/bessd/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix psi: <http://example.com/psi/> .
+@prefix qudt: <http://qudt.org/1.1/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix unit: <http://qudt.org/1.1/vocab/unit#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# =============================================================================
+# PSI HySpec VNIR Hyperspectral Camera
+# Platform and System Descriptions using SSN/SOSA Ontology
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Main Platform
+# -----------------------------------------------------------------------------
+
+psi:HySpecVNIR a sosa:Platform, ssn:System ;
+    rdfs:label "HySpec VNIR Hyperspectral Camera"@en ;
+    dct:description "High-performance push-broom hyperspectral imaging camera for VNIR (Visible Near-Infrared) spectral range with GigE interface. Designed for scientific and industrial applications requiring detailed spectral analysis."@en ;
+    schema:manufacturer "PSI (Photon Systems Instruments) spol. s r.o."@en ;
+    schema:model "HySpec VNIR"@en ;
+    ssn:hasSubSystem 
+        psi:VNIRSpectralImager,
+        psi:VNIROpticalSystem,
+        psi:VNIRControlSystem,
+        psi:VNIRPowerSystem ;
+    sosa:hosts
+        psi:VNIRHyperspectralSensor .
+
+# -----------------------------------------------------------------------------
+# Spectral Imager Subsystem
+# -----------------------------------------------------------------------------
+
+psi:VNIRSpectralImager a ssn:System ;
+    rdfs:label "HySpec VNIR Spectral Imaging System"@en ;
+    dct:description "Push-broom hyperspectral imaging system with spectrograph and CMOS detector for continuous line-scan spectral data acquisition."@en ;
+    ssn-system:hasOperatingRange psi:VNIRSpectralOperatingRange ;
+    ssn-system:hasSystemCapability 
+        psi:VNIRFrameRate,
+        psi:VNIRBitDepth,
+        psi:VNIRDynamicRange ;
+    sosa:hosts
+        psi:VNIRHyperspectralSensor .
+
+psi:VNIRSpectralOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "Spectral Imager Operating Range"@en ;
+    ssn-system:inCondition 
+        psi:VNIRTemperatureCondition,
+        psi:VNIRHumidityCondition,
+        psi:VNIRWavelengthRange .
+
+psi:VNIRTemperatureCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Operating Temperature Range"@en ;
+    schema:minValue "10"^^xsd:decimal ;
+    schema:maxValue "40"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius .
+
+psi:VNIRHumidityCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Operating Humidity Range"@en ;
+    schema:minValue "20"^^xsd:decimal ;
+    schema:maxValue "80"^^xsd:decimal ;
+    schema:unitCode "P1" ;
+    schema:unitText "%" ;
+    dct:description "Non-condensing humidity"@en .
+
+psi:VNIRFrameRate a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Image Acquisition Frame Rate"@en ;
+    schema:value "45"^^xsd:decimal ;
+    schema:unitText "fps" ;
+    dct:description "Frames per second for line-scan imaging"@en .
+
+psi:VNIRBitDepth a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Bit Depth"@en ;
+    schema:value "12"^^xsd:integer ;
+    schema:unitText "bit" ;
+    dct:description "Analog-to-digital conversion resolution"@en .
+
+psi:VNIRDynamicRange a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Dynamic Range"@en ;
+    schema:value "67"^^xsd:decimal ;
+    schema:unitCode "DB" ;
+    qudt:unit unit:Decibel .
+
+# -----------------------------------------------------------------------------
+# Hyperspectral Sensor and Detector
+# -----------------------------------------------------------------------------
+
+psi:VNIRHyperspectralSensor a sosa:Sensor ;
+    rdfs:label "VNIR Hyperspectral Sensor"@en ;
+    dct:description "CMOS-based hyperspectral line-scan sensor capturing spectral signatures across 350-900 nm wavelength range with 1920 spectral pixels and 1000 spatial pixels."@en ;
+    ssn-system:hasOperatingRange psi:VNIRSensorOperatingRange ;
+    ssn-system:hasSystemCapability 
+        psi:VNIRSpectralResolution,
+        psi:VNIRDispersion,
+        psi:VNIRBandSize,
+        psi:VNIRSlitWidth,
+        psi:VNIRSpatialResolution,
+        psi:VNIRSpectralPixels,
+        psi:VNIRPixelSize,
+        psi:VNIRDetectorSize ;
+    sosa:observes psi:SpectralRadiance .
+
+psi:VNIRSensorOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "Hyperspectral Sensor Operating Range"@en ;
+    ssn-system:inCondition psi:VNIRWavelengthRange .
+
+psi:VNIRWavelengthRange a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Spectral Wavelength Range"@en ;
+    schema:minValue "350"^^xsd:decimal ;
+    schema:maxValue "900"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "VNIR (Visible Near-Infrared) spectral range"@en .
+
+psi:VNIRSpectralResolution a ssn-system:Resolution, schema:QuantitativeValue ;
+    rdfs:label "Wavelength Resolution (FWHM)"@en ;
+    schema:value "0.8"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "Full Width at Half Maximum (FWHM) spectral resolution"@en .
+
+psi:VNIRDispersion a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Spectral Dispersion per Pixel"@en ;
+    schema:value "0.28"^^xsd:decimal ;
+    schema:unitText "nm/pixel" ;
+    dct:description "Wavelength separation per spectral pixel"@en .
+
+psi:VNIRBandSize a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Spectral Band Size"@en ;
+    schema:value "550"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "Total spectral coverage"@en .
+
+psi:VNIRSlitWidth a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Entrance Slit Width"@en ;
+    schema:value "25"^^xsd:decimal ;
+    schema:unitCode "C45" ;
+    qudt:unit unit:Micrometer ;
+    dct:description "Spectrograph entrance slit width"@en .
+
+psi:VNIRSpatialResolution a ssn-system:Resolution, schema:QuantitativeValue ;
+    rdfs:label "Spatial Resolution"@en ;
+    schema:value "1000"^^xsd:integer ;
+    schema:unitText "pixels" ;
+    dct:description "Number of spatial pixels across the line"@en .
+
+psi:VNIRSpectralPixels a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Spectral Pixels"@en ;
+    schema:value "1920"^^xsd:integer ;
+    dct:description "Number of spectral channels/pixels"@en .
+
+psi:VNIRPixelSize a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Physical Pixel Size"@en ;
+    schema:value "5.86"^^xsd:decimal ;
+    schema:unitCode "C45" ;
+    qudt:unit unit:Micrometer ;
+    dct:description "Physical size of detector pixels"@en .
+
+psi:VNIRDetectorSize a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Detector Sensor Size"@en ;
+    schema:value "1/1.2"@en ;
+    schema:unitText "inches" ;
+    dct:description "CMOS sensor format size"@en .
+
+psi:VNIRDetectorResolution a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Detector Resolution"@en ;
+    schema:width "1920"^^xsd:integer ;
+    schema:height "1000"^^xsd:integer ;
+    dct:description "Total detector array dimensions (spectral × spatial)"@en .
+
+psi:VNIRDetectorType a ssn-system:SystemCapability ;
+    rdfs:label "Detector Type"@en ;
+    schema:value "CMOS"@en ;
+    dct:description "Complementary Metal-Oxide-Semiconductor image sensor"@en .
+
+# -----------------------------------------------------------------------------
+# Optical System
+# -----------------------------------------------------------------------------
+
+psi:VNIROpticalSystem a ssn:System ;
+    rdfs:label "Optical System"@en ;
+    dct:description "Fixed-focus optical system for hyperspectral line imaging with wide field of view."@en ;
+    ssn-system:hasSystemCapability 
+        psi:VNIRFNumber,
+        psi:VNIRViewAngle,
+        psi:VNIRFocalLength,
+        psi:VNIRFocusType .
+
+psi:VNIRFNumber a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "F-number (Aperture)"@en ;
+    schema:value "1.8"^^xsd:decimal ;
+    dct:description "Lens aperture ratio (focal length / aperture diameter)"@en .
+
+psi:VNIRViewAngle a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Field of View Angle"@en ;
+    schema:value "66"^^xsd:decimal ;
+    schema:unitCode "DD" ;
+    qudt:unit unit:Degree ;
+    dct:description "Angular field of view across spatial dimension"@en .
+
+psi:VNIRFocalLength a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Focal Length"@en ;
+    schema:value "4.8"^^xsd:decimal ;
+    schema:unitCode "MMT" ;
+    qudt:unit unit:Millimeter .
+
+psi:VNIRFocusType a ssn-system:SystemCapability ;
+    rdfs:label "Focus Type"@en ;
+    schema:value "Manual"@en ;
+    dct:description "Manual focus adjustment"@en .
+
+# -----------------------------------------------------------------------------
+# Control System
+# -----------------------------------------------------------------------------
+
+psi:VNIRControlSystem a ssn:System ;
+    rdfs:label "Control and Communication System"@en ;
+    dct:description "Gigabit Ethernet-based control and data acquisition system with Power over Ethernet support."@en ;
+    ssn-system:hasSystemCapability 
+        psi:VNIRControlInterface,
+        psi:VNIRDataInterface .
+
+psi:VNIRControlInterface a ssn-system:SystemCapability ;
+    rdfs:label "Control Interface"@en ;
+    schema:value "GigE"@en ;
+    dct:description "Gigabit Ethernet for camera control and configuration"@en .
+
+psi:VNIRDataInterface a ssn-system:SystemCapability ;
+    rdfs:label "Data Interface"@en ;
+    schema:value "GigE"@en ;
+    dct:description "Gigabit Ethernet for high-speed hyperspectral data transfer"@en .
+
+# -----------------------------------------------------------------------------
+# Power System
+# -----------------------------------------------------------------------------
+
+psi:VNIRPowerSystem a ssn:System ;
+    rdfs:label "Power System"@en ;
+    dct:description "Power delivery via Power over Ethernet (PoE) or dedicated GPIO connector."@en ;
+    ssn-system:hasSystemCapability psi:VNIRPowerOptions .
+
+psi:VNIRPowerOptions a ssn-system:SystemCapability ;
+    rdfs:label "Power Input Options"@en ;
+    dct:description "PoE (Power over Ethernet) or 8-pin Hirose HR25 GPIO connector"@en .
+
+# -----------------------------------------------------------------------------
+# Physical Characteristics
+# -----------------------------------------------------------------------------
+
+psi:VNIRPhysicalDimensions a ssn-system:SystemCapability ;
+    rdfs:label "Physical Dimensions"@en ;
+    schema:width "108"^^xsd:decimal ;
+    schema:height "265"^^xsd:decimal ;
+    schema:depth "390"^^xsd:decimal ;
+    schema:unitCode "MMT" ;
+    qudt:unit unit:Millimeter ;
+    dct:description "Camera dimensions: Length × Width × Height"@en .
+
+psi:VNIRWeight a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Camera Weight"@en ;
+    schema:value "5"^^xsd:decimal ;
+    schema:unitCode "KGM" ;
+    qudt:unit unit:Kilogram .
+
+# -----------------------------------------------------------------------------
+# Observable Properties
+# -----------------------------------------------------------------------------
+
+psi:SpectralRadiance a sosa:ObservableProperty ;
+    rdfs:label "Spectral Radiance"@en ;
+    dct:description "Wavelength-dependent radiance measured across the VNIR spectrum (350-900 nm) at 1920 spectral pixels with 0.8 nm resolution."@en .
+
+# -----------------------------------------------------------------------------
+# Imaging Procedure
+# -----------------------------------------------------------------------------
+
+psi:VNIRLineScanProcedure a sosa:Procedure ;
+    rdfs:label "Push-broom Line Scan Procedure"@en ;
+    dct:description "Continuous line-scan hyperspectral imaging requiring relative motion between camera and target. Each frame captures a spatial line with full spectral information, building a hyperspectral data cube through sequential acquisition."@en .
+
+# -----------------------------------------------------------------------------
+# Application Areas
+# -----------------------------------------------------------------------------
+
+psi:VNIRAgriculture a schema:ApplicationUsage ;
+    rdfs:label "Precision Agriculture Application"@en ;
+    dct:description "Crop health monitoring, stress detection, yield prediction, and precision farming using spectral vegetation indices."@en .
+
+psi:VNIRRemoteSensing a schema:ApplicationUsage ;
+    rdfs:label "Remote Sensing Application"@en ;
+    dct:description "Airborne and drone-based hyperspectral imaging for environmental monitoring, land cover classification, and resource mapping."@en .
+
+psi:VNIRFoodQuality a schema:ApplicationUsage ;
+    rdfs:label "Food Quality Assessment"@en ;
+    dct:description "Non-destructive quality control, contamination detection, and composition analysis of food products."@en .
+
+psi:VNIRMaterialAnalysis a schema:ApplicationUsage ;
+    rdfs:label "Material Characterization"@en ;
+    dct:description "Material identification, sorting, and quality control in industrial applications based on spectral signatures."@en .
+
+psi:VNIREnvironmentalMonitoring a schema:ApplicationUsage ;
+    rdfs:label "Environmental Monitoring"@en ;
+    dct:description "Water quality assessment, vegetation mapping, pollution detection, and ecosystem health monitoring."@en .

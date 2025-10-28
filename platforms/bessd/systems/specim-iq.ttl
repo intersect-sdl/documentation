@@ -1,0 +1,379 @@
+@prefix : <http://example.com/bessd/systems/specim-iq.ttl#> .
+@prefix bessd: <http://example.com/bessd/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix qudt: <http://qudt.org/1.1/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix specim: <http://example.com/specim/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix unit: <http://qudt.org/1.1/vocab/unit#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# =============================================================================
+# Specim IQ Portable Hyperspectral Camera
+# Platform and System Descriptions using SSN/SOSA Ontology
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Main Platform
+# -----------------------------------------------------------------------------
+
+specim:SpecimIQ a sosa:Platform, ssn:System ;
+    rdfs:label "Specim IQ Portable Hyperspectral Camera"@en ;
+    dct:description "Handheld hyperspectral imaging camera with integrated processing, display, and spectral analysis capabilities for field and laboratory use. Captures VNIR (Visible Near-Infrared) hyperspectral data cubes."@en ;
+    schema:manufacturer "Specim, Spectral Imaging Ltd."@en ;
+    schema:model "Specim IQ"@en ;
+    ssn:hasSubSystem 
+        specim:IQSpectralImager,
+        specim:IQComputerSystem,
+        specim:IQDisplaySystem,
+        specim:IQPowerSystem,
+        specim:IQStorageSystem ;
+    sosa:hosts
+        specim:IQHyperspectralSensor,
+        specim:IQGPSSensor,
+        specim:IQCompassSensor,
+        specim:IQAccelerometerSensor,
+        specim:IQGyroscopeSensor .
+
+# -----------------------------------------------------------------------------
+# Spectral Imager Subsystem
+# -----------------------------------------------------------------------------
+
+specim:IQSpectralImager a ssn:System ;
+    rdfs:label "Specim IQ Spectral Imaging System"@en ;
+    dct:description "Push-broom hyperspectral imaging system capturing full spectral data cube with integrated optics and detector."@en ;
+    ssn-system:hasOperatingRange specim:IQSpectralOperatingRange ;
+    sosa:hosts
+        specim:IQHyperspectralSensor .
+
+specim:IQSpectralOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "Spectral Imager Operating Range"@en ;
+    ssn-system:inCondition 
+        specim:IQTemperatureCondition,
+        specim:IQWavelengthRange .
+
+specim:IQTemperatureCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Operating Temperature Range"@en ;
+    schema:minValue "-10"^^xsd:decimal ;
+    schema:maxValue "40"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius .
+
+# -----------------------------------------------------------------------------
+# Hyperspectral Sensor
+# -----------------------------------------------------------------------------
+
+specim:IQHyperspectralSensor a sosa:Sensor ;
+    rdfs:label "VNIR Hyperspectral Sensor"@en ;
+    dct:description "Visible and Near-Infrared (VNIR) hyperspectral line-scan sensor capturing spectral signatures across 400-1000 nm wavelength range with 204 spectral bands."@en ;
+    ssn-system:hasOperatingRange specim:IQSensorOperatingRange ;
+    ssn-system:hasSystemCapability 
+        specim:IQSpectralResolution,
+        specim:IQSpectralSamplingInterval,
+        specim:IQSpatialSamplingInterval,
+        specim:IQSpectralAccuracy,
+        specim:IQSNRCapability ;
+    sosa:observes specim:SpectralReflectance .
+
+specim:IQSensorOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "Hyperspectral Sensor Operating Range"@en ;
+    ssn-system:inCondition specim:IQWavelengthRange .
+
+specim:IQWavelengthRange a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Spectral Wavelength Range"@en ;
+    schema:minValue "400"^^xsd:decimal ;
+    schema:maxValue "1000"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "VNIR (Visible Near-Infrared) spectral range"@en .
+
+specim:IQSpectralResolution a ssn-system:Resolution, schema:QuantitativeValue ;
+    rdfs:label "Spectral Resolution (FWHM)"@en ;
+    schema:value "7"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "Full Width at Half Maximum (FWHM) spectral resolution"@en .
+
+specim:IQSpectralSamplingInterval a ssn-system:Resolution, schema:QuantitativeValue ;
+    rdfs:label "Spectral Sampling Interval"@en ;
+    schema:value "3"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "Spectral sampling distance between bands"@en .
+
+specim:IQSpatialSamplingInterval a ssn-system:Resolution, schema:QuantitativeValue ;
+    rdfs:label "Spatial Sampling Interval"@en ;
+    schema:value "0.4"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    dct:description "Spatial sampling per pixel at 1 meter distance"@en .
+
+specim:IQSpectralAccuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "Spectral Accuracy"@en ;
+    schema:value "0.5"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "Wavelength calibration accuracy"@en .
+
+specim:IQSNRCapability a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Signal-to-Noise Ratio"@en ;
+    schema:minValue "600"^^xsd:decimal ;
+    schema:unitText "SNR at peak quantum efficiency" ;
+    dct:description "Typical SNR performance"@en .
+
+# -----------------------------------------------------------------------------
+# Spatial and Optical Characteristics
+# -----------------------------------------------------------------------------
+
+specim:IQSpatialPixels a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Spatial Pixels"@en ;
+    schema:value "512"^^xsd:integer ;
+    dct:description "Number of spatial pixels across the line"@en .
+
+specim:IQSpectralBands a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Spectral Bands"@en ;
+    schema:value "204"^^xsd:integer ;
+    dct:description "Number of spectral channels/bands"@en .
+
+specim:IQFieldOfView a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Field of View"@en ;
+    schema:value "22.6"^^xsd:decimal ;
+    schema:unitCode "DD" ;
+    qudt:unit unit:Degree ;
+    dct:description "Angular field of view"@en .
+
+specim:IQInstantaneousFOV a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Instantaneous Field of View"@en ;
+    schema:value "0.77"^^xsd:decimal ;
+    schema:unitText "mrad" ;
+    dct:description "Angular resolution per pixel"@en .
+
+specim:IQFocalLength a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Focal Length"@en ;
+    schema:value "10"^^xsd:decimal ;
+    schema:unitCode "MMT" ;
+    qudt:unit unit:Millimeter ;
+    dct:description "Fixed focal length lens"@en .
+
+specim:IQFocalRange a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Focal Range"@en ;
+    schema:minValue "100"^^xsd:decimal ;
+    schema:unitCode "MMT" ;
+    qudt:unit unit:Millimeter ;
+    dct:description "Minimum focusing distance to infinity"@en .
+
+# -----------------------------------------------------------------------------
+# Computer Subsystem
+# -----------------------------------------------------------------------------
+
+specim:IQComputerSystem a ssn:System ;
+    rdfs:label "Integrated Computer System"@en ;
+    dct:description "Embedded processing system for hyperspectral data acquisition, processing, and analysis with ARM-based processor."@en ;
+    ssn-system:hasSystemCapability 
+        specim:IQProcessorCapability,
+        specim:IQMemoryCapability .
+
+specim:IQProcessorCapability a ssn-system:SystemCapability ;
+    rdfs:label "Processor Capability"@en ;
+    dct:description "ARM Cortex-A9 quad-core processor with integrated GPU"@en .
+
+specim:IQMemoryCapability a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "System Memory"@en ;
+    schema:value "2"^^xsd:decimal ;
+    schema:unitCode "GB" ;
+    dct:description "RAM capacity"@en .
+
+# -----------------------------------------------------------------------------
+# Display Subsystem
+# -----------------------------------------------------------------------------
+
+specim:IQDisplaySystem a ssn:System ;
+    rdfs:label "Touchscreen Display System"@en ;
+    dct:description "High-brightness capacitive touchscreen display for camera control and data visualization."@en ;
+    ssn-system:hasSystemCapability 
+        specim:IQDisplayResolution,
+        specim:IQDisplaySize .
+
+specim:IQDisplayResolution a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Display Resolution"@en ;
+    schema:width "1280"^^xsd:integer ;
+    schema:height "720"^^xsd:integer ;
+    dct:description "HD touchscreen resolution"@en .
+
+specim:IQDisplaySize a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Display Diagonal Size"@en ;
+    schema:value "5"^^xsd:decimal ;
+    schema:unitCode "INH" ;
+    qudt:unit unit:Inch .
+
+# -----------------------------------------------------------------------------
+# Power Subsystem
+# -----------------------------------------------------------------------------
+
+specim:IQPowerSystem a ssn:System ;
+    rdfs:label "Power System"@en ;
+    dct:description "Rechargeable battery system with USB-C charging capability."@en ;
+    ssn-system:hasSystemCapability 
+        specim:IQBatteryCapacity,
+        specim:IQOperatingTime .
+
+specim:IQBatteryCapacity a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Battery Capacity"@en ;
+    schema:value "7800"^^xsd:decimal ;
+    schema:unitText "mAh" ;
+    dct:description "Lithium-ion rechargeable battery"@en .
+
+specim:IQOperatingTime a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Typical Operating Time"@en ;
+    schema:minValue "4"^^xsd:decimal ;
+    schema:unitCode "HUR" ;
+    qudt:unit unit:Hour ;
+    dct:description "Battery life for continuous operation"@en .
+
+# -----------------------------------------------------------------------------
+# Storage Subsystem
+# -----------------------------------------------------------------------------
+
+specim:IQStorageSystem a ssn:System ;
+    rdfs:label "Data Storage System"@en ;
+    dct:description "Internal storage and removable SD card for hyperspectral data cubes."@en ;
+    ssn-system:hasSystemCapability 
+        specim:IQInternalStorage,
+        specim:IQRemovableStorage .
+
+specim:IQInternalStorage a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Internal Storage Capacity"@en ;
+    schema:value "32"^^xsd:decimal ;
+    schema:unitCode "GB" ;
+    dct:description "Internal flash storage"@en .
+
+specim:IQRemovableStorage a ssn-system:SystemCapability ;
+    rdfs:label "Removable Storage"@en ;
+    dct:description "SD card slot (up to 256 GB SDXC supported)"@en .
+
+# -----------------------------------------------------------------------------
+# Positioning and Orientation Sensors
+# -----------------------------------------------------------------------------
+
+specim:IQGPSSensor a sosa:Sensor ;
+    rdfs:label "GPS Receiver"@en ;
+    dct:description "Global Positioning System receiver for geolocation tagging of hyperspectral data."@en ;
+    ssn-system:hasSystemCapability specim:IQGPSAccuracy ;
+    sosa:observes specim:GeographicLocation .
+
+specim:IQGPSAccuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "GPS Position Accuracy"@en ;
+    schema:value "5"^^xsd:decimal ;
+    schema:unitCode "MTR" ;
+    qudt:unit unit:Meter ;
+    dct:description "Typical horizontal accuracy"@en .
+
+specim:IQCompassSensor a sosa:Sensor ;
+    rdfs:label "Digital Compass"@en ;
+    dct:description "Magnetometer for directional orientation measurement."@en ;
+    sosa:observes specim:MagneticHeading .
+
+specim:IQAccelerometerSensor a sosa:Sensor ;
+    rdfs:label "3-Axis Accelerometer"@en ;
+    dct:description "Measures linear acceleration for motion detection and orientation."@en ;
+    sosa:observes specim:LinearAcceleration .
+
+specim:IQGyroscopeSensor a sosa:Sensor ;
+    rdfs:label "3-Axis Gyroscope"@en ;
+    dct:description "Measures angular velocity for orientation and stabilization."@en ;
+    sosa:observes specim:AngularVelocity .
+
+# -----------------------------------------------------------------------------
+# Physical Characteristics
+# -----------------------------------------------------------------------------
+
+specim:IQPhysicalDimensions a ssn-system:SystemCapability ;
+    rdfs:label "Physical Dimensions"@en ;
+    schema:width "270"^^xsd:decimal ;
+    schema:height "230"^^xsd:decimal ;
+    schema:depth "90"^^xsd:decimal ;
+    schema:unitCode "MMT" ;
+    qudt:unit unit:Millimeter .
+
+specim:IQWeight a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Camera Weight"@en ;
+    schema:value "1.3"^^xsd:decimal ;
+    schema:unitCode "KGM" ;
+    qudt:unit unit:Kilogram ;
+    dct:description "Weight with battery"@en .
+
+specim:IQIPRating a ssn-system:SystemCapability ;
+    rdfs:label "Ingress Protection Rating"@en ;
+    schema:value "IP54"@en ;
+    dct:description "Protected against dust and water splashes"@en .
+
+# -----------------------------------------------------------------------------
+# Connectivity Features
+# -----------------------------------------------------------------------------
+
+specim:IQConnectivity a ssn-system:SystemCapability ;
+    rdfs:label "Connectivity Features"@en ;
+    dct:description "USB-C for data transfer and charging, WiFi for remote control via Specim IQ Studio"@en .
+
+# -----------------------------------------------------------------------------
+# Observable Properties
+# -----------------------------------------------------------------------------
+
+specim:SpectralReflectance a sosa:ObservableProperty ;
+    rdfs:label "Spectral Reflectance"@en ;
+    dct:description "Wavelength-dependent reflectance measured across the VNIR spectrum (400-1000 nm) at 204 spectral bands."@en .
+
+specim:GeographicLocation a sosa:ObservableProperty ;
+    rdfs:label "Geographic Location"@en ;
+    dct:description "Geographic coordinates (latitude, longitude, altitude) from GPS."@en .
+
+specim:MagneticHeading a sosa:ObservableProperty ;
+    rdfs:label "Magnetic Heading"@en ;
+    dct:description "Compass direction relative to magnetic north."@en .
+
+specim:LinearAcceleration a sosa:ObservableProperty ;
+    rdfs:label "Linear Acceleration"@en ;
+    dct:description "Three-axis linear acceleration measurements."@en .
+
+specim:AngularVelocity a sosa:ObservableProperty ;
+    rdfs:label "Angular Velocity"@en ;
+    dct:description "Three-axis rotational velocity measurements."@en .
+
+# -----------------------------------------------------------------------------
+# Measurement Modes
+# -----------------------------------------------------------------------------
+
+specim:IQMosaicMode a sosa:Procedure ;
+    rdfs:label "Mosaic Imaging Mode"@en ;
+    dct:description "Automated scanning mode for capturing large area hyperspectral mosaics with automatic stitching."@en .
+
+specim:IQSingleImageMode a sosa:Procedure ;
+    rdfs:label "Single Image Mode"@en ;
+    dct:description "Capture individual hyperspectral image with manual scanning motion."@en .
+
+specim:IQTimeLapseMode a sosa:Procedure ;
+    rdfs:label "Time-Lapse Mode"@en ;
+    dct:description "Automated time-series hyperspectral imaging at specified intervals for monitoring temporal changes."@en .
+
+# -----------------------------------------------------------------------------
+# Applications and Use Cases
+# -----------------------------------------------------------------------------
+
+specim:IQVegetationAnalysis a schema:ApplicationUsage ;
+    rdfs:label "Vegetation Analysis Application"@en ;
+    dct:description "Analysis of plant health, stress, species classification, and physiological parameters using vegetation indices and spectral signatures."@en .
+
+specim:IQFoodQuality a schema:ApplicationUsage ;
+    rdfs:label "Food Quality and Safety Application"@en ;
+    dct:description "Assessment of food composition, contamination detection, ripeness evaluation, and quality control."@en .
+
+specim:IQMaterialIdentification a schema:ApplicationUsage ;
+    rdfs:label "Material Identification Application"@en ;
+    dct:description "Non-destructive identification and classification of materials based on spectral signatures."@en .
+
+specim:IQArtConservation a schema:ApplicationUsage ;
+    rdfs:label "Art and Archaeology Application"@en ;
+    dct:description "Analysis of pigments, underdrawings, restoration monitoring, and authentication in art conservation."@en .

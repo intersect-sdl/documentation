@@ -1,0 +1,330 @@
+@prefix : <http://example.com/bessd/systems/psi-swir1700.ttl#> .
+@prefix bessd: <http://example.com/bessd/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix psi: <http://example.com/psi/> .
+@prefix qudt: <http://qudt.org/1.1/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix unit: <http://qudt.org/1.1/vocab/unit#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# =============================================================================
+# PSI HySpec SWIR1700 Hyperspectral Camera
+# Platform and System Descriptions using SSN/SOSA Ontology
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Main Platform
+# -----------------------------------------------------------------------------
+
+psi:HySpecSWIR1700 a sosa:Platform, ssn:System ;
+    rdfs:label "HySpec SWIR1700 Hyperspectral Camera"@en ;
+    dct:description "High-performance push-broom hyperspectral imaging camera for SWIR (Short-Wave Infrared) spectral range with InGaAs detector. Designed for scientific and industrial applications requiring near-infrared spectral analysis beyond the visible range."@en ;
+    schema:manufacturer "PSI (Photon Systems Instruments) spol. s r.o."@en ;
+    schema:model "HySpec SWIR1700"@en ;
+    ssn:hasSubSystem 
+        psi:SWIR1700SpectralImager,
+        psi:SWIR1700OpticalSystem,
+        psi:SWIR1700ControlSystem,
+        psi:SWIR1700PowerSystem ;
+    sosa:hosts
+        psi:SWIR1700HyperspectralSensor .
+
+# -----------------------------------------------------------------------------
+# Spectral Imager Subsystem
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700SpectralImager a ssn:System ;
+    rdfs:label "HySpec SWIR1700 Spectral Imaging System"@en ;
+    dct:description "Push-broom hyperspectral imaging system with spectrograph and InGaAs detector for continuous line-scan SWIR spectral data acquisition."@en ;
+    ssn-system:hasOperatingRange psi:SWIR1700SpectralOperatingRange ;
+    ssn-system:hasSystemCapability 
+        psi:SWIR1700FrameRate,
+        psi:SWIR1700BitDepth ;
+    sosa:hosts
+        psi:SWIR1700HyperspectralSensor .
+
+psi:SWIR1700SpectralOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "Spectral Imager Operating Range"@en ;
+    ssn-system:inCondition 
+        psi:SWIR1700TemperatureCondition,
+        psi:SWIR1700HumidityCondition,
+        psi:SWIR1700WavelengthRange .
+
+psi:SWIR1700TemperatureCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Operating Temperature Range"@en ;
+    schema:minValue "10"^^xsd:decimal ;
+    schema:maxValue "40"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius .
+
+psi:SWIR1700HumidityCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Operating Humidity Range"@en ;
+    schema:minValue "20"^^xsd:decimal ;
+    schema:maxValue "80"^^xsd:decimal ;
+    schema:unitCode "P1" ;
+    schema:unitText "%" ;
+    dct:description "Non-condensing humidity"@en .
+
+psi:SWIR1700FrameRate a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Image Acquisition Frame Rate"@en ;
+    schema:value "50"^^xsd:decimal ;
+    schema:unitText "fps" ;
+    dct:description "Frames per second for line-scan imaging"@en .
+
+psi:SWIR1700BitDepth a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Bit Depth"@en ;
+    schema:value "16"^^xsd:integer ;
+    schema:unitText "bit" ;
+    dct:description "Analog-to-digital conversion resolution"@en .
+
+# -----------------------------------------------------------------------------
+# Hyperspectral Sensor and Detector
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700HyperspectralSensor a sosa:Sensor ;
+    rdfs:label "SWIR Hyperspectral Sensor"@en ;
+    dct:description "InGaAs-based hyperspectral line-scan sensor capturing spectral signatures across 900-1700 nm short-wave infrared wavelength range with 636 spectral pixels and 510 spatial pixels."@en ;
+    ssn-system:hasOperatingRange psi:SWIR1700SensorOperatingRange ;
+    ssn-system:hasSystemCapability 
+        psi:SWIR1700SpectralResolution,
+        psi:SWIR1700Dispersion,
+        psi:SWIR1700BandSize,
+        psi:SWIR1700SlitWidth,
+        psi:SWIR1700SpatialResolution,
+        psi:SWIR1700SpectralPixels,
+        psi:SWIR1700PixelSize,
+        psi:SWIR1700DetectorSize ;
+    sosa:observes psi:SWIRSpectralRadiance .
+
+psi:SWIR1700SensorOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "Hyperspectral Sensor Operating Range"@en ;
+    ssn-system:inCondition psi:SWIR1700WavelengthRange .
+
+psi:SWIR1700WavelengthRange a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Spectral Wavelength Range"@en ;
+    schema:minValue "900"^^xsd:decimal ;
+    schema:maxValue "1700"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "SWIR (Short-Wave Infrared) spectral range"@en .
+
+psi:SWIR1700SpectralResolution a ssn-system:Resolution, schema:QuantitativeValue ;
+    rdfs:label "Wavelength Resolution (FWHM)"@en ;
+    schema:value "2.0"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "Full Width at Half Maximum (FWHM) spectral resolution"@en .
+
+psi:SWIR1700Dispersion a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Spectral Dispersion per Pixel"@en ;
+    schema:value "1.25"^^xsd:decimal ;
+    schema:unitText "nm/pixel" ;
+    dct:description "Wavelength separation per spectral pixel"@en .
+
+psi:SWIR1700BandSize a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Spectral Band Size"@en ;
+    schema:value "800"^^xsd:decimal ;
+    schema:unitCode "NM" ;
+    qudt:unit unit:Nanometer ;
+    dct:description "Total spectral coverage"@en .
+
+psi:SWIR1700SlitWidth a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Entrance Slit Width"@en ;
+    schema:value "25"^^xsd:decimal ;
+    schema:unitCode "C45" ;
+    qudt:unit unit:Micrometer ;
+    dct:description "Spectrograph entrance slit width"@en .
+
+psi:SWIR1700SpatialResolution a ssn-system:Resolution, schema:QuantitativeValue ;
+    rdfs:label "Spatial Resolution"@en ;
+    schema:value "510"^^xsd:integer ;
+    schema:unitText "pixels" ;
+    dct:description "Number of spatial pixels across the line"@en .
+
+psi:SWIR1700SpectralPixels a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Spectral Pixels"@en ;
+    schema:value "636"^^xsd:integer ;
+    dct:description "Number of spectral channels/pixels"@en .
+
+psi:SWIR1700PixelSize a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Physical Pixel Size"@en ;
+    schema:value "25"^^xsd:decimal ;
+    schema:unitCode "C45" ;
+    qudt:unit unit:Micrometer ;
+    dct:description "Physical size of detector pixels"@en .
+
+psi:SWIR1700DetectorSize a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Detector Sensor Size"@en ;
+    schema:width "16"^^xsd:decimal ;
+    schema:height "12.8"^^xsd:decimal ;
+    schema:unitCode "MMT" ;
+    qudt:unit unit:Millimeter ;
+    dct:description "Physical dimensions of InGaAs detector"@en .
+
+psi:SWIR1700DetectorResolution a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Detector Resolution"@en ;
+    schema:width "640"^^xsd:integer ;
+    schema:height "512"^^xsd:integer ;
+    dct:description "Total detector array dimensions (spectral × spatial)"@en .
+
+psi:SWIR1700DetectorType a ssn-system:SystemCapability ;
+    rdfs:label "Detector Type"@en ;
+    schema:value "InGaAs"@en ;
+    dct:description "Indium Gallium Arsenide infrared detector for SWIR sensitivity"@en .
+
+# -----------------------------------------------------------------------------
+# Optical System
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700OpticalSystem a ssn:System ;
+    rdfs:label "Optical System"@en ;
+    dct:description "Manual-focus optical system optimized for SWIR spectral range with wide field of view and fast aperture."@en ;
+    ssn-system:hasSystemCapability 
+        psi:SWIR1700FNumber,
+        psi:SWIR1700ViewAngle,
+        psi:SWIR1700FocalLength,
+        psi:SWIR1700FocusType .
+
+psi:SWIR1700FNumber a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "F-number (Aperture)"@en ;
+    schema:value "1.4"^^xsd:decimal ;
+    dct:description "Lens aperture ratio (focal length / aperture diameter) - fast aperture for low-light SWIR imaging"@en .
+
+psi:SWIR1700ViewAngle a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Field of View Angle"@en ;
+    schema:value "63"^^xsd:decimal ;
+    schema:unitCode "DD" ;
+    qudt:unit unit:Degree ;
+    dct:description "Angular field of view across spatial dimension"@en .
+
+psi:SWIR1700FocalLength a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Focal Length"@en ;
+    schema:value "8"^^xsd:decimal ;
+    schema:unitCode "MMT" ;
+    qudt:unit unit:Millimeter .
+
+psi:SWIR1700FocusType a ssn-system:SystemCapability ;
+    rdfs:label "Focus Type"@en ;
+    schema:value "Manual"@en ;
+    dct:description "Manual focus adjustment"@en .
+
+# -----------------------------------------------------------------------------
+# Control System
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700ControlSystem a ssn:System ;
+    rdfs:label "Control and Communication System"@en ;
+    dct:description "Gigabit Ethernet-based control and data acquisition system for high-speed SWIR hyperspectral data transfer."@en ;
+    ssn-system:hasSystemCapability 
+        psi:SWIR1700ControlInterface,
+        psi:SWIR1700DataInterface .
+
+psi:SWIR1700ControlInterface a ssn-system:SystemCapability ;
+    rdfs:label "Control Interface"@en ;
+    schema:value "GigE"@en ;
+    dct:description "Gigabit Ethernet for camera control and configuration"@en .
+
+psi:SWIR1700DataInterface a ssn-system:SystemCapability ;
+    rdfs:label "Data Interface"@en ;
+    schema:value "GigE"@en ;
+    dct:description "Gigabit Ethernet for high-speed hyperspectral data transfer"@en .
+
+# -----------------------------------------------------------------------------
+# Power System
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700PowerSystem a ssn:System ;
+    rdfs:label "Power System"@en ;
+    dct:description "12V DC power supply for InGaAs detector cooling and camera operation."@en ;
+    ssn-system:hasSystemCapability psi:SWIR1700PowerInput .
+
+psi:SWIR1700PowerInput a ssn-system:SystemCapability ;
+    rdfs:label "Power Input"@en ;
+    schema:voltage "12"^^xsd:decimal ;
+    schema:unitCode "VLT" ;
+    qudt:unit unit:Volt ;
+    dct:description "12V DC power input"@en .
+
+# -----------------------------------------------------------------------------
+# Physical Characteristics
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700PhysicalDimensions a ssn-system:SystemCapability ;
+    rdfs:label "Physical Dimensions"@en ;
+    schema:width "108"^^xsd:decimal ;
+    schema:height "265"^^xsd:decimal ;
+    schema:depth "390"^^xsd:decimal ;
+    schema:unitCode "MMT" ;
+    qudt:unit unit:Millimeter ;
+    dct:description "Camera dimensions: Length × Width × Height"@en .
+
+psi:SWIR1700Weight a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Camera Weight"@en ;
+    schema:value "5"^^xsd:decimal ;
+    schema:unitCode "KGM" ;
+    qudt:unit unit:Kilogram .
+
+# -----------------------------------------------------------------------------
+# Observable Properties
+# -----------------------------------------------------------------------------
+
+psi:SWIRSpectralRadiance a sosa:ObservableProperty ;
+    rdfs:label "SWIR Spectral Radiance"@en ;
+    dct:description "Wavelength-dependent radiance measured across the short-wave infrared spectrum (900-1700 nm) at 636 spectral pixels with 2.0 nm resolution. Enables detection of water content, chemical composition, and material properties not visible in VNIR range."@en .
+
+# -----------------------------------------------------------------------------
+# Imaging Procedure
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700LineScanProcedure a sosa:Procedure ;
+    rdfs:label "Push-broom Line Scan Procedure"@en ;
+    dct:description "Continuous line-scan hyperspectral imaging requiring relative motion between camera and target. Each frame captures a spatial line with full SWIR spectral information, building a hyperspectral data cube through sequential acquisition at 50 fps."@en .
+
+# -----------------------------------------------------------------------------
+# SWIR-Specific Capabilities
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700ThermalSensitivity a ssn-system:SystemCapability ;
+    rdfs:label "Thermal Sensitivity"@en ;
+    dct:description "SWIR wavelengths enable detection of thermal emission and temperature differences not accessible in VNIR range."@en .
+
+psi:SWIR1700WaterAbsorption a ssn-system:SystemCapability ;
+    rdfs:label "Water Absorption Sensitivity"@en ;
+    dct:description "Enhanced sensitivity to water absorption features around 1450 nm and 1940 nm for moisture content analysis."@en .
+
+# -----------------------------------------------------------------------------
+# Application Areas
+# -----------------------------------------------------------------------------
+
+psi:SWIR1700Agriculture a schema:ApplicationUsage ;
+    rdfs:label "Precision Agriculture Application"@en ;
+    dct:description "Advanced crop water stress detection, biomass estimation, and plant composition analysis using SWIR water absorption bands."@en .
+
+psi:SWIR1700MineralMapping a schema:ApplicationUsage ;
+    rdfs:label "Mineral Mapping and Geology"@en ;
+    dct:description "Identification and mapping of minerals, rocks, and geological features based on distinctive SWIR absorption features."@en .
+
+psi:SWIR1700FoodAnalysis a schema:ApplicationUsage ;
+    rdfs:label "Food Composition Analysis"@en ;
+    dct:description "Non-destructive determination of moisture content, protein, fat, and sugar levels in food products using SWIR spectroscopy."@en .
+
+psi:SWIR1700PlasticsRecycling a schema:ApplicationUsage ;
+    rdfs:label "Plastics Sorting and Recycling"@en ;
+    dct:description "Identification and sorting of different plastic types based on unique SWIR spectral signatures for recycling applications."@en .
+
+psi:SWIR1700Pharmaceutical a schema:ApplicationUsage ;
+    rdfs:label "Pharmaceutical Quality Control"@en ;
+    dct:description "Active ingredient identification, blend uniformity testing, and contamination detection in pharmaceutical manufacturing."@en .
+
+psi:SWIR1700RemoteSensing a schema:ApplicationUsage ;
+    rdfs:label "Airborne Remote Sensing"@en ;
+    dct:description "Atmospheric penetration, vegetation stress detection, and material identification from airborne and drone platforms."@en .
+
+psi:SWIR1700Surveillance a schema:ApplicationUsage ;
+    rdfs:label "Security and Surveillance"@en ;
+    dct:description "Enhanced vision through haze, smoke, and certain materials using SWIR wavelengths with better atmospheric transmission than visible light."@en .

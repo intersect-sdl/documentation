@@ -22,7 +22,7 @@ Manages unique identifiers, RDF resource types, and validation schemas across de
 * Registers SHACL shapes and OWL ontologies
 * Supports introspection, resolution, and typing
 
-➡️ See: [Registry Service](./services/registry_service)
+➡️ See: [Registry Service](/docs/services/registry_service)
 
 ### 2. **Repository Service**
 
@@ -32,7 +32,7 @@ Provides durable, version-controlled RDF storage.
 * Tracks changes via `prov:Activity`
 * Supports LDP-style read/write and graph queries
 
-➡️ See: [Repository Service](./services/repository_service)
+➡️ See: [Repository Service](/docs/services/repository_service)
 
 ### 3. **Catalog Service**
 
@@ -42,7 +42,7 @@ Surfaces discoverable datasets and distributions using DCAT v3.
 * Registers `dcat:Dataset`, `dcat:Distribution`, `dcat:DataService`
 * Enables federation and SPARQL discovery
 
-➡️ See: [Catalog Service](./services/catalog_service)
+➡️ See: [Catalog Service](/docs/services/catalog_service)
 
 ### 4. **Storage Service**
 
@@ -52,7 +52,7 @@ Manages physical data storage endpoints.
 * Supports `dcat:DataService` for access interfaces
 * Includes MinIO, Blazegraph, PostgreSQL, MQTT, etc.
 
-➡️ See: [Storage Service](./services/storage_service)
+➡️ See: [Storage Service](/docs/services/storage_service)
 
 ### 5. **Data Transport Service**
 
@@ -62,7 +62,7 @@ Coordinates secure and provenance-aware data movement.
 * Supports raw and cataloged data
 * Uses `prov:Activity` and INTERSECT event modeling
 
-➡️ See: [Data Transport Service](./services/data_transport_service)
+➡️ See: [Data Transport Service](/docs/services/data_transport_service)
 
 ### 6. **Workspace Service**
 
@@ -72,7 +72,7 @@ Encapsulates resources in collaborative semantic contexts.
 * Supports scoped namespaces and access control
 * Used for notebook editing, semantic UI, and publishing
 
-➡️ See: [Workspace Service](./services/workspace_service)
+➡️ See: [Workspace Service](/docs/services/workspace_service)
 
 ## Interoperability and Semantics
 

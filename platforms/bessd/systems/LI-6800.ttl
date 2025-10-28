@@ -1,0 +1,511 @@
+@prefix : <http://example.com/bessd/systems/LI-6800.ttl#> .
+@prefix bessd: <http://example.com/bessd/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix licor: <http://example.com/licor/> .
+@prefix qudt: <http://qudt.org/1.1/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix unit: <http://qudt.org/1.1/vocab/unit#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# =============================================================================
+# LI-COR LI-6800 Portable Photosynthesis System
+# Platform and System Descriptions using SSN/SOSA Ontology
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Main Platform
+# -----------------------------------------------------------------------------
+
+licor:LI6800 a sosa:Platform, ssn:System ;
+    rdfs:label "LI-6800 Portable Photosynthesis System"@en ;
+    dct:description "Advanced portable photosynthesis measurement system with integrated gas analyzers, environmental controls, and optional fluorometer for measuring leaf gas exchange and chlorophyll fluorescence."@en ;
+    schema:manufacturer "LI-COR Biosciences"@en ;
+    schema:model "LI-6800"@en ;
+    ssn:hasSubSystem 
+        licor:LI6800Console,
+        licor:LI6800Head,
+        licor:LI6800CO2AnalyzerReference,
+        licor:LI6800CO2AnalyzerSample,
+        licor:LI6800H2OAnalyzerReference,
+        licor:LI6800H2OAnalyzerSample,
+        licor:LI6800Fluorometer ;
+    sosa:hosts
+        licor:LI6800ConsolePressureSensor,
+        licor:LI6800ChamberPressureSensor,
+        licor:LI6800ExhaustTemperatureSensor,
+        licor:LI6800BlockTemperatureSensor,
+        licor:LI6800LeafTemperatureSensor1,
+        licor:LI6800LeafTemperatureSensor2,
+        licor:LI6800ChamberPARSensor,
+        licor:LI6800LightSourcePARSensor,
+        licor:LI6800ExternalPARSensor,
+        licor:LI6800FlowRateSensor .
+
+# -----------------------------------------------------------------------------
+# Console Subsystem
+# -----------------------------------------------------------------------------
+
+licor:LI6800Console a ssn:System ;
+    rdfs:label "LI-6800 Console"@en ;
+    dct:description "Main control unit with touchscreen display, processor, and environmental control systems."@en ;
+    ssn-system:hasOperatingRange licor:LI6800ConsoleOperatingRange ;
+    schema:weight "6.1"^^xsd:decimal ;
+    schema:weightUnit "kg" ;
+    sosa:hosts
+        licor:LI6800ConsolePressureSensor .
+
+licor:LI6800ConsoleOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "Console Operating Range"@en ;
+    ssn-system:inCondition licor:LI6800ConsoleTemperatureCondition .
+
+licor:LI6800ConsoleTemperatureCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Console Operating Temperature"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "50"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius .
+
+# -----------------------------------------------------------------------------
+# Measurement Head Subsystem
+# -----------------------------------------------------------------------------
+
+licor:LI6800Head a ssn:System ;
+    rdfs:label "LI-6800 Measurement Head"@en ;
+    dct:description "Measurement head containing leaf chamber, gas analyzers, and environmental sensors."@en ;
+    schema:weight "2.15"^^xsd:decimal ;
+    schema:weightUnit "kg" ;
+    sosa:hosts
+        licor:LI6800LeafTemperatureSensor1,
+        licor:LI6800LeafTemperatureSensor2,
+        licor:LI6800ChamberPressureSensor,
+        licor:LI6800ChamberPARSensor .
+
+# -----------------------------------------------------------------------------
+# CO2 Analyzers (Reference and Sample)
+# -----------------------------------------------------------------------------
+
+licor:LI6800CO2AnalyzerReference a ssn:System, sosa:Sensor ;
+    rdfs:label "LI-6800 CO2 Analyzer (Reference)"@en ;
+    dct:description "Non-dispersive infrared (NDIR) absolute CO2 gas analyzer for reference air stream."@en ;
+    ssn-system:hasOperatingRange licor:LI6800CO2OperatingRange ;
+    ssn-system:hasSystemCapability licor:LI6800CO2Precision, licor:LI6800CO2Accuracy ;
+    sosa:observes licor:CO2ConcentrationReference .
+
+licor:LI6800CO2AnalyzerSample a ssn:System, sosa:Sensor ;
+    rdfs:label "LI-6800 CO2 Analyzer (Sample)"@en ;
+    dct:description "Non-dispersive infrared (NDIR) absolute CO2 gas analyzer for sample air stream."@en ;
+    ssn-system:hasOperatingRange licor:LI6800CO2OperatingRange ;
+    ssn-system:hasSystemCapability licor:LI6800CO2Precision, licor:LI6800CO2Accuracy ;
+    sosa:observes licor:CO2ConcentrationSample .
+
+licor:LI6800CO2OperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "CO2 Analyzer Measurement Range"@en ;
+    ssn-system:inCondition licor:LI6800CO2MeasurementCondition .
+
+licor:LI6800CO2MeasurementCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "CO2 Measurement Range"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "3100"^^xsd:decimal ;
+    schema:unitCode "C62" ;
+    schema:unitText "µmol mol-1" .
+
+licor:LI6800CO2Precision a ssn-system:Precision, schema:QuantitativeValue ;
+    rdfs:label "CO2 Analyzer Precision"@en ;
+    dct:description "Precision with 4-second averaging at 400 µmol mol-1"@en ;
+    schema:value "0.1"^^xsd:decimal ;
+    schema:unitText "µmol mol-1 RMS" .
+
+licor:LI6800CO2Accuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "CO2 Analyzer Accuracy"@en ;
+    dct:description "Within 1% of reading at 200 µmol mol-1 or above, ±2 µmol mol-1 at < 200 µmol mol-1"@en .
+
+# -----------------------------------------------------------------------------
+# H2O Analyzers (Reference and Sample)
+# -----------------------------------------------------------------------------
+
+licor:LI6800H2OAnalyzerReference a ssn:System, sosa:Sensor ;
+    rdfs:label "LI-6800 H2O Analyzer (Reference)"@en ;
+    dct:description "Non-dispersive infrared (NDIR) absolute water vapor analyzer for reference air stream."@en ;
+    ssn-system:hasOperatingRange licor:LI6800H2OOperatingRange ;
+    ssn-system:hasSystemCapability licor:LI6800H2OPrecision, licor:LI6800H2OAccuracy ;
+    sosa:observes licor:H2OConcentrationReference .
+
+licor:LI6800H2OAnalyzerSample a ssn:System, sosa:Sensor ;
+    rdfs:label "LI-6800 H2O Analyzer (Sample)"@en ;
+    dct:description "Non-dispersive infrared (NDIR) absolute water vapor analyzer for sample air stream."@en ;
+    ssn-system:hasOperatingRange licor:LI6800H2OOperatingRange ;
+    ssn-system:hasSystemCapability licor:LI6800H2OPrecision, licor:LI6800H2OAccuracy ;
+    sosa:observes licor:H2OConcentrationSample .
+
+licor:LI6800H2OOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "H2O Analyzer Measurement Range"@en ;
+    ssn-system:inCondition licor:LI6800H2OMeasurementCondition .
+
+licor:LI6800H2OMeasurementCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "H2O Measurement Range"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "75"^^xsd:decimal ;
+    schema:unitText "mmol mol-1" .
+
+licor:LI6800H2OPrecision a ssn-system:Precision, schema:QuantitativeValue ;
+    rdfs:label "H2O Analyzer Precision"@en ;
+    dct:description "Precision with 4-second averaging at 10 mmol mol-1"@en ;
+    schema:value "0.01"^^xsd:decimal ;
+    schema:unitText "mmol mol-1 RMS" .
+
+licor:LI6800H2OAccuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "H2O Analyzer Accuracy"@en ;
+    dct:description "Within 1.5% of reading at >5 mmol mol-1; ±0.08 mmol mol-1 at < 5 mmol mol-1"@en .
+
+# -----------------------------------------------------------------------------
+# Multiphase Flash Fluorometer (Optional 6800-01A)
+# -----------------------------------------------------------------------------
+
+licor:LI6800Fluorometer a ssn:System ;
+    rdfs:label "LI-6800 Multiphase Flash Fluorometer"@en ;
+    dct:description "Optional chlorophyll fluorescence measurement system with modulated measuring light and multiple actinic light sources."@en ;
+    schema:model "6800-01A"@en ;
+    ssn-system:hasOperatingRange licor:LI6800FluorometerOperatingRange ;
+    sosa:hosts
+        licor:LI6800FluorescenceSensor,
+        licor:LI6800ActinicRedLight,
+        licor:LI6800ActinicBlueLight,
+        licor:LI6800FarRedLight,
+        licor:LI6800SaturationFlash,
+        licor:LI6800MeasuringLight .
+
+licor:LI6800FluorometerOperatingRange a ssn-system:OperatingRange ;
+    rdfs:label "Fluorometer Operating Range"@en ;
+    ssn-system:inCondition licor:LI6800FluorometerTemperatureCondition .
+
+licor:LI6800FluorometerTemperatureCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Fluorometer Operating Temperature"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "50"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius .
+
+licor:LI6800FluorescenceSensor a sosa:Sensor ;
+    rdfs:label "Chlorophyll Fluorescence Detector"@en ;
+    dct:description "Detects chlorophyll fluorescence emission from photosystem II."@en ;
+    sosa:observes licor:ChlorophyllFluorescence .
+
+licor:LI6800MeasuringLight a sosa:Actuator ;
+    rdfs:label "Modulated Measuring Light"@en ;
+    dct:description "Software-controlled modulated light for fluorescence measurement (1 Hz - 250 kHz)."@en ;
+    schema:wavelength "625"^^xsd:decimal ;
+    schema:wavelengthUnit "nm" .
+
+licor:LI6800ActinicRedLight a sosa:Actuator ;
+    rdfs:label "Red Actinic Light"@en ;
+    dct:description "Red actinic light for photosynthesis activation."@en ;
+    schema:wavelength "625"^^xsd:decimal ;
+    schema:wavelengthUnit "nm" ;
+    ssn-system:hasSystemCapability licor:LI6800RedActinicCapability .
+
+licor:LI6800RedActinicCapability a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Red Actinic Light Output Range"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "2000"^^xsd:decimal ;
+    schema:unitText "µmol m-2 s-1" ;
+    dct:description "At 25 °C"@en .
+
+licor:LI6800ActinicBlueLight a sosa:Actuator ;
+    rdfs:label "Blue Actinic Light"@en ;
+    dct:description "Blue actinic light for photosynthesis activation."@en ;
+    schema:wavelength "475"^^xsd:decimal ;
+    schema:wavelengthUnit "nm" ;
+    ssn-system:hasSystemCapability licor:LI6800BlueActinicCapability .
+
+licor:LI6800BlueActinicCapability a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Blue Actinic Light Output Range"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "1000"^^xsd:decimal ;
+    schema:unitText "µmol m-2 s-1" ;
+    dct:description "At 25 °C"@en .
+
+licor:LI6800FarRedLight a sosa:Actuator ;
+    rdfs:label "Far-red Light"@en ;
+    dct:description "Far-red light for photosystem I activation."@en ;
+    schema:wavelength "735"^^xsd:decimal ;
+    schema:wavelengthUnit "nm" ;
+    ssn-system:hasSystemCapability licor:LI6800FarRedCapability .
+
+licor:LI6800FarRedCapability a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Far-red Light Output Range"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "20"^^xsd:decimal ;
+    schema:unitText "µmol m-2 s-1" ;
+    dct:description "At 25 °C"@en .
+
+licor:LI6800SaturationFlash a sosa:Actuator ;
+    rdfs:label "Saturation Flash"@en ;
+    dct:description "High-intensity light pulse for saturation of photosystem II."@en ;
+    schema:wavelength "625"^^xsd:decimal ;
+    schema:wavelengthUnit "nm" ;
+    ssn-system:hasSystemCapability licor:LI6800SaturationFlashCapability .
+
+licor:LI6800SaturationFlashCapability a ssn-system:SystemCapability, schema:QuantitativeValue ;
+    rdfs:label "Saturation Flash Intensity Range"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "16000"^^xsd:decimal ;
+    schema:unitText "µmol m-2 s-1" ;
+    dct:description "At 25 °C"@en .
+
+# -----------------------------------------------------------------------------
+# Environmental Sensors
+# -----------------------------------------------------------------------------
+
+licor:LI6800ConsolePressureSensor a sosa:Sensor ;
+    rdfs:label "Console Pressure Sensor"@en ;
+    dct:description "Absolute pressure sensor in the console."@en ;
+    ssn-system:hasOperatingRange licor:LI6800ConsolePressureRange ;
+    ssn-system:hasSystemCapability licor:LI6800ConsolePressurePrecision, licor:LI6800ConsolePressureAccuracy ;
+    sosa:observes licor:AtmosphericPressure .
+
+licor:LI6800ConsolePressureRange a ssn-system:OperatingRange ;
+    rdfs:label "Console Pressure Operating Range"@en ;
+    ssn-system:inCondition licor:LI6800ConsolePressureCondition .
+
+licor:LI6800ConsolePressureCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Console Pressure Measurement Range"@en ;
+    schema:minValue "50"^^xsd:decimal ;
+    schema:maxValue "110"^^xsd:decimal ;
+    schema:unitCode "KPA" ;
+    qudt:unit unit:Kilopascal .
+
+licor:LI6800ConsolePressurePrecision a ssn-system:Precision, schema:QuantitativeValue ;
+    rdfs:label "Console Pressure Resolution"@en ;
+    schema:value "1.5"^^xsd:decimal ;
+    schema:unitCode "PA" ;
+    qudt:unit unit:Pascal ;
+    schema:unitText "Pa typical" .
+
+licor:LI6800ConsolePressureAccuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "Console Pressure Accuracy"@en ;
+    schema:value "0.4"^^xsd:decimal ;
+    schema:unitCode "KPA" ;
+    qudt:unit unit:Kilopascal .
+
+licor:LI6800ChamberPressureSensor a sosa:Sensor ;
+    rdfs:label "Chamber Differential Pressure Sensor"@en ;
+    dct:description "Differential pressure sensor measuring chamber pressure relative to ambient."@en ;
+    ssn-system:hasOperatingRange licor:LI6800ChamberPressureRange ;
+    ssn-system:hasSystemCapability licor:LI6800ChamberPressurePrecision ;
+    sosa:observes licor:ChamberDifferentialPressure .
+
+licor:LI6800ChamberPressureRange a ssn-system:OperatingRange ;
+    rdfs:label "Chamber Pressure Operating Range"@en ;
+    ssn-system:inCondition licor:LI6800ChamberPressureCondition .
+
+licor:LI6800ChamberPressureCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Chamber Pressure Measurement Range"@en ;
+    schema:minValue "-2"^^xsd:decimal ;
+    schema:maxValue "2"^^xsd:decimal ;
+    schema:unitCode "KPA" ;
+    qudt:unit unit:Kilopascal .
+
+licor:LI6800ChamberPressurePrecision a ssn-system:Precision, schema:QuantitativeValue ;
+    rdfs:label "Chamber Pressure Resolution"@en ;
+    schema:value "1"^^xsd:decimal ;
+    schema:unitCode "PA" ;
+    qudt:unit unit:Pascal ;
+    schema:unitText "Pa typical" .
+
+licor:LI6800ExhaustTemperatureSensor a sosa:Sensor ;
+    rdfs:label "Chamber Exhaust Temperature Sensor"@en ;
+    dct:description "Thermistor measuring exhaust air temperature from chamber."@en ;
+    ssn-system:hasOperatingRange licor:LI6800TemperatureRange ;
+    ssn-system:hasSystemCapability licor:LI6800ThermistorAccuracy ;
+    sosa:observes licor:ExhaustTemperature .
+
+licor:LI6800BlockTemperatureSensor a sosa:Sensor ;
+    rdfs:label "Temperature Control Block Sensor"@en ;
+    dct:description "Thermistor measuring temperature control block temperature."@en ;
+    ssn-system:hasOperatingRange licor:LI6800TemperatureRange ;
+    ssn-system:hasSystemCapability licor:LI6800ThermistorAccuracy ;
+    sosa:observes licor:BlockTemperature .
+
+licor:LI6800TemperatureRange a ssn-system:OperatingRange ;
+    rdfs:label "Thermistor Operating Range"@en ;
+    ssn-system:inCondition licor:LI6800ThermistorCondition .
+
+licor:LI6800ThermistorCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Thermistor Measurement Range"@en ;
+    schema:minValue "-10"^^xsd:decimal ;
+    schema:maxValue "60"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius .
+
+licor:LI6800ThermistorAccuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "Thermistor Accuracy"@en ;
+    schema:value "0.15"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius .
+
+licor:LI6800LeafTemperatureSensor1 a sosa:Sensor ;
+    rdfs:label "Leaf Temperature Sensor 1"@en ;
+    dct:description "Type E fine-wire thermocouple for direct leaf surface temperature measurement."@en ;
+    ssn-system:hasOperatingRange licor:LI6800LeafTemperatureRange ;
+    ssn-system:hasSystemCapability licor:LI6800LeafTemperatureAccuracy ;
+    sosa:observes licor:LeafTemperature1 .
+
+licor:LI6800LeafTemperatureSensor2 a sosa:Sensor ;
+    rdfs:label "Leaf Temperature Sensor 2"@en ;
+    dct:description "Type E fine-wire thermocouple for direct leaf surface temperature measurement."@en ;
+    ssn-system:hasOperatingRange licor:LI6800LeafTemperatureRange ;
+    ssn-system:hasSystemCapability licor:LI6800LeafTemperatureAccuracy ;
+    sosa:observes licor:LeafTemperature2 .
+
+licor:LI6800LeafTemperatureRange a ssn-system:OperatingRange ;
+    rdfs:label "Leaf Temperature Sensor Range"@en ;
+    ssn-system:inCondition licor:LI6800LeafTemperatureCondition .
+
+licor:LI6800LeafTemperatureCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Leaf Temperature Sensitivity Range"@en ;
+    schema:minValue "-10"^^xsd:decimal ;
+    schema:maxValue "60"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius .
+
+licor:LI6800LeafTemperatureAccuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "Leaf Temperature Total Accuracy"@en ;
+    schema:value "0.5"^^xsd:decimal ;
+    schema:unitCode "CEL" ;
+    qudt:unit unit:DegreeCelsius ;
+    dct:description "±0.2 °C cold junction reference; ±0.3 °C thermocouple when within ±10 °C of cold junction"@en .
+
+licor:LI6800ChamberPARSensor a sosa:Sensor ;
+    rdfs:label "Chamber PAR Sensor"@en ;
+    dct:description "Photosynthetically active radiation sensor inside the leaf chamber."@en ;
+    ssn-system:hasOperatingRange licor:LI6800PARRange ;
+    ssn-system:hasSystemCapability licor:LI6800PARPrecision, licor:LI6800PARAccuracy ;
+    sosa:observes licor:ChamberPAR .
+
+licor:LI6800LightSourcePARSensor a sosa:Sensor ;
+    rdfs:label "Light Source PAR Sensor"@en ;
+    dct:description "Photosynthetically active radiation sensor monitoring light source output."@en ;
+    ssn-system:hasOperatingRange licor:LI6800PARRange ;
+    ssn-system:hasSystemCapability licor:LI6800PARPrecision, licor:LI6800PARAccuracy ;
+    sosa:observes licor:LightSourcePAR .
+
+licor:LI6800ExternalPARSensor a sosa:Sensor ;
+    rdfs:label "External PAR Sensor (LI-190R)"@en ;
+    dct:description "External quantum sensor for measuring ambient photosynthetically active radiation."@en ;
+    schema:model "LI-190R"@en ;
+    ssn-system:hasSystemCapability licor:LI6800ExternalPARAccuracy ;
+    sosa:observes licor:AmbientPAR .
+
+licor:LI6800PARRange a ssn-system:OperatingRange ;
+    rdfs:label "Internal PAR Sensor Range"@en ;
+    ssn-system:inCondition licor:LI6800PARCondition .
+
+licor:LI6800PARCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "PAR Sensor Sensitivity Range"@en ;
+    schema:minValue "0"^^xsd:decimal ;
+    schema:maxValue "3000"^^xsd:decimal ;
+    schema:unitText "µmol m-2 s-1" .
+
+licor:LI6800PARPrecision a ssn-system:Precision, schema:QuantitativeValue ;
+    rdfs:label "Internal PAR Sensor Resolution"@en ;
+    schema:value "1"^^xsd:decimal ;
+    schema:unitText "µmol m-2 s-1" ;
+    dct:description "Less than 1 µmol m-2 s-1"@en .
+
+licor:LI6800PARAccuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "Internal PAR Sensor Calibration Accuracy"@en ;
+    schema:value "5"^^xsd:decimal ;
+    schema:unitText "% of reading" ;
+    dct:description "Traceable to U.S. National Institute of Standards and Technology (NIST)"@en .
+
+licor:LI6800ExternalPARAccuracy a ssn-system:Accuracy, schema:QuantitativeValue ;
+    rdfs:label "External PAR Sensor Accuracy"@en ;
+    schema:value "5"^^xsd:decimal ;
+    schema:unitText "% of reading" ;
+    dct:description "Traceable to NIST"@en .
+
+licor:LI6800FlowRateSensor a sosa:Sensor ;
+    rdfs:label "Flow Rate Sensor"@en ;
+    dct:description "Measures air flow rate through the system."@en ;
+    ssn-system:hasOperatingRange licor:LI6800FlowRange ;
+    sosa:observes licor:AirFlowRate .
+
+licor:LI6800FlowRange a ssn-system:OperatingRange ;
+    rdfs:label "Flow Rate Operating Range"@en ;
+    ssn-system:inCondition licor:LI6800FlowCondition .
+
+licor:LI6800FlowCondition a ssn-system:Condition, schema:QuantitativeValue ;
+    rdfs:label "Bulk Flow Rate Range"@en ;
+    schema:minValue "680"^^xsd:decimal ;
+    schema:maxValue "1700"^^xsd:decimal ;
+    schema:unitText "µmol s-1" ;
+    dct:description "At SATP (25 °C, 100 kPa)"@en .
+
+# -----------------------------------------------------------------------------
+# Observable Properties
+# -----------------------------------------------------------------------------
+
+licor:CO2ConcentrationReference a sosa:ObservableProperty ;
+    rdfs:label "Reference CO2 Concentration"@en ;
+    dct:description "Carbon dioxide concentration in reference air stream."@en .
+
+licor:CO2ConcentrationSample a sosa:ObservableProperty ;
+    rdfs:label "Sample CO2 Concentration"@en ;
+    dct:description "Carbon dioxide concentration in sample air stream after passing through leaf chamber."@en .
+
+licor:H2OConcentrationReference a sosa:ObservableProperty ;
+    rdfs:label "Reference H2O Concentration"@en ;
+    dct:description "Water vapor concentration in reference air stream."@en .
+
+licor:H2OConcentrationSample a sosa:ObservableProperty ;
+    rdfs:label "Sample H2O Concentration"@en ;
+    dct:description "Water vapor concentration in sample air stream after passing through leaf chamber."@en .
+
+licor:ChlorophyllFluorescence a sosa:ObservableProperty ;
+    rdfs:label "Chlorophyll Fluorescence"@en ;
+    dct:description "Fluorescence emission from photosystem II chlorophyll molecules."@en .
+
+licor:AtmosphericPressure a sosa:ObservableProperty ;
+    rdfs:label "Atmospheric Pressure"@en ;
+    dct:description "Absolute atmospheric pressure at instrument location."@en .
+
+licor:ChamberDifferentialPressure a sosa:ObservableProperty ;
+    rdfs:label "Chamber Differential Pressure"@en ;
+    dct:description "Pressure difference between leaf chamber and ambient atmosphere."@en .
+
+licor:ExhaustTemperature a sosa:ObservableProperty ;
+    rdfs:label "Exhaust Air Temperature"@en ;
+    dct:description "Temperature of air exiting the leaf chamber."@en .
+
+licor:BlockTemperature a sosa:ObservableProperty ;
+    rdfs:label "Temperature Control Block Temperature"@en ;
+    dct:description "Temperature of the chamber temperature control block."@en .
+
+licor:LeafTemperature1 a sosa:ObservableProperty ;
+    rdfs:label "Leaf Temperature (Sensor 1)"@en ;
+    dct:description "Direct measurement of leaf surface temperature from first thermocouple."@en .
+
+licor:LeafTemperature2 a sosa:ObservableProperty ;
+    rdfs:label "Leaf Temperature (Sensor 2)"@en ;
+    dct:description "Direct measurement of leaf surface temperature from second thermocouple."@en .
+
+licor:ChamberPAR a sosa:ObservableProperty ;
+    rdfs:label "Chamber Photosynthetically Active Radiation"@en ;
+    dct:description "PAR intensity inside the leaf chamber."@en .
+
+licor:LightSourcePAR a sosa:ObservableProperty ;
+    rdfs:label "Light Source PAR Output"@en ;
+    dct:description "PAR intensity from the light source."@en .
+
+licor:AmbientPAR a sosa:ObservableProperty ;
+    rdfs:label "Ambient Photosynthetically Active Radiation"@en ;
+    dct:description "Ambient PAR intensity outside the instrument."@en .
+
+licor:AirFlowRate a sosa:ObservableProperty ;
+    rdfs:label "Air Flow Rate"@en ;
+    dct:description "Rate of air flow through the system."@en .
